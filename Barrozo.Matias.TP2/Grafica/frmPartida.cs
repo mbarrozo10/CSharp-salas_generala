@@ -38,45 +38,60 @@ namespace Grafica
 
         private void Informacion()
         {
-            lbljugador1.Text = jugadoresActivos[0].Nombre + "  Puntaje: " + jugadoresActivos[0].Puntaje;
-            lbljugador2.Text = jugadoresActivos[1].Nombre + "  Puntaje: " + jugadoresActivos[1].Puntaje;
+            lbljugador1.Text = "Jugador: "+ jugadoresActivos[0].Nombre + "  Puntaje: " + jugadoresActivos[0].Puntaje;
+            lbljugador2.Text = "Jugador: " + jugadoresActivos[1].Nombre + "  Puntaje: " + jugadoresActivos[1].Puntaje;
         }
 
         private void tmrTiempoPartida_Tick(object sender, EventArgs e)
         {
             Jugador jugadorActual = partidaActual.Jugadores[indice];
-            lblTurnoJugador.Text = jugadorActual.Nombre;
+            lblTurnoJugador.Text ="Turno de : " + jugadorActual.Nombre;
             hora = hora.AddSeconds(1);
             lblTiempoPartida.Text = hora.ToString("mm:ss");
             int horaInt = int.Parse(hora.ToString("ss"));
             if (horaInt % 2 == 0)
             {
                 int[] aux = partidaActual.TirarDados(5);
-               lbldados.Text = aux[0].ToString();
+               lbldados.Text ="Tirada: "+ aux[0].ToString();
                lbldados.Text += "-"+ aux[1].ToString();
                lbldados.Text += "-" + aux[2].ToString();
                lbldados.Text += "-" + aux[3].ToString();
                lbldados.Text += "-" + aux[4].ToString();
 
-                if (Partida.CheckGenerala(aux) && !(jugadorActual.Generala && jugadorActual.DobleGenerala))
+                if (Partida.CheckGenerala(aux) && jugadorActual.Generala ==0 )
                 {
-                    partidaActual.Jugadores[indice].Generala = true;
-                    CambiarJugador(60);
+                    partidaActual.Jugadores[indice].Generala = 60;
+                    partidaActual.Jugadores[indice].Puntaje += 60;
+                    
+                    CambiarJugador();
                 }
-                else if(Partida.CheckEscalera(aux) && !jugadorActual.Escalera)
+                else if(Partida.CheckGenerala(aux) && jugadorActual.DobleGenerala == 0 && jugadorActual.Generala!=0)
                 {
-                    partidaActual.Jugadores[indice].Escalera = true;
-                    CambiarJugador(20);
+                    partidaActual.Jugadores[indice].DobleGenerala = 60;
+                    partidaActual.Jugadores[indice].Puntaje += 60;
+
+                    CambiarJugador();
                 }
-                else if(Partida.CheckFull(aux) && !jugadorActual.Full)
+                else if(Partida.CheckEscalera(aux) && jugadorActual.Escalera==0)
                 {
-                    partidaActual.Jugadores[indice].Full = true;
-                    CambiarJugador(30);
+                    partidaActual.Jugadores[indice].Escalera = 20;
+                    partidaActual.Jugadores[indice].Puntaje += 20;
+
+                    CambiarJugador();
                 }
-                else if(Partida.CheckPoker(aux) && !jugadorActual.Poker)
+                else if(Partida.CheckFull(aux) && jugadorActual.Full == 0)
                 {
-                    partidaActual.Jugadores[indice].Poker = true;
-                    CambiarJugador(40);
+                    partidaActual.Jugadores[indice].Full = 40;
+                    partidaActual.Jugadores[indice].Puntaje += 40;
+
+                    CambiarJugador();
+                }
+                else if(Partida.CheckPoker(aux) && jugadorActual.Poker==0)
+                {
+                    partidaActual.Jugadores[indice].Poker = 30;
+                    partidaActual.Jugadores[indice].Puntaje += 30;
+
+                    CambiarJugador();
                 }
               
                 tiradasJugador++;
@@ -85,15 +100,15 @@ namespace Grafica
                 if (tiradasJugador == 3)
                 {
                     tiradasJugador = 0;
-                    CambiarJugador(0);
+                    CambiarJugador();
                 }
                 ActualizarDatagrid();
             }
         }
 
-        private void CambiarJugador(int puntaje)
+        private void CambiarJugador()
         {
-            partidaActual.Jugadores[indice].Puntaje += puntaje;
+            //partidaActual.Jugadores[indice].Puntaje += puntaje;
             Informacion();
             switch (indice)
             {
@@ -129,11 +144,60 @@ namespace Grafica
 
         private void ActualizarDatagrid()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = partidaActual.Jugadores;
+        //    dataGridView1.DataSource = null;
+        //    dataGridView1.DataSource = partidaActual.Jugadores;
 
+         
+            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
+            DataGridViewRow[] filas = new DataGridViewRow[7]; 
+
+            filas[0] = new DataGridViewRow();
+            filas[0].CreateCells(dataGridView1);
+            filas[0].Cells[0].Value = "Full";
+            filas[0].Cells[1].Value = jugadoresActivos[0].Full;
+            filas[0].Cells[2].Value = jugadoresActivos[1].Full;
+            dataGridView1.Rows.Add(filas[0]);
+
+            filas[1]= new DataGridViewRow();
+            filas[1].CreateCells(dataGridView1);
+            filas[1].Cells[0].Value = "Poker";
+            filas[1].Cells[1].Value = jugadoresActivos[0].Poker;
+            filas[1].Cells[2].Value = jugadoresActivos[1].Poker;
+            dataGridView1.Rows.Add(filas[1]);
+
+            filas[2]= new DataGridViewRow();
+            filas[2].CreateCells(dataGridView1);
+            filas[2].Cells[0].Value = "Escalera";
+            filas[2].Cells[1].Value = jugadoresActivos[0].Escalera;
+            filas[2].Cells[2].Value = jugadoresActivos[1].Escalera;
+            dataGridView1.Rows.Add(filas[2]);
+
+            filas[3]= new DataGridViewRow();
+            filas[3].CreateCells(dataGridView1);
+            filas[3].Cells[0].Value = "Generala";
+            filas[3].Cells[1].Value = jugadoresActivos[0].Generala;
+            filas[3].Cells[2].Value = jugadoresActivos[1].Generala;
+            dataGridView1.Rows.Add(filas[3]);
+
+            filas[4]= new DataGridViewRow();
+            filas[4].CreateCells(dataGridView1);
+            filas[4].Cells[0].Value = "Generala Doble";
+            filas[4].Cells[1].Value = jugadoresActivos[0].DobleGenerala;
+            filas[4].Cells[2].Value = jugadoresActivos[1].DobleGenerala;
+            dataGridView1.Rows.Add(filas[4]);
+
+            filas[5]= new DataGridViewRow();
+            filas[5].CreateCells(dataGridView1);
+            filas[5].Cells[0].Value = "Puntaje Final";
+            filas[5].Cells[1].Value = jugadoresActivos[0].Puntaje;
+            filas[5].Cells[2].Value = jugadoresActivos[1].Puntaje;
+            dataGridView1.Rows.Add(filas[5]);
         }
 
-        
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }

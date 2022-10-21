@@ -7932,11 +7932,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Biblioteca_test\\Funcionalidad_test.csproj",
+      "projectUniqueName": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Biblioteca_test\\Funcionalidad_test.csproj",
       "projectName": "Funcionalidad_test",
-      "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Biblioteca_test\\Funcionalidad_test.csproj",
+      "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Biblioteca_test\\Funcionalidad_test.csproj",
       "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Biblioteca_test\\obj\\",
+      "outputPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Biblioteca_test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7953,8 +7953,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj": {
-              "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj"
+            "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj": {
+              "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj"
             }
           }
         }

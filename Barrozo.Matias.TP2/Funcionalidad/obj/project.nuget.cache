@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9irH+uY5GJSf/TLo0jEQLd/mBQhXjjYEJ4dMTGPCUM8Cnvd+2fMdjqHhC1GhYsa2/EQR1/c2zxWLVWFFohPn7A==",
+  "dgSpecHash": "Okvlpx7VHtG0UHS7+sBYE4Fbbq6CFCdXcZpupZjMFRAVlxRWzggcNvgfMiR99lVHYxnDSF+MwV/B+jBH+Ju67A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
+  "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mati\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

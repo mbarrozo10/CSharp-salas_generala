@@ -22,15 +22,16 @@ namespace Grafica
         private void button1_Click(object sender, EventArgs e)
         {
             List<Jugador> jugadores = new List<Jugador>();
-            jugadores.Add(new Jugador("nico", 0));
-            jugadores.Add(new Jugador("mati", 0));
+            jugadores.Add(new Jugador("Nico", 0));
+            jugadores.Add(new Jugador("Mati", 0));
 
             frmPartida partida = new frmPartida(jugadores);
+            this.Hide();
             if(partida.ShowDialog()== DialogResult.OK)
             {
                 ActualizarDataGrid();
             }
-
+            this.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,6 +52,17 @@ namespace Grafica
             ActualizarDataGrid();
         }
 
-      
+        private void btn_MostrarPartidas_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Visible == true)
+            {
+                dataGridView1.Visible = false;
+            }
+            else
+            {
+                dataGridView1.Visible = true;
+            }
+        
+        }
     }
 }

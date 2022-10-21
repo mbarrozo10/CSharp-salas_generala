@@ -36,22 +36,22 @@
             this.lblTiempoPartida = new System.Windows.Forms.Label();
             this.lblTurnoJugador = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.puntajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.generalaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dobleGeneralaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fullDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pokerDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.escaleraDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.jugadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Volver = new System.Windows.Forms.Button();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbljugador1
             // 
             this.lbljugador1.AutoSize = true;
-            this.lbljugador1.Location = new System.Drawing.Point(57, 37);
+            this.lbljugador1.ForeColor = System.Drawing.Color.White;
+            this.lbljugador1.Location = new System.Drawing.Point(57, 52);
             this.lbljugador1.Name = "lbljugador1";
             this.lbljugador1.Size = new System.Drawing.Size(38, 15);
             this.lbljugador1.TabIndex = 0;
@@ -60,6 +60,7 @@
             // lbljugador2
             // 
             this.lbljugador2.AutoSize = true;
+            this.lbljugador2.ForeColor = System.Drawing.Color.White;
             this.lbljugador2.Location = new System.Drawing.Point(57, 388);
             this.lbljugador2.Name = "lbljugador2";
             this.lbljugador2.Size = new System.Drawing.Size(38, 15);
@@ -69,6 +70,7 @@
             // lbldados
             // 
             this.lbldados.AutoSize = true;
+            this.lbldados.ForeColor = System.Drawing.Color.White;
             this.lbldados.Location = new System.Drawing.Point(322, 213);
             this.lbldados.Name = "lbldados";
             this.lbldados.Size = new System.Drawing.Size(38, 15);
@@ -83,7 +85,8 @@
             // lblTiempoPartida
             // 
             this.lblTiempoPartida.AutoSize = true;
-            this.lblTiempoPartida.Location = new System.Drawing.Point(408, 37);
+            this.lblTiempoPartida.ForeColor = System.Drawing.Color.White;
+            this.lblTiempoPartida.Location = new System.Drawing.Point(322, 52);
             this.lblTiempoPartida.Name = "lblTiempoPartida";
             this.lblTiempoPartida.Size = new System.Drawing.Size(31, 15);
             this.lblTiempoPartida.TabIndex = 3;
@@ -92,6 +95,7 @@
             // lblTurnoJugador
             // 
             this.lblTurnoJugador.AutoSize = true;
+            this.lblTurnoJugador.ForeColor = System.Drawing.Color.White;
             this.lblTurnoJugador.Location = new System.Drawing.Point(57, 213);
             this.lblTurnoJugador.Name = "lblTurnoJugador";
             this.lblTurnoJugador.Size = new System.Drawing.Size(38, 15);
@@ -100,86 +104,87 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.puntajeDataGridViewTextBoxColumn,
-            this.generalaDataGridViewCheckBoxColumn,
-            this.dobleGeneralaDataGridViewCheckBoxColumn,
-            this.fullDataGridViewCheckBoxColumn,
-            this.pokerDataGridViewCheckBoxColumn,
-            this.escaleraDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.jugadorBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(524, 37);
+            this.Tipo,
+            this.Jugador1,
+            this.Jugador2});
+            this.dataGridView1.Location = new System.Drawing.Point(646, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(541, 366);
+            this.dataGridView1.Size = new System.Drawing.Size(399, 366);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // puntajeDataGridViewTextBoxColumn
-            // 
-            this.puntajeDataGridViewTextBoxColumn.DataPropertyName = "Puntaje";
-            this.puntajeDataGridViewTextBoxColumn.HeaderText = "Puntaje";
-            this.puntajeDataGridViewTextBoxColumn.Name = "puntajeDataGridViewTextBoxColumn";
-            // 
-            // generalaDataGridViewCheckBoxColumn
-            // 
-            this.generalaDataGridViewCheckBoxColumn.DataPropertyName = "Generala";
-            this.generalaDataGridViewCheckBoxColumn.HeaderText = "Generala";
-            this.generalaDataGridViewCheckBoxColumn.Name = "generalaDataGridViewCheckBoxColumn";
-            // 
-            // dobleGeneralaDataGridViewCheckBoxColumn
-            // 
-            this.dobleGeneralaDataGridViewCheckBoxColumn.DataPropertyName = "DobleGenerala";
-            this.dobleGeneralaDataGridViewCheckBoxColumn.HeaderText = "DobleGenerala";
-            this.dobleGeneralaDataGridViewCheckBoxColumn.Name = "dobleGeneralaDataGridViewCheckBoxColumn";
-            // 
-            // fullDataGridViewCheckBoxColumn
-            // 
-            this.fullDataGridViewCheckBoxColumn.DataPropertyName = "Full";
-            this.fullDataGridViewCheckBoxColumn.HeaderText = "Full";
-            this.fullDataGridViewCheckBoxColumn.Name = "fullDataGridViewCheckBoxColumn";
-            // 
-            // pokerDataGridViewCheckBoxColumn
-            // 
-            this.pokerDataGridViewCheckBoxColumn.DataPropertyName = "Poker";
-            this.pokerDataGridViewCheckBoxColumn.HeaderText = "Poker";
-            this.pokerDataGridViewCheckBoxColumn.Name = "pokerDataGridViewCheckBoxColumn";
-            // 
-            // escaleraDataGridViewCheckBoxColumn
-            // 
-            this.escaleraDataGridViewCheckBoxColumn.DataPropertyName = "Escalera";
-            this.escaleraDataGridViewCheckBoxColumn.HeaderText = "Escalera";
-            this.escaleraDataGridViewCheckBoxColumn.Name = "escaleraDataGridViewCheckBoxColumn";
             // 
             // jugadorBindingSource
             // 
             this.jugadorBindingSource.DataSource = typeof(Funcionalidad.Jugador);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btn_Volver);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1119, 37);
+            this.panel1.TabIndex = 6;
+            // 
+            // btn_Volver
+            // 
+            this.btn_Volver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Volver.FlatAppearance.BorderSize = 0;
+            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Volver.ForeColor = System.Drawing.Color.White;
+            this.btn_Volver.Location = new System.Drawing.Point(0, 0);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(75, 37);
+            this.btn_Volver.TabIndex = 0;
+            this.btn_Volver.Text = "Volver";
+            this.btn_Volver.UseVisualStyleBackColor = false;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = " ";
+            this.Tipo.Name = "Tipo";
+            // 
+            // Jugador1
+            // 
+            this.Jugador1.HeaderText = "Jugador1";
+            this.Jugador1.Name = "Jugador1";
+            // 
+            // Jugador2
+            // 
+            this.Jugador2.HeaderText = "jugador2";
+            this.Jugador2.Name = "Jugador2";
+            // 
             // frmPartida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1119, 454);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblTurnoJugador);
             this.Controls.Add(this.lblTiempoPartida);
             this.Controls.Add(this.lbldados);
             this.Controls.Add(this.lbljugador2);
             this.Controls.Add(this.lbljugador1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPartida";
             this.Text = "frmPartida";
             this.Load += new System.EventHandler(this.frmPartida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,13 +199,11 @@
         private Label lblTiempoPartida;
         private Label lblTurnoJugador;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn puntajeDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn generalaDataGridViewCheckBoxColumn;
-        private DataGridViewCheckBoxColumn dobleGeneralaDataGridViewCheckBoxColumn;
-        private DataGridViewCheckBoxColumn fullDataGridViewCheckBoxColumn;
-        private DataGridViewCheckBoxColumn pokerDataGridViewCheckBoxColumn;
-        private DataGridViewCheckBoxColumn escaleraDataGridViewCheckBoxColumn;
         private BindingSource jugadorBindingSource;
+        private Panel panel1;
+        private Button btn_Volver;
+        private DataGridViewTextBoxColumn Tipo;
+        private DataGridViewTextBoxColumn Jugador1;
+        private DataGridViewTextBoxColumn Jugador2;
     }
 }

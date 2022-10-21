@@ -16,10 +16,12 @@ namespace Grafica
             if (user.ComprobarInicio())
             {
                 frmMenuPrincipal principal = new frmMenuPrincipal();
+                this.Hide();
                 if(principal.ShowDialog()== DialogResult.Cancel)
                 {
                     textBox1.Clear();
                     textBox2.Clear();
+                    this.Show();
                 }
             }
         }

@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Login = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_Login
             // 
-            this.button1.Location = new System.Drawing.Point(237, 356);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Login.ForeColor = System.Drawing.Color.Black;
+            this.btn_Login.Location = new System.Drawing.Point(237, 356);
+            this.btn_Login.Name = "btn_Login";
+            this.btn_Login.Size = new System.Drawing.Size(75, 23);
+            this.btn_Login.TabIndex = 0;
+            this.btn_Login.Text = "login";
+            this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -50,6 +51,7 @@
             this.textBox1.PlaceholderText = "user";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "pepe";
             // 
             // textBox2
             // 
@@ -58,16 +60,19 @@
             this.textBox2.PlaceholderText = "pass";
             this.textBox2.Size = new System.Drawing.Size(100, 23);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Text = "pepe";
             // 
-            // Form1
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(552, 532);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.btn_Login);
+            this.ForeColor = System.Drawing.Color.Cornsilk;
+            this.Name = "frmLogin";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -76,7 +81,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button btn_Login;
         private TextBox textBox1;
         private TextBox textBox2;
     }

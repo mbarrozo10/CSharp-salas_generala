@@ -13,14 +13,14 @@ namespace Funcionalidad
         DateTime date;
         List<Jugador> jugadores;
         string ganador;
-        List<Dados> dados;
         int cantidadJugadores;
+        Dados dado;
         
 
         public Partida(List<Jugador> jugadores, string ganador, int cantidad,DateTime date, int id) : this(ganador, cantidad,date,id)
         {
             this.jugadores = jugadores;
-            this.dados = CargarDados();
+            this.dado = new Dados();
         }
         public Partida(string ganador, int cantidad,DateTime date, int id)
         {
@@ -45,26 +45,13 @@ namespace Funcionalidad
             get { return date; }
         }
 
-        private List<Dados> CargarDados()
-        {
-            List<Dados> dados= new List<Dados>();
-            dados.Add(new Dados());
-            dados.Add(new Dados());
-            dados.Add(new Dados());
-            dados.Add(new Dados());
-            dados.Add(new Dados());
-
-            return dados;
-        }
-
         public int[] TirarDados(int cantidad)
         {
             int[] tirada= new int[cantidad];
             Random rnd = new Random();
             for(int i= 0; i < cantidad; i++)
             {
-                Dados dadoAux = this.dados[i];
-                tirada[i]= dadoAux.Caras[rnd.Next(1,6)];
+                tirada[i]= dado.Caras[rnd.Next(1,6)];
             }
 
             return tirada;
