@@ -18,22 +18,25 @@ namespace Grafica
         Partida partidaActual;
         int indice=0;
         int tiradasJugador = 0;
-        int turnosJugados = 0;
+        int turnosJugados = 1;
+        int turnosMaximos;
         public frmPartida()
         {
             InitializeComponent();
         }
         
-        public frmPartida(List<Jugador> jugador): this()
+        public frmPartida(List<Jugador> jugador, int turnos): this()
         {
             jugadoresActivos=jugador;
             tmrTiempoPartida.Start();
             partidaActual = new Partida(jugador, "",jugador.Count, DateTime.Now,1);
+            turnosMaximos = turnos;
         }
 
         private void frmPartida_Load(object sender, EventArgs e)
         {
             Informacion();
+            ActualizarDatagrid();
            }
 
         private void Informacion()
@@ -44,58 +47,64 @@ namespace Grafica
 
         private void tmrTiempoPartida_Tick(object sender, EventArgs e)
         {
+            TirarDados();
+        }
+
+        private void TirarDados()
+        {
             Jugador jugadorActual = partidaActual.Jugadores[indice];
-            lblTurnoJugador.Text ="Turno de : " + jugadorActual.Nombre;
+            lblTurnoJugador.Text = "Turno: " + turnosJugados + " de : " + jugadorActual.Nombre;
             hora = hora.AddSeconds(1);
             lblTiempoPartida.Text = hora.ToString("mm:ss");
             int horaInt = int.Parse(hora.ToString("ss"));
             if (horaInt % 2 == 0)
             {
                 int[] aux = partidaActual.TirarDados(5);
-               lbldados.Text ="Tirada: "+ aux[0].ToString();
-               lbldados.Text += "-"+ aux[1].ToString();
-               lbldados.Text += "-" + aux[2].ToString();
-               lbldados.Text += "-" + aux[3].ToString();
-               lbldados.Text += "-" + aux[4].ToString();
+                lbldados.Text = "Tirada: " + aux[0].ToString();
+                lbldados.Text += "-" + aux[1].ToString();
+                lbldados.Text += "-" + aux[2].ToString();
+                lbldados.Text += "-" + aux[3].ToString();
+                lbldados.Text += "-" + aux[4].ToString();
 
-                if (Partida.CheckGenerala(aux) && jugadorActual.Generala ==0 )
+                if (jugadorActual.CheckGenerala(aux) && jugadorActual.Generala == 0)
                 {
-                    partidaActual.Jugadores[indice].Generala = 60;
-                    partidaActual.Jugadores[indice].Puntaje += 60;
-                    
-                    CambiarJugador();
-                }
-                else if(Partida.CheckGenerala(aux) && jugadorActual.DobleGenerala == 0 && jugadorActual.Generala!=0)
-                {
-                    partidaActual.Jugadores[indice].DobleGenerala = 60;
-                    partidaActual.Jugadores[indice].Puntaje += 60;
+                    jugadorActual.Generala = 60;
+                    jugadorActual.Puntaje += 60;
 
                     CambiarJugador();
                 }
-                else if(Partida.CheckEscalera(aux) && jugadorActual.Escalera==0)
+                else if (jugadorActual.CheckGenerala(aux) && jugadorActual.DobleGenerala == 0 && jugadorActual.Generala != 0)
                 {
-                    partidaActual.Jugadores[indice].Escalera = 20;
-                    partidaActual.Jugadores[indice].Puntaje += 20;
+                    jugadorActual.DobleGenerala = 60;
+                    jugadorActual.Puntaje += 60;
+
 
                     CambiarJugador();
                 }
-                else if(Partida.CheckFull(aux) && jugadorActual.Full == 0)
+                else if (jugadorActual.CheckEscalera(aux) && jugadorActual.Escalera == 0)
                 {
-                    partidaActual.Jugadores[indice].Full = 40;
-                    partidaActual.Jugadores[indice].Puntaje += 40;
+                    jugadorActual.Escalera = 20;
+                    jugadorActual.Puntaje += 20;
 
                     CambiarJugador();
                 }
-                else if(Partida.CheckPoker(aux) && jugadorActual.Poker==0)
+                else if (jugadorActual.CheckFull(aux) && jugadorActual.Full == 0)
                 {
-                    partidaActual.Jugadores[indice].Poker = 30;
-                    partidaActual.Jugadores[indice].Puntaje += 30;
+                    jugadorActual.Full = 40;
+                    jugadorActual.Puntaje += 40;
 
                     CambiarJugador();
                 }
-              
+                else if (jugadorActual.CheckPoker(aux) && jugadorActual.Poker == 0)
+                {
+                    jugadorActual.Poker = 30;
+                    jugadorActual.Puntaje += 30;
+
+                    CambiarJugador();
+                }
+
                 tiradasJugador++;
-                
+
 
                 if (tiradasJugador == 3)
                 {
@@ -108,7 +117,8 @@ namespace Grafica
 
         private void CambiarJugador()
         {
-            //partidaActual.Jugadores[indice].Puntaje += puntaje;
+            tiradasJugador = 0;
+
             Informacion();
             switch (indice)
             {
@@ -120,8 +130,9 @@ namespace Grafica
                     break;
             }
             turnosJugados++;
-            if(turnosJugados == 10)
+            if(turnosJugados == turnosMaximos)
             {
+                ActualizarDatagrid();
                 tmrTiempoPartida.Stop();
                 if (partidaActual.Jugadores[0].Puntaje > partidaActual.Jugadores[1].Puntaje)
                     partidaActual.Ganador = partidaActual.Jugadores[0].Nombre;
@@ -140,13 +151,16 @@ namespace Grafica
                     MessageBox.Show(ex.Message);
                 }
             }
+            
         }
 
         private void ActualizarDatagrid()
         {
-        //    dataGridView1.DataSource = null;
-        //    dataGridView1.DataSource = partidaActual.Jugadores;
+            //    dataGridView1.DataSource = null;
+            //    dataGridView1.DataSource = partidaActual.Jugadores;
 
+            dataGridView1.Columns[1].HeaderText = jugadoresActivos[0].Nombre;
+            dataGridView1.Columns[2].HeaderText = jugadoresActivos[1].Nombre;
          
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();

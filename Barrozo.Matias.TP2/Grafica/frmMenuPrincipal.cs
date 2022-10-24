@@ -24,18 +24,9 @@ namespace Grafica
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Jugador> jugadores = new List<Jugador>();
-            jugadores.Add(new Jugador("Nico", 0));
-            jugadores.Add(new Jugador("Mati", 0));
 
-
-            frmPartida partida = new frmPartida(jugadores);
-            this.Hide();
-            if(partida.ShowDialog()== DialogResult.OK)
-            {
-                MostrarDatos();
-            }
-            this.Show();
+            ControlarSubmenu(pnl_Submenu);
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -69,6 +60,54 @@ namespace Grafica
             partidas = presentador.DevolverPartidas(this);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = partidas;
+        }
+
+        private void ControlarSubmenu( Panel panel)
+        {
+            if(panel.Visible== true)
+            {
+                panel.Visible = false;
+            }else
+            {
+                panel.Visible = true;
+            }
+        }
+
+        private void btn_Demo_Click(object sender, EventArgs e)
+        {
+            //cambiar en algun momento
+            List<Jugador> jugadores = new List<Jugador>();
+            jugadores.Add(new Jugador("Nico", 0));
+            jugadores.Add(new Jugador("Mati", 0));
+
+
+            frmPartida partida = new frmPartida(jugadores,11);
+            this.Hide();
+            if (partida.ShowDialog() == DialogResult.OK)
+            {
+                MostrarDatos();
+            }
+            this.Show();
+
+            ControlarSubmenu(pnl_Submenu);
+        }
+
+        private void btn_Full_Click(object sender, EventArgs e)
+        {
+            List<Jugador> jugadores = new List<Jugador>();
+            jugadores.Add(new Jugador("Nico", 0));
+            jugadores.Add(new Jugador("Mati", 0));
+
+
+            frmPartida partida = new frmPartida(jugadores, 31);
+            this.Hide();
+            if (partida.ShowDialog() == DialogResult.OK)
+            {
+                MostrarDatos();
+            }
+            this.Show();
+
+            ControlarSubmenu(pnl_Submenu);
         }
     }
 }
