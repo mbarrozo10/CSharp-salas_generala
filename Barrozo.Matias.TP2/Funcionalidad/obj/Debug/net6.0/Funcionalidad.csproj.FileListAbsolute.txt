@@ -22,3 +22,15 @@ C:\Users\Mati\Desktop\Escritorio\facultad owo\Barrozo.Matias.TP2\Barrozo.Matias.
 C:\Users\Mati\Desktop\Escritorio\facultad owo\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\refint\Funcionalidad.dll
 C:\Users\Mati\Desktop\Escritorio\facultad owo\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.pdb
 C:\Users\Mati\Desktop\Escritorio\facultad owo\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\ref\Funcionalidad.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\bin\Debug\net6.0\Funcionalidad.deps.json
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\bin\Debug\net6.0\Funcionalidad.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\bin\Debug\net6.0\Funcionalidad.pdb
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.csproj.AssemblyReference.cache
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.AssemblyInfoInputs.cache
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.AssemblyInfo.cs
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.csproj.CoreCompileInputs.cache
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\refint\Funcionalidad.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\Funcionalidad.pdb
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Funcionalidad\obj\Debug\net6.0\ref\Funcionalidad.dll

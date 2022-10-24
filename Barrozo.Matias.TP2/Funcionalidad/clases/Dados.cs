@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public class Dados
     {
@@ -12,7 +12,7 @@ namespace Funcionalidad
 
         public Dados()
         {
-            this.Caras = CargarDado();
+            Caras = CargarDado();
         }
 
         public List<int> Caras { get => caras; set => caras = value; }

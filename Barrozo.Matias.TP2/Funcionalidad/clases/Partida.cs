@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public class Partida
     {
@@ -15,17 +15,17 @@ namespace Funcionalidad
         string ganador;
         int cantidadJugadores;
         Dados dado;
-        
 
-        public Partida(List<Jugador> jugadores, string ganador, int cantidad,DateTime date, int id) : this(ganador, cantidad,date,id)
+
+        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id) : this(ganador, cantidad, date, id)
         {
             this.jugadores = jugadores;
-            this.dado = new Dados();
+            dado = new Dados();
         }
-        public Partida(string ganador, int cantidad,DateTime date, int id)
+        public Partida(string ganador, int cantidad, DateTime date, int id)
         {
             this.ganador = ganador;
-            this.cantidadJugadores = cantidad;
+            cantidadJugadores = cantidad;
             this.id = id;
             this.date = date;
         }
@@ -34,7 +34,7 @@ namespace Funcionalidad
         public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
         public string Ganador { get => ganador; set => ganador = value; }
         public int CantidadJugadores { get => cantidadJugadores; set => cantidadJugadores = value; }
-        
+
         public int Id
         {
             get { return id; }
@@ -47,11 +47,11 @@ namespace Funcionalidad
 
         public int[] TirarDados(int cantidad)
         {
-            int[] tirada= new int[cantidad];
+            int[] tirada = new int[cantidad];
             Random rnd = new Random();
-            for(int i= 0; i < cantidad; i++)
+            for (int i = 0; i < cantidad; i++)
             {
-                tirada[i]= dado.Caras[rnd.Next(1,6)];
+                tirada[i] = dado.Caras[rnd.Next(1, 6)];
             }
 
             return tirada;
@@ -67,16 +67,16 @@ namespace Funcionalidad
 
             return false;
         }
-        
+
         public static bool CheckEscalera(int[] tirada)
         {
-            for(int i=0; i< tirada.Length - 1; i++)
+            for (int i = 0; i < tirada.Length - 1; i++)
             {
-                for(int j=i+1; j<tirada.Length; j++)
+                for (int j = i + 1; j < tirada.Length; j++)
                 {
-                    if(tirada[j] == tirada[i])
+                    if (tirada[j] == tirada[i])
                     {
-                        
+
                         return false;
                     }
                 }
@@ -90,19 +90,19 @@ namespace Funcionalidad
         {
             int contador = 0;
             Ordenar(tirada);
-            for (int i = 0; i < tirada.Length -1; i++)
+            for (int i = 0; i < tirada.Length - 1; i++)
             {
-                for(int j =i+1; j < tirada.Length; j++)
-                if (tirada[i] == tirada[j])
-                {
-                    contador++;
-                    if (contador == 4)
+                for (int j = i + 1; j < tirada.Length; j++)
+                    if (tirada[i] == tirada[j])
                     {
-                        return true;
+                        contador++;
+                        if (contador == 4)
+                        {
+                            return true;
+                        }
                     }
-                }
-            }  
-           return false;
+            }
+            return false;
         }
 
         public static bool CheckFull(int[] tirada)
@@ -113,17 +113,18 @@ namespace Funcionalidad
             Ordenar(tirada);
             for (int i = 0; i < tirada.Length - 1; i++)
             {
-                for (int j = i+1; j < tirada.Length; j++)
+                for (int j = i + 1; j < tirada.Length; j++)
                     if (tirada[i] == tirada[j])
                     {
                         if (numeroDistinto)
                         {
                             contadorDos++;
-                        }else
-                        {
-                           contadorUno++;
                         }
-                        if ((contadorUno == 3 && contadorDos==2) || (contadorDos==3 && contadorUno==2) )
+                        else
+                        {
+                            contadorUno++;
+                        }
+                        if (contadorUno == 3 && contadorDos == 2 || contadorDos == 3 && contadorUno == 2)
                         {
                             return true;
                         }

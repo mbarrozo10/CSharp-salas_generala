@@ -1,4 +1,5 @@
-﻿using Funcionalidad;
+﻿using Funcionalidad.clases;
+using Funcionalidad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
 
 namespace Grafica
 {
-    public partial class frmMenuPrincipal : Form
+    public partial class frmMenuPrincipal : Form, IPartida
     {
         List<Partida> partidas;
+        PresentadorGenerico<frmMenuPrincipal> presentador;
         public frmMenuPrincipal()
         {
             InitializeComponent();
@@ -25,11 +28,12 @@ namespace Grafica
             jugadores.Add(new Jugador("Nico", 0));
             jugadores.Add(new Jugador("Mati", 0));
 
+
             frmPartida partida = new frmPartida(jugadores);
             this.Hide();
             if(partida.ShowDialog()== DialogResult.OK)
             {
-                ActualizarDataGrid();
+                MostrarDatos();
             }
             this.Show();
         }
@@ -40,16 +44,11 @@ namespace Grafica
 
         }
 
-        private void ActualizarDataGrid()
-        {
-            partidas= ConexionBd.ObtenerDatosPartida();
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = partidas;
-        }
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            ActualizarDataGrid();
+            presentador = new PresentadorGenerico<frmMenuPrincipal>();
+            MostrarDatos();
         }
 
         private void btn_MostrarPartidas_Click(object sender, EventArgs e)
@@ -63,6 +62,13 @@ namespace Grafica
                 dataGridView1.Visible = true;
             }
         
+        }
+
+        public void MostrarDatos()
+        {
+            partidas = presentador.DevolverPartidas(this);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = partidas;
         }
     }
 }

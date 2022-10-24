@@ -1,4 +1,4 @@
-using Funcionalidad;
+using Funcionalidad.clases;
 
 namespace Grafica
 {

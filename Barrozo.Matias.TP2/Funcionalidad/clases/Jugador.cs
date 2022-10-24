@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public class Jugador
     {
@@ -14,14 +14,14 @@ namespace Funcionalidad
         int dobleGenerala;
         int full;
         int poker;
-        int  escalera;
-    
+        int escalera;
 
-        
+
+
         public Jugador(string nombre, int puntaje)
         {
-            this.Nombre = nombre;
-            this.Puntaje = puntaje;
+            Nombre = nombre;
+            Puntaje = puntaje;
             generala = 0;
             dobleGenerala = 0;
             full = 0;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public static class ConexionBd
     {
@@ -31,7 +31,7 @@ namespace Funcionalidad
 
             while (reader.Read())
             {
-                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2),reader.GetString(3),reader.GetString(4)));
+                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
             }
 
             conexion.Close();
@@ -81,7 +81,7 @@ namespace Funcionalidad
 
             while (reader.Read())
             {
-                partidas.Add(new Partida(reader.GetString(1),reader.GetInt32(2),reader.GetDateTime(3),reader.GetInt32(0)));
+                partidas.Add(new Partida(reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetInt32(0)));
             }
 
             conexion.Close();

@@ -1,4 +1,4 @@
-﻿using Funcionalidad;
+﻿using Funcionalidad.clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

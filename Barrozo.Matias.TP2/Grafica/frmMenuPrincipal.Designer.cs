@@ -1,4 +1,6 @@
-﻿namespace Grafica
+﻿using Funcionalidad.clases;
+
+namespace Grafica
 {
     partial class frmMenuPrincipal
     {
@@ -108,7 +110,7 @@
             // 
             // partidaBindingSource
             // 
-            this.partidaBindingSource.DataSource = typeof(Funcionalidad.Partida);
+            this.partidaBindingSource.DataSource = typeof(Partida);
             // 
             // panel1
             // 

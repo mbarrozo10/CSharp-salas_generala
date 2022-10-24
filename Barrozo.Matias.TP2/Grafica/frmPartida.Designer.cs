@@ -1,4 +1,6 @@
-﻿namespace Grafica
+﻿using Funcionalidad.clases;
+
+namespace Grafica
 {
     partial class frmPartida
     {
@@ -122,7 +124,7 @@
             // 
             // jugadorBindingSource
             // 
-            this.jugadorBindingSource.DataSource = typeof(Funcionalidad.Jugador);
+            this.jugadorBindingSource.DataSource = typeof(Jugador);
             // 
             // panel1
             // 

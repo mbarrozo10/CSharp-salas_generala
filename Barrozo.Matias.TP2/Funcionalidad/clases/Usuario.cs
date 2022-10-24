@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public class Usuario
     {
@@ -13,15 +13,15 @@ namespace Funcionalidad
         private string user;
         private string contraseña;
 
-        public Usuario(string nombre, string apellido, string usuario, string contraseña): this (usuario,contraseña)
+        public Usuario(string nombre, string apellido, string usuario, string contraseña) : this(usuario, contraseña)
         {
             this.nombre = nombre;
             this.apellido = apellido;
         }
-        
+
         public Usuario(string usuario, string contraseña)
         {
-            this.user = usuario;
+            user = usuario;
             this.contraseña = contraseña;
         }
 
@@ -33,16 +33,16 @@ namespace Funcionalidad
 
         public bool ComprobarInicio()
         {
-             List<Usuario> usuarios = ConexionBd.ObtenerDatos();
-            foreach(Usuario usuarioBd in usuarios)
+            List<Usuario> usuarios = ConexionBd.ObtenerDatos();
+            foreach (Usuario usuarioBd in usuarios)
             {
-                if(this.User == usuarioBd.User && this.Contraseña == usuarioBd.contraseña)
+                if (User == usuarioBd.User && Contraseña == usuarioBd.contraseña)
                 {
-                    this.nombre = usuarioBd.nombre;
-                    this.apellido = usuarioBd.apellido;
+                    nombre = usuarioBd.nombre;
+                    apellido = usuarioBd.apellido;
                     return true;
                 }
-            }    
+            }
             return false;
         }
     }
