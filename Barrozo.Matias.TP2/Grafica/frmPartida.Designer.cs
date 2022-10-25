@@ -31,53 +31,55 @@ namespace Grafica
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbljugador1 = new System.Windows.Forms.Label();
-            this.lbljugador2 = new System.Windows.Forms.Label();
-            this.lbldados = new System.Windows.Forms.Label();
+            this.lbl_Jugador1 = new System.Windows.Forms.Label();
+            this.lbl_Jugador2 = new System.Windows.Forms.Label();
+            this.lbl_Dados = new System.Windows.Forms.Label();
             this.tmrTiempoPartida = new System.Windows.Forms.Timer(this.components);
             this.lblTiempoPartida = new System.Windows.Forms.Label();
             this.lblTurnoJugador = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.jugadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Volver = new System.Windows.Forms.Button();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jugadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Volver = new System.Windows.Forms.Button();
+            this.lbl_Jugador3 = new System.Windows.Forms.Label();
+            this.lbl_Jugador4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbljugador1
+            // lbl_Jugador1
             // 
-            this.lbljugador1.AutoSize = true;
-            this.lbljugador1.ForeColor = System.Drawing.Color.White;
-            this.lbljugador1.Location = new System.Drawing.Point(57, 52);
-            this.lbljugador1.Name = "lbljugador1";
-            this.lbljugador1.Size = new System.Drawing.Size(38, 15);
-            this.lbljugador1.TabIndex = 0;
-            this.lbljugador1.Text = "label1";
+            this.lbl_Jugador1.AutoSize = true;
+            this.lbl_Jugador1.ForeColor = System.Drawing.Color.White;
+            this.lbl_Jugador1.Location = new System.Drawing.Point(57, 52);
+            this.lbl_Jugador1.Name = "lbl_Jugador1";
+            this.lbl_Jugador1.Size = new System.Drawing.Size(55, 15);
+            this.lbl_Jugador1.TabIndex = 0;
+            this.lbl_Jugador1.Text = "Jugador1";
             // 
-            // lbljugador2
+            // lbl_Jugador2
             // 
-            this.lbljugador2.AutoSize = true;
-            this.lbljugador2.ForeColor = System.Drawing.Color.White;
-            this.lbljugador2.Location = new System.Drawing.Point(57, 388);
-            this.lbljugador2.Name = "lbljugador2";
-            this.lbljugador2.Size = new System.Drawing.Size(38, 15);
-            this.lbljugador2.TabIndex = 1;
-            this.lbljugador2.Text = "label2";
+            this.lbl_Jugador2.AutoSize = true;
+            this.lbl_Jugador2.ForeColor = System.Drawing.Color.White;
+            this.lbl_Jugador2.Location = new System.Drawing.Point(57, 388);
+            this.lbl_Jugador2.Name = "lbl_Jugador2";
+            this.lbl_Jugador2.Size = new System.Drawing.Size(55, 15);
+            this.lbl_Jugador2.TabIndex = 1;
+            this.lbl_Jugador2.Text = "Jugador2";
             // 
-            // lbldados
+            // lbl_Dados
             // 
-            this.lbldados.AutoSize = true;
-            this.lbldados.ForeColor = System.Drawing.Color.White;
-            this.lbldados.Location = new System.Drawing.Point(322, 213);
-            this.lbldados.Name = "lbldados";
-            this.lbldados.Size = new System.Drawing.Size(38, 15);
-            this.lbldados.TabIndex = 2;
-            this.lbldados.Text = "label3";
+            this.lbl_Dados.AutoSize = true;
+            this.lbl_Dados.ForeColor = System.Drawing.Color.White;
+            this.lbl_Dados.Location = new System.Drawing.Point(322, 213);
+            this.lbl_Dados.Name = "lbl_Dados";
+            this.lbl_Dados.Size = new System.Drawing.Size(39, 15);
+            this.lbl_Dados.TabIndex = 2;
+            this.lbl_Dados.Text = "Tirada";
             // 
             // tmrTiempoPartida
             // 
@@ -102,7 +104,7 @@ namespace Grafica
             this.lblTurnoJugador.Name = "lblTurnoJugador";
             this.lblTurnoJugador.Size = new System.Drawing.Size(38, 15);
             this.lblTurnoJugador.TabIndex = 4;
-            this.lblTurnoJugador.Text = "label1";
+            this.lblTurnoJugador.Text = "Turno";
             // 
             // dataGridView1
             // 
@@ -122,9 +124,24 @@ namespace Grafica
             this.dataGridView1.Size = new System.Drawing.Size(399, 366);
             this.dataGridView1.TabIndex = 5;
             // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = " ";
+            this.Tipo.Name = "Tipo";
+            // 
+            // Jugador1
+            // 
+            this.Jugador1.HeaderText = "Jugador1";
+            this.Jugador1.Name = "Jugador1";
+            // 
+            // Jugador2
+            // 
+            this.Jugador2.HeaderText = "jugador2";
+            this.Jugador2.Name = "Jugador2";
+            // 
             // jugadorBindingSource
             // 
-            this.jugadorBindingSource.DataSource = typeof(Jugador);
+            this.jugadorBindingSource.DataSource = typeof(Funcionalidad.clases.Jugador);
             // 
             // panel1
             // 
@@ -152,20 +169,27 @@ namespace Grafica
             this.btn_Volver.UseVisualStyleBackColor = false;
             this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
-            // Tipo
+            // lbl_Jugador3
             // 
-            this.Tipo.HeaderText = " ";
-            this.Tipo.Name = "Tipo";
+            this.lbl_Jugador3.AutoSize = true;
+            this.lbl_Jugador3.ForeColor = System.Drawing.Color.White;
+            this.lbl_Jugador3.Location = new System.Drawing.Point(463, 52);
+            this.lbl_Jugador3.Name = "lbl_Jugador3";
+            this.lbl_Jugador3.Size = new System.Drawing.Size(55, 15);
+            this.lbl_Jugador3.TabIndex = 7;
+            this.lbl_Jugador3.Text = "Jugador3";
+            this.lbl_Jugador3.Visible = false;
             // 
-            // Jugador1
+            // lbl_Jugador4
             // 
-            this.Jugador1.HeaderText = "Jugador1";
-            this.Jugador1.Name = "Jugador1";
-            // 
-            // Jugador2
-            // 
-            this.Jugador2.HeaderText = "jugador2";
-            this.Jugador2.Name = "Jugador2";
+            this.lbl_Jugador4.AutoSize = true;
+            this.lbl_Jugador4.ForeColor = System.Drawing.Color.White;
+            this.lbl_Jugador4.Location = new System.Drawing.Point(463, 388);
+            this.lbl_Jugador4.Name = "lbl_Jugador4";
+            this.lbl_Jugador4.Size = new System.Drawing.Size(55, 15);
+            this.lbl_Jugador4.TabIndex = 8;
+            this.lbl_Jugador4.Text = "Jugador4";
+            this.lbl_Jugador4.Visible = false;
             // 
             // frmPartida
             // 
@@ -173,13 +197,15 @@ namespace Grafica
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1119, 454);
+            this.Controls.Add(this.lbl_Jugador4);
+            this.Controls.Add(this.lbl_Jugador3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblTurnoJugador);
             this.Controls.Add(this.lblTiempoPartida);
-            this.Controls.Add(this.lbldados);
-            this.Controls.Add(this.lbljugador2);
-            this.Controls.Add(this.lbljugador1);
+            this.Controls.Add(this.lbl_Dados);
+            this.Controls.Add(this.lbl_Jugador2);
+            this.Controls.Add(this.lbl_Jugador1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPartida";
             this.Text = "frmPartida";
@@ -194,9 +220,9 @@ namespace Grafica
 
         #endregion
 
-        private Label lbljugador1;
-        private Label lbljugador2;
-        private Label lbldados;
+        private Label lbl_Jugador1;
+        private Label lbl_Jugador2;
+        private Label lbl_Dados;
         private System.Windows.Forms.Timer tmrTiempoPartida;
         private Label lblTiempoPartida;
         private Label lblTurnoJugador;
@@ -207,5 +233,7 @@ namespace Grafica
         private DataGridViewTextBoxColumn Tipo;
         private DataGridViewTextBoxColumn Jugador1;
         private DataGridViewTextBoxColumn Jugador2;
+        private Label lbl_Jugador3;
+        private Label lbl_Jugador4;
     }
 }

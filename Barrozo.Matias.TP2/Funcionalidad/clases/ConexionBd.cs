@@ -4,18 +4,18 @@ namespace Funcionalidad.clases
 {
     public static class ConexionBd
     {
-        private static string stringconexion;
+        private static string stringConexion;
         private static SqlConnection conexion;
         private static SqlCommand comando;
 
         static ConexionBd()
         {
-            stringconexion = @"Server = localhost ; Database = generalaDb ; Trusted_Connection=True; Encrypt= False ";
-            conexion = new SqlConnection(stringconexion);
+            stringConexion = @"Server = localhost ; Database = generalaDb ; Trusted_Connection=True; Encrypt= False ";
+            conexion = new SqlConnection(stringConexion);
             comando = new SqlCommand();
         }
 
-        public static List<Usuario> ObtenerDatos()
+        public static List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> clientes = new List<Usuario>();
 
@@ -87,6 +87,30 @@ namespace Funcionalidad.clases
             conexion.Close();
             return partidas;
         }
+        
+        public static List<Jugador> ObtenerJugadores()
+        {
+            List<Jugador> jugadores = new List<Jugador>();
+
+
+            conexion.Open();
+
+
+            comando.Connection = conexion;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "SELECT * FROM jugadores_test";
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                jugadores.Add(new Jugador(reader.GetInt32(0),reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+            }
+            conexion.Close();
+            return jugadores;
+        }
+
+        
 
     }
 }

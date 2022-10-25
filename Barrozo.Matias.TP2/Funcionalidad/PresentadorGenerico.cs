@@ -9,15 +9,17 @@ namespace Funcionalidad
 {
     public class PresentadorGenerico<T> 
     {
-        private T dato;
-        public T Dato{
-            get { return dato; }
-        }
-        public List<Partida> DevolverPartidas<T>(T obj) where T : IPartida
+       
+        public void DevolverPartidas<T>(T obj) where T : IMostrador
         {
-            return ConexionBd.ObtenerDatosPartida();
+            obj.MostrarDatos(ConexionBd.ObtenerDatosPartida());
         }
-
-
+        
+        public void DevolverJugadores<T>(T obj) where T : IMostrador
+        {
+            obj.MostrarDatos(ConexionBd.ObtenerJugadores());
+        }
     }
+    
+   
 }

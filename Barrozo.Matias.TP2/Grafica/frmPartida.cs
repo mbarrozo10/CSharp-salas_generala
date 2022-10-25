@@ -1,4 +1,5 @@
-﻿using Funcionalidad.clases;
+﻿using Funcionalidad;
+using Funcionalidad.clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,24 +26,43 @@ namespace Grafica
             InitializeComponent();
         }
         
-        public frmPartida(List<Jugador> jugador, int turnos): this()
+        public frmPartida(List<Jugador> jugadores, int turnos): this()
         {
-            jugadoresActivos=jugador;
+            jugadoresActivos=jugadores;
             tmrTiempoPartida.Start();
-            partidaActual = new Partida(jugador, "",jugador.Count, DateTime.Now,1);
+            partidaActual = new Partida(jugadores, "",jugadores.Count, DateTime.Now,1);
             turnosMaximos = turnos;
         }
 
         private void frmPartida_Load(object sender, EventArgs e)
         {
             Informacion();
+            if (jugadoresActivos.Count > 2)
+            {
+                dataGridView1.Columns.Add("jugador3", jugadoresActivos[2].Nombre);
+            }
+            if (jugadoresActivos.Count > 3)
+            {
+                dataGridView1.Columns.Add("jugador4", jugadoresActivos[3].Nombre);
+            }
             ActualizarDatagrid();
-           }
+        }
 
         private void Informacion()
         {
-            lbljugador1.Text = "Jugador: "+ jugadoresActivos[0].Nombre + "  Puntaje: " + jugadoresActivos[0].Puntaje;
-            lbljugador2.Text = "Jugador: " + jugadoresActivos[1].Nombre + "  Puntaje: " + jugadoresActivos[1].Puntaje;
+
+             lbl_Jugador1.Text = "Jugador: "+ jugadoresActivos[0].Nombre + "  Puntaje: " + jugadoresActivos[0].Puntaje;
+            lbl_Jugador2.Text = "Jugador: " + jugadoresActivos[1].Nombre + "  Puntaje: " + jugadoresActivos[1].Puntaje;
+            if (jugadoresActivos.Count > 2)
+            {
+                lbl_Jugador3.Visible = true;
+                lbl_Jugador3.Text = "Jugador: " + jugadoresActivos[2].Nombre + "  Puntaje: " + jugadoresActivos[2].Puntaje;
+            }
+            if(jugadoresActivos.Count > 3)
+            {
+                lbl_Jugador4.Visible = true;
+                lbl_Jugador4.Text = "Jugador: " + jugadoresActivos[3].Nombre + "  Puntaje: " + jugadoresActivos[3].Puntaje;
+            }
         }
 
         private void tmrTiempoPartida_Tick(object sender, EventArgs e)
@@ -52,82 +72,82 @@ namespace Grafica
 
         private void TirarDados()
         {
-            Jugador jugadorActual = partidaActual.Jugadores[indice];
-            lblTurnoJugador.Text = "Turno: " + turnosJugados + " de : " + jugadorActual.Nombre;
+            //Jugador jugadorActual = partidaActual.Jugadores[indice];
+            lblTurnoJugador.Text = "Turno: " + turnosJugados + " de : " + jugadoresActivos[indice].Nombre;
             hora = hora.AddSeconds(1);
             lblTiempoPartida.Text = hora.ToString("mm:ss");
             int horaInt = int.Parse(hora.ToString("ss"));
-            if (horaInt % 2 == 0)
-            {
-                int[] aux = partidaActual.TirarDados(5);
-                lbldados.Text = "Tirada: " + aux[0].ToString();
-                lbldados.Text += "-" + aux[1].ToString();
-                lbldados.Text += "-" + aux[2].ToString();
-                lbldados.Text += "-" + aux[3].ToString();
-                lbldados.Text += "-" + aux[4].ToString();
+         
+                if (horaInt % 2 == 0)
 
-                if (jugadorActual.CheckGenerala(aux) && jugadorActual.Generala == 0)
                 {
-                    jugadorActual.Generala = 60;
-                    jugadorActual.Puntaje += 60;
+                    int[] aux = partidaActual.TirarDados(5);
+                    lbl_Dados.Text = "Tirada: " + aux[0].ToString();
+                    lbl_Dados.Text += "-" + aux[1].ToString();
+                    lbl_Dados.Text += "-" + aux[2].ToString();
+                    lbl_Dados.Text += "-" + aux[3].ToString();
+                    lbl_Dados.Text += "-" + aux[4].ToString();
 
-                    CambiarJugador();
-                }
-                else if (jugadorActual.CheckGenerala(aux) && jugadorActual.DobleGenerala == 0 && jugadorActual.Generala != 0)
-                {
-                    jugadorActual.DobleGenerala = 60;
-                    jugadorActual.Puntaje += 60;
+                    if (jugadoresActivos[indice].CheckGenerala(aux) && jugadoresActivos[indice].Generala == 0)
+                    {
+                        jugadoresActivos[indice].Generala = 60;
+                        jugadoresActivos[indice].Puntaje += 60;
 
-
-                    CambiarJugador();
-                }
-                else if (jugadorActual.CheckEscalera(aux) && jugadorActual.Escalera == 0)
-                {
-                    jugadorActual.Escalera = 20;
-                    jugadorActual.Puntaje += 20;
-
-                    CambiarJugador();
-                }
-                else if (jugadorActual.CheckFull(aux) && jugadorActual.Full == 0)
-                {
-                    jugadorActual.Full = 40;
-                    jugadorActual.Puntaje += 40;
-
-                    CambiarJugador();
-                }
-                else if (jugadorActual.CheckPoker(aux) && jugadorActual.Poker == 0)
-                {
-                    jugadorActual.Poker = 30;
-                    jugadorActual.Puntaje += 30;
-
-                    CambiarJugador();
-                }
-
-                tiradasJugador++;
+                        CambiarJugador();
+                    }
+                    else if (jugadoresActivos[indice].CheckGenerala(aux) && jugadoresActivos[indice].DobleGenerala == 0 && jugadoresActivos[indice].Generala != 0)
+                    {
+                        jugadoresActivos[indice].DobleGenerala = 60;
+                        jugadoresActivos[indice].Puntaje += 60;
 
 
-                if (tiradasJugador == 3)
-                {
-                    tiradasJugador = 0;
-                    CambiarJugador();
-                }
-                ActualizarDatagrid();
-            }
+                        CambiarJugador();
+                    }
+                    else if (jugadoresActivos[indice].CheckEscalera(aux) && jugadoresActivos[indice].Escalera == 0)
+                    {
+                        jugadoresActivos[indice].Escalera = 20;
+                        jugadoresActivos[indice].Puntaje += 20;
+
+                        CambiarJugador();
+                    }
+                    else if (jugadoresActivos[indice].CheckFull(aux) && jugadoresActivos[indice].Full == 0)
+                    {
+                        jugadoresActivos[indice].Full = 40;
+                        jugadoresActivos[indice].Puntaje += 40;
+
+                        CambiarJugador();
+                    }
+                    else if (jugadoresActivos[indice].CheckPoker(aux) && jugadoresActivos[indice].Poker == 0)
+                    {
+                        jugadoresActivos[indice].Poker = 30;
+                        jugadoresActivos[indice].Puntaje += 30;
+
+                        CambiarJugador();
+                    }
+                    tiradasJugador++;
+
+
+                    if (tiradasJugador == 3)
+                    {
+                        tiradasJugador = 0;
+                        CambiarJugador();
+                    }
+                    ActualizarDatagrid();
+                }    
+            
         }
 
         private void CambiarJugador()
         {
             tiradasJugador = 0;
-
             Informacion();
-            switch (indice)
+            if(indice != jugadoresActivos.Count-1)
             {
-                case 0:
-                    indice = 1;
-                    break;
-                case 1:
-                    indice = 0;
-                    break;
+                indice++;
+            }
+            else
+            {
+                indice = 0;
             }
             turnosJugados++;
             if(turnosJugados == turnosMaximos)
@@ -156,57 +176,70 @@ namespace Grafica
 
         private void ActualizarDatagrid()
         {
-            //    dataGridView1.DataSource = null;
-            //    dataGridView1.DataSource = partidaActual.Jugadores;
-
             dataGridView1.Columns[1].HeaderText = jugadoresActivos[0].Nombre;
             dataGridView1.Columns[2].HeaderText = jugadoresActivos[1].Nombre;
-         
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
-            DataGridViewRow[] filas = new DataGridViewRow[7]; 
-
-            filas[0] = new DataGridViewRow();
-            filas[0].CreateCells(dataGridView1);
-            filas[0].Cells[0].Value = "Full";
+            DataGridViewRow[] filas = new DataGridViewRow[6];
+            filas[0]=CrearFilas("Full");
             filas[0].Cells[1].Value = jugadoresActivos[0].Full;
             filas[0].Cells[2].Value = jugadoresActivos[1].Full;
-            dataGridView1.Rows.Add(filas[0]);
 
-            filas[1]= new DataGridViewRow();
-            filas[1].CreateCells(dataGridView1);
-            filas[1].Cells[0].Value = "Poker";
+            filas[1]=CrearFilas("Poker");
             filas[1].Cells[1].Value = jugadoresActivos[0].Poker;
             filas[1].Cells[2].Value = jugadoresActivos[1].Poker;
-            dataGridView1.Rows.Add(filas[1]);
 
-            filas[2]= new DataGridViewRow();
-            filas[2].CreateCells(dataGridView1);
-            filas[2].Cells[0].Value = "Escalera";
+            filas[2] = CrearFilas("Escalera");
             filas[2].Cells[1].Value = jugadoresActivos[0].Escalera;
             filas[2].Cells[2].Value = jugadoresActivos[1].Escalera;
-            dataGridView1.Rows.Add(filas[2]);
 
-            filas[3]= new DataGridViewRow();
-            filas[3].CreateCells(dataGridView1);
-            filas[3].Cells[0].Value = "Generala";
+            filas[3] = CrearFilas("Generala");
             filas[3].Cells[1].Value = jugadoresActivos[0].Generala;
             filas[3].Cells[2].Value = jugadoresActivos[1].Generala;
-            dataGridView1.Rows.Add(filas[3]);
 
-            filas[4]= new DataGridViewRow();
-            filas[4].CreateCells(dataGridView1);
-            filas[4].Cells[0].Value = "Generala Doble";
+            filas[4] = CrearFilas("Generala Doble");
             filas[4].Cells[1].Value = jugadoresActivos[0].DobleGenerala;
             filas[4].Cells[2].Value = jugadoresActivos[1].DobleGenerala;
-            dataGridView1.Rows.Add(filas[4]);
 
-            filas[5]= new DataGridViewRow();
-            filas[5].CreateCells(dataGridView1);
-            filas[5].Cells[0].Value = "Puntaje Final";
+            filas[5] = CrearFilas("Puntaje Final");
             filas[5].Cells[1].Value = jugadoresActivos[0].Puntaje;
             filas[5].Cells[2].Value = jugadoresActivos[1].Puntaje;
+
+            if (jugadoresActivos.Count > 2)
+            {
+                filas[0].Cells[3].Value = jugadoresActivos[2].Full;
+                filas[1].Cells[3].Value = jugadoresActivos[2].Poker;
+                filas[2].Cells[3].Value = jugadoresActivos[2].Escalera;
+                filas[3].Cells[3].Value = jugadoresActivos[2].Generala;
+                filas[4].Cells[3].Value = jugadoresActivos[2].DobleGenerala;
+                filas[5].Cells[3].Value = jugadoresActivos[2].Puntaje;
+            }
+            if(jugadoresActivos.Count > 4)
+            {
+                filas[0].Cells[4].Value = jugadoresActivos[3].Full;
+                filas[1].Cells[4].Value = jugadoresActivos[3].Poker;
+                filas[2].Cells[4].Value = jugadoresActivos[3].Escalera;
+                filas[3].Cells[4].Value = jugadoresActivos[3].Generala;
+                filas[4].Cells[4].Value = jugadoresActivos[3].DobleGenerala;
+                filas[5].Cells[4].Value = jugadoresActivos[3].Puntaje;
+            }
+            dataGridView1.Rows.Add(filas[0]);
+            dataGridView1.Rows.Add(filas[1]);
+            dataGridView1.Rows.Add(filas[2]);
+            dataGridView1.Rows.Add(filas[3]);
+            dataGridView1.Rows.Add(filas[4]);
             dataGridView1.Rows.Add(filas[5]);
+        }
+
+        private DataGridViewRow CrearFilas( string titulo)
+        {
+            DataGridViewRow filas = new DataGridViewRow();
+            filas = new DataGridViewRow();
+            filas.CreateCells(dataGridView1);
+            filas.Cells[0].Value = titulo;
+      
+
+            return filas;
         }
 
         private void btn_Volver_Click(object sender, EventArgs e)

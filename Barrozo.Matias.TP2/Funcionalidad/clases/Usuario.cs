@@ -33,7 +33,7 @@ namespace Funcionalidad.clases
 
         public bool ComprobarInicio()
         {
-            List<Usuario> usuarios = ConexionBd.ObtenerDatos();
+            List<Usuario> usuarios = ConexionBd.ObtenerUsuarios();
             foreach (Usuario usuarioBd in usuarios)
             {
                 if (User == usuarioBd.User && Contraseña == usuarioBd.contraseña)

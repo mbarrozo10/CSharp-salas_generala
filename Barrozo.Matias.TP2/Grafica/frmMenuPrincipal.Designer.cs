@@ -34,22 +34,23 @@ namespace Grafica
             this.ganadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_PartidaNueva = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ganadorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadJugadoresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_MenuPrincipal = new System.Windows.Forms.DataGridView();
             this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Menu = new System.Windows.Forms.Panel();
+            this.btn_Jugadores = new System.Windows.Forms.Button();
             this.btn_Partidas = new System.Windows.Forms.Button();
             this.pnl_Submenu = new System.Windows.Forms.Panel();
             this.btn_Full = new System.Windows.Forms.Button();
             this.btn_Demo = new System.Windows.Forms.Button();
             this.pnl_Superior = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lbl_Jugadores = new System.Windows.Forms.Label();
+            this.nud_CantidadJugadores = new System.Windows.Forms.NumericUpDown();
+            this.btn_Aceptar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Submenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).BeginInit();
             this.SuspendLayout();
             // 
             // ganadorDataGridViewTextBoxColumn
@@ -96,49 +97,17 @@ namespace Grafica
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridView1
+            // dgv_MenuPrincipal
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.ganadorDataGridViewTextBoxColumn1,
-            this.cantidadJugadoresDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.partidaBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(339, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 459);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ganadorDataGridViewTextBoxColumn1
-            // 
-            this.ganadorDataGridViewTextBoxColumn1.DataPropertyName = "Ganador";
-            this.ganadorDataGridViewTextBoxColumn1.HeaderText = "Ganador";
-            this.ganadorDataGridViewTextBoxColumn1.Name = "ganadorDataGridViewTextBoxColumn1";
-            // 
-            // cantidadJugadoresDataGridViewTextBoxColumn
-            // 
-            this.cantidadJugadoresDataGridViewTextBoxColumn.DataPropertyName = "CantidadJugadores";
-            this.cantidadJugadoresDataGridViewTextBoxColumn.HeaderText = "Cantidad de Jugadores";
-            this.cantidadJugadoresDataGridViewTextBoxColumn.Name = "cantidadJugadoresDataGridViewTextBoxColumn";
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Fecha jugada";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dgv_MenuPrincipal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_MenuPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 82);
+            this.dgv_MenuPrincipal.Name = "dgv_MenuPrincipal";
+            this.dgv_MenuPrincipal.RowTemplate.Height = 25;
+            this.dgv_MenuPrincipal.Size = new System.Drawing.Size(494, 459);
+            this.dgv_MenuPrincipal.TabIndex = 3;
+            this.dgv_MenuPrincipal.Visible = false;
+            this.dgv_MenuPrincipal.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseClick);
             // 
             // partidaBindingSource
             // 
@@ -147,6 +116,7 @@ namespace Grafica
             // pnl_Menu
             // 
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Menu.Controls.Add(this.btn_Jugadores);
             this.pnl_Menu.Controls.Add(this.btn_Partidas);
             this.pnl_Menu.Controls.Add(this.pnl_Submenu);
             this.pnl_Menu.Controls.Add(this.btn_PartidaNueva);
@@ -155,6 +125,25 @@ namespace Grafica
             this.pnl_Menu.Name = "pnl_Menu";
             this.pnl_Menu.Size = new System.Drawing.Size(172, 530);
             this.pnl_Menu.TabIndex = 4;
+            // 
+            // btn_Jugadores
+            // 
+            this.btn_Jugadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Jugadores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Jugadores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Jugadores.FlatAppearance.BorderSize = 0;
+            this.btn_Jugadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Jugadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Jugadores.ForeColor = System.Drawing.Color.White;
+            this.btn_Jugadores.Location = new System.Drawing.Point(0, 188);
+            this.btn_Jugadores.Name = "btn_Jugadores";
+            this.btn_Jugadores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Jugadores.Size = new System.Drawing.Size(172, 51);
+            this.btn_Jugadores.TabIndex = 8;
+            this.btn_Jugadores.Text = "Jugadores";
+            this.btn_Jugadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Jugadores.UseVisualStyleBackColor = false;
+            this.btn_Jugadores.Click += new System.EventHandler(this.btn_Jugadores_Click);
             // 
             // btn_Partidas
             // 
@@ -189,6 +178,7 @@ namespace Grafica
             // 
             // btn_Full
             // 
+            this.btn_Full.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Full.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_Full.FlatAppearance.BorderSize = 0;
             this.btn_Full.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
@@ -206,6 +196,7 @@ namespace Grafica
             // 
             // btn_Demo
             // 
+            this.btn_Demo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Demo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_Demo.FlatAppearance.BorderSize = 0;
             this.btn_Demo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
@@ -230,25 +221,75 @@ namespace Grafica
             this.pnl_Superior.Size = new System.Drawing.Size(1110, 37);
             this.pnl_Superior.TabIndex = 5;
             // 
+            // lbl_Jugadores
+            // 
+            this.lbl_Jugadores.AutoSize = true;
+            this.lbl_Jugadores.ForeColor = System.Drawing.Color.White;
+            this.lbl_Jugadores.Location = new System.Drawing.Point(228, 55);
+            this.lbl_Jugadores.Name = "lbl_Jugadores";
+            this.lbl_Jugadores.Size = new System.Drawing.Size(129, 15);
+            this.lbl_Jugadores.TabIndex = 6;
+            this.lbl_Jugadores.Text = "Cantidad de jugadores:";
+            this.lbl_Jugadores.Visible = false;
+            // 
+            // nud_CantidadJugadores
+            // 
+            this.nud_CantidadJugadores.Location = new System.Drawing.Point(376, 53);
+            this.nud_CantidadJugadores.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.nud_CantidadJugadores.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nud_CantidadJugadores.Name = "nud_CantidadJugadores";
+            this.nud_CantidadJugadores.Size = new System.Drawing.Size(40, 23);
+            this.nud_CantidadJugadores.TabIndex = 7;
+            this.nud_CantidadJugadores.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nud_CantidadJugadores.Visible = false;
+            // 
+            // btn_Aceptar
+            // 
+            this.btn_Aceptar.Location = new System.Drawing.Point(436, 53);
+            this.btn_Aceptar.Name = "btn_Aceptar";
+            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Aceptar.TabIndex = 8;
+            this.btn_Aceptar.Text = "Aceptar";
+            this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Visible = false;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.Controls.Add(this.btn_Aceptar);
+            this.Controls.Add(this.nud_CantidadJugadores);
+            this.Controls.Add(this.lbl_Jugadores);
             this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.pnl_Menu);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_MenuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuPrincipal";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_Menu.ResumeLayout(false);
             this.pnl_Submenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -256,17 +297,17 @@ namespace Grafica
         private Button btn_PartidaNueva;
         private Button button2;
         private DataGridViewTextBoxColumn ganadorDataGridViewTextBoxColumn;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_MenuPrincipal;
         private Panel pnl_Menu;
         private BindingSource partidaBindingSource;
         private Panel pnl_Superior;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ganadorDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn cantidadJugadoresDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private Panel pnl_Submenu;
         private Button btn_Full;
         private Button btn_Demo;
         private Button btn_Partidas;
+        private Button btn_Jugadores;
+        private Label lbl_Jugadores;
+        private NumericUpDown nud_CantidadJugadores;
+        private Button btn_Aceptar;
     }
 }

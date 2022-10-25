@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace Funcionalidad.clases
 {
     public class Jugador
     {
+        int id;
         string nombre;
+        string apellido;
+        string usuario;
         int puntaje;
         int generala;
         int dobleGenerala;
@@ -18,25 +22,25 @@ namespace Funcionalidad.clases
 
 
 
-        public Jugador(string nombre, int puntaje)
+        public Jugador(int id,string nombre, string apellido, string usuario)
         {
             Nombre = nombre;
-            Puntaje = puntaje;
-            generala = 0;
-            dobleGenerala = 0;
-            full = 0;
-            poker = 0;
-            escalera = 0;
+            this.Apellido = apellido;
+            this.Usuario = usuario;
+            this.id = id;
+            ReiniciarValores();
         }
-
+        public int Id { get { return id; } }
         public string Nombre { get => nombre; set => nombre = value; }
+        public string Apellido { get => apellido; set => apellido = value; }
+        public string Usuario { get => usuario; set => usuario = value; }
         public int Puntaje { get => puntaje; set => puntaje = value; }
         public int Generala { get => generala; set => generala = value; }
         public int DobleGenerala { get => dobleGenerala; set => dobleGenerala = value; }
         public int Full { get => full; set => full = value; }
         public int Poker { get => poker; set => poker = value; }
         public int Escalera { get => escalera; set => escalera = value; }
-
+        
 
         public bool CheckGenerala(int[] tirada)
         {
@@ -136,6 +140,16 @@ namespace Funcionalidad.clases
 
                 }
             }
+        }
+
+        private void ReiniciarValores()
+        {
+            this.generala = 0;
+            this.full = 0;
+            this.escalera = 0;
+            this.poker = 0;
+            this.dobleGenerala = 0;
+            this.puntaje = 0;
         }
     }
 }

@@ -2565,19 +2565,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mbarrozo\\.nuget\\packages\\": {}
+    "C:\\Users\\Mati\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mbarrozo\\Desktop\\Git\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
+      "projectUniqueName": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
       "projectName": "Funcionalidad",
-      "projectPath": "C:\\Users\\mbarrozo\\Desktop\\Git\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
-      "packagesPath": "C:\\Users\\mbarrozo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mbarrozo\\Desktop\\Git\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\obj\\",
+      "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
+      "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mbarrozo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

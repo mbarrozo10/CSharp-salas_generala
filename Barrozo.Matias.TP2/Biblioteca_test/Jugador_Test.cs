@@ -3,7 +3,7 @@ using Funcionalidad.clases;
 namespace Biblioteca_test
 {
     [TestClass]
-    public class Partida_test
+    public class Jugador_Test
     {
         [DataRow(new int[] {1,2,3,4,5})]
         [DataRow(new int[] {2,3,4,5,6})]
@@ -11,8 +11,9 @@ namespace Biblioteca_test
         public void CheckEscalera_Success(int [] aux)
         {
             bool restultadoEsperado = true;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckEscalera(aux);
+            bool resultado = jugadorTest.CheckEscalera(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -23,8 +24,9 @@ namespace Biblioteca_test
         public void CheckEscalera_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckEscalera(aux);
+            bool resultado = jugadorTest.CheckEscalera(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -39,8 +41,9 @@ namespace Biblioteca_test
         public void CheckGenerala_Success(int [] aux)
         {
             bool restultadoEsperado = true;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckGenerala(aux);
+            bool resultado = jugadorTest.CheckGenerala(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -52,8 +55,9 @@ namespace Biblioteca_test
         public void CheckGenerala_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckGenerala(aux);
+            bool resultado = jugadorTest.CheckGenerala(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -67,8 +71,9 @@ namespace Biblioteca_test
         public void CheckPoker_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckPoker(aux);
+            bool resultado = jugadorTest.CheckPoker(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -84,8 +89,9 @@ namespace Biblioteca_test
         public void CheckPoker_Succes(int[] aux)
         {
             bool restultadoEsperado = true;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckPoker(aux);
+            bool resultado = jugadorTest.CheckPoker(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -100,8 +106,9 @@ namespace Biblioteca_test
         public void CheckFull_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckFull(aux);
+            bool resultado = jugadorTest.CheckFull(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -114,8 +121,9 @@ namespace Biblioteca_test
         public void CheckFull_Succes(int[] aux)
         {
             bool restultadoEsperado = true;
+            Jugador jugadorTest = new Jugador("pepe", 10);
 
-            bool resultado = Partida.CheckFull(aux);
+            bool resultado = jugadorTest.CheckFull(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
