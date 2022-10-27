@@ -2,9 +2,9 @@ using Funcionalidad.clases;
 
 namespace Grafica
 {
-    public partial class frmLogin : Form
+    public partial class frm_Login : Form
     {
-        public frmLogin()
+        public frm_Login()
         {
             InitializeComponent();
         }
@@ -15,7 +15,7 @@ namespace Grafica
 
             if (user.ComprobarInicio())
             {
-                frmMenuPrincipal principal = new frmMenuPrincipal();
+                frm_MenuPrincipal principal = new frm_MenuPrincipal();
                 this.Hide();
                 if(principal.ShowDialog()== DialogResult.Cancel)
                 {

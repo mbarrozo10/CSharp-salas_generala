@@ -1,0 +1,50 @@
+O JOGO
+-------------------------------------------------- --------------------
+Consiste em fazer o maior número de números, 1, 2, 3, 4, 5 e 6 colocados no apontador em ordem progressiva, levando em consideração que se
+a soma de todos eles dá 65 ou mais, 30 são adicionados como prêmio
+pontos.
+Existem também os chamados jogos principais que são: Ladder
+Minor, Major Straight, Full House, Poker, General e Royal General.
+É jogado com 5 dados. Para decidir quem começa o jogo cada
+jogador rola todos os 5 dados, aquele com a maior pontuação será o
+primeiro, o da sua direita seguirá e assim por diante.
+
+DESENVOLVIMENTO DE JOGOS
+-------------------------------------------------- --------------------
+O primeiro jogador lança os 5 dados e de acordo com o resultado escolhe os números
+repetido ou outra variante que permite montar um jogo. os dados que
+não lhe servem, coloca-os no copo e joga-os novamente, repetindo a ação
+acima tentando obter mais dos mesmos números ou montar um jogo.
+Pode ser rolado 3 vezes, então os pontos obtidos no
+caixa correspondente do apontador.
+
+VENCEDORA
+-------------------------------------------------- --------------------
+Uma vez que todos os jogadores tenham preenchido as caixas no
+artilheiro, o vencedor será aquele que obtiver a maior pontuação do
+soma de todas as caixas.
+No caso de jogar 2 ou 3 jogadores, o vencedor será apenas um, se houver mais
+de 3, os jogadores podem concordar com um prêmio para o segundo (isso é
+deve ter antes de iniciar o jogo)
+
+GRAVATA
+-------------------------------------------------- --------------------
+Em caso de empate, o vencedor será aquele que obtiver a maior pontuação.
+o próximo jogo (além dos outros jogadores).
+
+Os principais jogos são:
+-------------------------------------------------- --------------------
+Reta: 1-2-3-4 e 5 ; 2-3-4-5 e 6 ou 3-4-5-6 e 1, o 1 pode ser colocado após o 6.
+Full House: 3 dados do mesmo número e 2 do mesmo número.
+Poker: 4 dados iguais (ver: “Del Poker” em Generala Real)
+Generala: 5 dados iguais.
+Double Generala: o mesmo que o anterior (é opcional).
+VALORES:
+-------------------------------------------------- --------------------
+Escada: 20
+Completo: 30
+Pôquer: 40
+Geral: 50
+Dupla Generala: 50
+Jogo servido: ao lançar os 5 dados de uma vez
+recebe um Big Game estes têm um prêmio de mais 5 pontos.

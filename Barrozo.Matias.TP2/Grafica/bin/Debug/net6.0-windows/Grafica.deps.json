@@ -12,6 +12,14 @@
         },
         "runtime": {
           "Grafica.dll": {}
+        },
+        "resources": {
+          "en-US/Grafica.resources.dll": {
+            "locale": "en-US"
+          },
+          "ja/Grafica.resources.dll": {
+            "locale": "ja"
+          }
         }
       },
       "Azure.Core/1.24.0": {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1XOomvBc2UaeoXBHhVQq/jbozEz45S0wX36vsTS7Dqa3iDcw3OxMZlV9sTAMX7963Z90HctOnIEnyMbUZSBOeg==",
+  "dgSpecHash": "M69Jfe1qv4GHny99Ny3/EOGmD+atjO/fncxHlEAncdDYtE1Zq20N7PWEDixZTT9I9krN816g/tWNKhE9O1ouiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Grafica\\Grafica.csproj",
+  "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Grafica\\Grafica.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mati\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

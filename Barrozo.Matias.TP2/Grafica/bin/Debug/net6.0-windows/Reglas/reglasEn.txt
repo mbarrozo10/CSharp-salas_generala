@@ -1,0 +1,50 @@
+THE GAME
+-------------------------------------------------- --------------------
+It consists of making the largest number of numbers, 1, 2, 3, 4, 5 and 6 placed on the scorer in progressive order, taking into account that if
+the sum of all of them gives 65 or more, 30 are added as a prize
+points.
+There are also the so-called major games that are: Ladder
+Minor, Major Straight, Full House, Poker, General and Royal General.
+It is played with 5 dice. To decide who starts the game each
+player rolls all 5 dice, the one with the highest score will be the
+first, the one on your right will follow and so on.
+
+GAME DEVELOPMENT
+-------------------------------------------------- --------------------
+The first player throws the 5 dice and according to the result chooses numbers
+repeated or another variant that allows you to put together a game. the dice that
+they are of no use to him, he places them in the cup and throws again, repeating the action
+above trying to get more of the same numbers or put together a game.
+It can be rolled 3 times, then the points obtained in the
+corresponding box of the scorer.
+
+WINNER
+-------------------------------------------------- --------------------
+Once all players have filled in the boxes on the
+scorer the winner will be the one who has obtained the highest score of the
+sum of all boxes.
+In case of playing 2 or 3 players, the winner will be only one, if there are more
+of 3, players can agree on a prize for second (this is
+must have before starting the game)
+
+TIE
+-------------------------------------------------- --------------------
+In the event of a tie, the winner will be the one with the highest score.
+the next game (apart from the other players).
+
+The major games are:
+-------------------------------------------------- --------------------
+Straight: 1-2-3-4 and 5 ; 2-3-4-5 and 6 or 3-4-5-6 and 1, the 1 can be placed after the 6.
+Full House: 3 dice of the same number and 2 of the same number.
+Poker: 4 equal dice (see: “Del Poker” in Generala Real)
+Generala: 5 equal dice.
+Double Generala: the same as the previous one (it is optional).
+VALUES:
+-------------------------------------------------- --------------------
+Ladder: 20
+Full: 30
+Poker: 40
+Generala: 50
+Double Generala: 50
+Game served: when throwing the 5 dice at once
+gets a Big Game these have a prize of 5 more points.

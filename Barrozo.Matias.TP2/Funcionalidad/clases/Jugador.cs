@@ -20,9 +20,11 @@ namespace Funcionalidad.clases
         int poker;
         int escalera;
 
+        public Jugador()
+        {
 
-
-        public Jugador(int id,string nombre, string apellido, string usuario)
+        }
+        public Jugador(int id,string nombre, string apellido, string usuario):this()
         {
             Nombre = nombre;
             this.Apellido = apellido;
@@ -30,6 +32,8 @@ namespace Funcionalidad.clases
             this.id = id;
             ReiniciarValores();
         }
+
+
         public int Id { get { return id; } }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
@@ -49,7 +53,6 @@ namespace Funcionalidad.clases
             {
                 return true;
             }
-
             return false;
         }
 
@@ -123,7 +126,7 @@ namespace Funcionalidad.clases
             }
             return false;
         }
-        private static void Ordenar(int[] vector)
+        public static void Ordenar(int[] vector)
         {
             for (int x = 0; x < vector.Length - 1; x++)
             {

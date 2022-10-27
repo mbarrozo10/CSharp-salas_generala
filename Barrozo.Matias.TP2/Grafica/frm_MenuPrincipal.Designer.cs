@@ -2,7 +2,7 @@
 
 namespace Grafica
 {
-    partial class frmMenuPrincipal
+    partial class frm_MenuPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@ namespace Grafica
             this.components = new System.ComponentModel.Container();
             this.ganadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_PartidaNueva = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Salir = new System.Windows.Forms.Button();
             this.dgv_MenuPrincipal = new System.Windows.Forms.DataGridView();
             this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Menu = new System.Windows.Forms.Panel();
@@ -43,13 +43,17 @@ namespace Grafica
             this.btn_Full = new System.Windows.Forms.Button();
             this.btn_Demo = new System.Windows.Forms.Button();
             this.pnl_Superior = new System.Windows.Forms.Panel();
+            this.btn_Configuracion = new System.Windows.Forms.Button();
+            this.btn_Reglas = new System.Windows.Forms.Button();
             this.lbl_Jugadores = new System.Windows.Forms.Label();
             this.nud_CantidadJugadores = new System.Windows.Forms.NumericUpDown();
             this.btn_Aceptar = new System.Windows.Forms.Button();
+            this.rtx_Reglas = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Submenu.SuspendLayout();
+            this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,24 +82,24 @@ namespace Grafica
             this.btn_PartidaNueva.UseVisualStyleBackColor = false;
             this.btn_PartidaNueva.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_Salir
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 474);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(172, 56);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Salir";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Salir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Salir.FlatAppearance.BorderSize = 0;
+            this.btn_Salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Salir.ForeColor = System.Drawing.Color.White;
+            this.btn_Salir.Location = new System.Drawing.Point(0, 474);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Salir.Size = new System.Drawing.Size(172, 56);
+            this.btn_Salir.TabIndex = 2;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Salir.UseVisualStyleBackColor = false;
+            this.btn_Salir.Click += new System.EventHandler(this.button2_Click);
             // 
             // dgv_MenuPrincipal
             // 
@@ -120,7 +124,7 @@ namespace Grafica
             this.pnl_Menu.Controls.Add(this.btn_Partidas);
             this.pnl_Menu.Controls.Add(this.pnl_Submenu);
             this.pnl_Menu.Controls.Add(this.btn_PartidaNueva);
-            this.pnl_Menu.Controls.Add(this.button2);
+            this.pnl_Menu.Controls.Add(this.btn_Salir);
             this.pnl_Menu.Location = new System.Drawing.Point(0, 37);
             this.pnl_Menu.Name = "pnl_Menu";
             this.pnl_Menu.Size = new System.Drawing.Size(172, 530);
@@ -215,11 +219,46 @@ namespace Grafica
             // pnl_Superior
             // 
             this.pnl_Superior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Superior.Controls.Add(this.btn_Configuracion);
+            this.pnl_Superior.Controls.Add(this.btn_Reglas);
             this.pnl_Superior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Superior.Location = new System.Drawing.Point(0, 0);
             this.pnl_Superior.Name = "pnl_Superior";
             this.pnl_Superior.Size = new System.Drawing.Size(1110, 37);
             this.pnl_Superior.TabIndex = 5;
+            // 
+            // btn_Configuracion
+            // 
+            this.btn_Configuracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Configuracion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Configuracion.FlatAppearance.BorderSize = 0;
+            this.btn_Configuracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Configuracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Configuracion.ForeColor = System.Drawing.Color.White;
+            this.btn_Configuracion.Location = new System.Drawing.Point(1022, 0);
+            this.btn_Configuracion.Name = "btn_Configuracion";
+            this.btn_Configuracion.Size = new System.Drawing.Size(44, 37);
+            this.btn_Configuracion.TabIndex = 1;
+            this.btn_Configuracion.Text = "C";
+            this.btn_Configuracion.UseVisualStyleBackColor = false;
+            this.btn_Configuracion.Click += new System.EventHandler(this.btn_Configuracion_Click);
+            // 
+            // btn_Reglas
+            // 
+            this.btn_Reglas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Reglas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Reglas.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Reglas.FlatAppearance.BorderSize = 0;
+            this.btn_Reglas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Reglas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Reglas.ForeColor = System.Drawing.Color.White;
+            this.btn_Reglas.Location = new System.Drawing.Point(1066, 0);
+            this.btn_Reglas.Name = "btn_Reglas";
+            this.btn_Reglas.Size = new System.Drawing.Size(44, 37);
+            this.btn_Reglas.TabIndex = 0;
+            this.btn_Reglas.Text = "?";
+            this.btn_Reglas.UseVisualStyleBackColor = false;
+            this.btn_Reglas.Click += new System.EventHandler(this.btn_Reglas_Click);
             // 
             // lbl_Jugadores
             // 
@@ -257,6 +296,10 @@ namespace Grafica
             // 
             // btn_Aceptar
             // 
+            this.btn_Aceptar.FlatAppearance.BorderSize = 0;
+            this.btn_Aceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Aceptar.ForeColor = System.Drawing.Color.White;
             this.btn_Aceptar.Location = new System.Drawing.Point(436, 53);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
@@ -266,20 +309,31 @@ namespace Grafica
             this.btn_Aceptar.Visible = false;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
-            // frmMenuPrincipal
+            // rtx_Reglas
+            // 
+            this.rtx_Reglas.Location = new System.Drawing.Point(228, 82);
+            this.rtx_Reglas.Name = "rtx_Reglas";
+            this.rtx_Reglas.ReadOnly = true;
+            this.rtx_Reglas.Size = new System.Drawing.Size(823, 432);
+            this.rtx_Reglas.TabIndex = 9;
+            this.rtx_Reglas.Text = "";
+            this.rtx_Reglas.Visible = false;
+            // 
+            // frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.Controls.Add(this.dgv_MenuPrincipal);
+            this.Controls.Add(this.rtx_Reglas);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.nud_CantidadJugadores);
             this.Controls.Add(this.lbl_Jugadores);
             this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.pnl_Menu);
-            this.Controls.Add(this.dgv_MenuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmMenuPrincipal";
+            this.Name = "frm_MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuPrincipal";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
@@ -287,6 +341,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_Menu.ResumeLayout(false);
             this.pnl_Submenu.ResumeLayout(false);
+            this.pnl_Superior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,7 +350,7 @@ namespace Grafica
 
         #endregion
         private Button btn_PartidaNueva;
-        private Button button2;
+        private Button btn_Salir;
         private DataGridViewTextBoxColumn ganadorDataGridViewTextBoxColumn;
         private DataGridView dgv_MenuPrincipal;
         private Panel pnl_Menu;
@@ -309,5 +364,8 @@ namespace Grafica
         private Label lbl_Jugadores;
         private NumericUpDown nud_CantidadJugadores;
         private Button btn_Aceptar;
+        private Button btn_Reglas;
+        private RichTextBox rtx_Reglas;
+        private Button btn_Configuracion;
     }
 }

@@ -1,14 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="frmLogin.cs">
+    <Compile Update="frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmMenuPrincipal.cs">
+    <Compile Update="frm_MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmPartida.cs">
+    <Compile Update="frm_Partida.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Res.ja.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Funcionalidad
 {
-    public interface IMostrador
+    public interface IMostradorJugador
     {
-        public void MostrarDatos(List<Partida> partidas);
         public void MostrarDatos(List<Jugador> jugadors);
     }
 }

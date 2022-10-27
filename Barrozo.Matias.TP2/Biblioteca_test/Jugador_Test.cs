@@ -11,7 +11,7 @@ namespace Biblioteca_test
         public void CheckEscalera_Success(int [] aux)
         {
             bool restultadoEsperado = true;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0,"pepe", "pepe","pepe");
 
             bool resultado = jugadorTest.CheckEscalera(aux);
 
@@ -24,7 +24,7 @@ namespace Biblioteca_test
         public void CheckEscalera_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckEscalera(aux);
 
@@ -41,7 +41,7 @@ namespace Biblioteca_test
         public void CheckGenerala_Success(int [] aux)
         {
             bool restultadoEsperado = true;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckGenerala(aux);
 
@@ -55,7 +55,7 @@ namespace Biblioteca_test
         public void CheckGenerala_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckGenerala(aux);
 
@@ -71,7 +71,7 @@ namespace Biblioteca_test
         public void CheckPoker_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckPoker(aux);
 
@@ -89,7 +89,7 @@ namespace Biblioteca_test
         public void CheckPoker_Succes(int[] aux)
         {
             bool restultadoEsperado = true;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckPoker(aux);
 
@@ -106,7 +106,7 @@ namespace Biblioteca_test
         public void CheckFull_Fail(int[] aux)
         {
             bool restultadoEsperado = false;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckFull(aux);
 
@@ -121,7 +121,7 @@ namespace Biblioteca_test
         public void CheckFull_Succes(int[] aux)
         {
             bool restultadoEsperado = true;
-            Jugador jugadorTest = new Jugador("pepe", 10);
+            Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
             bool resultado = jugadorTest.CheckFull(aux);
 

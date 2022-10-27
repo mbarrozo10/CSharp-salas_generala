@@ -10,12 +10,12 @@ namespace Funcionalidad
     public class PresentadorGenerico<T> 
     {
        
-        public void DevolverPartidas<T>(T obj) where T : IMostrador
+        public void DevolverPartidas<T>(T obj) where T : IMostradorPartidas
         {
             obj.MostrarDatos(ConexionBd.ObtenerDatosPartida());
         }
         
-        public void DevolverJugadores<T>(T obj) where T : IMostrador
+        public void DevolverJugadores<T>(T obj) where T : IMostradorJugador
         {
             obj.MostrarDatos(ConexionBd.ObtenerJugadores());
         }

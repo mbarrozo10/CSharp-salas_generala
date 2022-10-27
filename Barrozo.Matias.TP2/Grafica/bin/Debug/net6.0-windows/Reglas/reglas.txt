@@ -1,0 +1,50 @@
+EL JUEGO
+----------------------------------------------------------------------
+Consiste en hacer la mayor cantidad de números, 1, 2, 3, 4, 5 y 6 colocados en el anotador en orden progresivo, teniendo en cuenta que si
+la suma de todos ellos da 65 ó más se le agregan como premio 30
+puntos.
+Además están los juegos denominados mayores que son: Escalera
+menor, Escalera mayor, Full, Poker, Generala y Generala Real.
+Se juega con 5 dados. Para decidir quien comienza el juego cada
+jugador arroja los 5 dados, el que obtenga el mayor puntaje será el
+primero, lo seguirá el de su derecha y así sucesivamente.
+
+DESARROLLO DEL JUEGO
+----------------------------------------------------------------------
+El primer jugador arroja los 5 dados y según el resultado elige números
+repetidos u otra variante que le permita armar un juego. Los dados que
+no le sirven los coloca en el cubilete y vuelve a tirar repitiendo la acción
+anterior tratando de obtener más números iguales ó armar un juego.
+Se puede tirar 3 veces, luego se anotan los puntos obtenidos en la
+casilla correspondiente del anotador.
+
+GANADOR
+----------------------------------------------------------------------
+Una vez que todos los jugadores hayan completado las casillas del
+anotador el ganador será quien haya obtenido el mayor puntaje de la
+suma de todas las casillas.
+En caso de jugar 2 ó 3 jugadores, el ganador será uno sólo, si son más
+de 3, los jugadores pueden acordar un premio al segundo (esto se
+debe disponer antes de empezar la partida)
+
+EMPATE
+----------------------------------------------------------------------
+En caso de empate, será ganador el que obtenga el mejor puntaje en
+la próxima partida (al margen de los demás jugadores).
+
+Los juegos mayores son:
+----------------------------------------------------------------------
+Escalera: 1-2-3-4 y 5 ; 2-3-4-5 y 6 ó 3-4-5-6 y 1, el 1 se puede colocar después del 6.
+Full: 3 dados del mismo número y 2 iguales de otro.
+Poker: 4 dados iguales (ver: “Del Poker”en Generala Real)
+Generala: 5 dados iguales.
+Doble Generala: igual a la anterior (es optativa).
+VALORES: 
+----------------------------------------------------------------------
+Escalera: 20 
+Full: 30 
+Poker: 40
+Generala: 50  
+Doble Generala: 50
+Juego servido: cuando al arrojar los 5 dados de una sola vez se
+obtiene un Juego Mayor estos tienen un premio de 5 puntos más.

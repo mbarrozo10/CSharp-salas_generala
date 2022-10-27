@@ -2570,11 +2570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
+      "projectUniqueName": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
       "projectName": "Funcionalidad",
-      "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
+      "projectPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\Funcionalidad.csproj",
       "packagesPath": "C:\\Users\\Mati\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad owo\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\obj\\",
+      "outputPath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Funcionalidad\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mati\\AppData\\Roaming\\NuGet\\NuGet.Config",

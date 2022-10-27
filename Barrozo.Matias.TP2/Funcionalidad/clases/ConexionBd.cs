@@ -48,21 +48,22 @@ namespace Funcionalidad.clases
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "INSERT INTO partidas_test VALUES (@Nombre,@Cantidad,@date)";
 
+                comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@Nombre", partida.Ganador);
                 comando.Parameters.AddWithValue("@Cantidad", partida.Jugadores.Count());
                 comando.Parameters.AddWithValue("@Date", partida.Date);
 
                 comando.ExecuteNonQuery();
 
+                conexion.Close();
+
+
             }
             catch (Exception)
             {
                 throw;
             }
-            finally
-            {
-                conexion.Close();
-            }
+
         }
 
         public static List<Partida> ObtenerDatosPartida()

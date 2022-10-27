@@ -2,7 +2,7 @@
 
 namespace Grafica
 {
-    partial class frmPartida
+    partial class frm_Partida
     {
         /// <summary>
         /// Required designer variable.

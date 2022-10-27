@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -45,18 +46,45 @@ namespace Funcionalidad.clases
             get { return date; }
         }
 
-        public int[] TirarDados(int cantidad)
+        public void TirarDados(int cantidad,int discriminador, int[] tirada)
         {
-            int[] tirada = new int[cantidad];
+           // int[] tirada = new int[cantidad];
             Random rnd = new Random();
             for (int i = 0; i < cantidad; i++)
             {
-                tirada[i] = dado.Caras[rnd.Next(1, 6)];
+               if (tirada[i] != discriminador)
+                {
+                    tirada[i] = dado.Caras[rnd.Next(0, 6)];
+                }
+                else
+                {
+                    tirada[i] = discriminador; 
+                }
             }
+            Jugador.Ordenar(tirada);
+           }
 
-            return tirada;
+        public int GuardarNumero(int[] aux)
+        {
+            int maximo = -1;
+            int retorno = 0;
+            foreach(int cara in this.dado.Caras)
+            {
+                int contador = 0;
+                foreach (int numeroEnArray in aux)
+                {
+                    if (cara == numeroEnArray)
+                    {
+                        contador++;
+                    }
+                }
+                if (contador > maximo)
+                {
+                    maximo = contador;
+                    retorno = cara;
+                }
+            }
+            return retorno;
         }
-
-        
     }
 }

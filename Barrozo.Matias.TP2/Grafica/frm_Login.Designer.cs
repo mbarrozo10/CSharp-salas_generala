@@ -1,6 +1,6 @@
 ﻿namespace Grafica
 {
-    partial class frmLogin
+    partial class frm_Login
     {
         /// <summary>
         ///  Required designer variable.
