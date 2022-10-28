@@ -14,10 +14,10 @@ using BibliotecaDeClases;
 
 namespace Grafica
 {
-    public partial class frm_MenuPrincipal : Form, IMostradorJugador, IMostradorPartidas
+    public partial class frm_MenuPrincipal : Form, IMostradorUsuarios, IMostradorPartidas
     {
         PresentadorGenerico<frm_MenuPrincipal> presentador;
-        List<Jugador> jugadoresDisponibles;
+        List<Usuario> UsuariosDisponibles;
         List<Jugador> jugadoresPartida;
         Configuracion config;
         int indice;
@@ -47,7 +47,7 @@ namespace Grafica
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             presentador = new PresentadorGenerico<frm_MenuPrincipal>();
-            jugadoresDisponibles = new List<Jugador>();
+            UsuariosDisponibles = new List<Usuario>();
             jugadoresPartida = new List<Jugador>();
             delegado = CargarIdioma;
             delegado += CargarColor;
@@ -89,7 +89,7 @@ namespace Grafica
 
         private void btn_Demo_Click(object sender, EventArgs e)
         {
-            presentador.DevolverJugadores(this);
+            presentador.DevolverUsuarios(this);
             dgv_MenuPrincipal.Visible=true;
             nud_CantidadJugadores.Visible = true;
             lbl_Jugadores.Visible = true;
@@ -100,7 +100,7 @@ namespace Grafica
 
         private void btn_Full_Click(object sender, EventArgs e)
         {
-            MostrarDatos(jugadoresPartida);
+            MostrarDatos(UsuariosDisponibles);
             dgv_MenuPrincipal.Visible = true;
             nud_CantidadJugadores.Visible = true;
             lbl_Jugadores.Visible = true;
@@ -116,18 +116,18 @@ namespace Grafica
             }
             else
             {
-                presentador.DevolverJugadores(this);
+                presentador.DevolverUsuarios(this);
 
                 dgv_MenuPrincipal.Visible = true;
             }
         }
 
-        public void MostrarDatos(List<Jugador> jugadors)
+        public void MostrarDatos(List<Usuario> usuarios)
         {
 
-            jugadoresDisponibles = jugadors;
+            UsuariosDisponibles = usuarios;
             dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = jugadoresDisponibles;
+            dgv_MenuPrincipal.DataSource = UsuariosDisponibles;
         }
 
         private void dgv_MenuPrincipal_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -137,9 +137,10 @@ namespace Grafica
 
         private void AgregarJugador(List<Jugador> jugadoresParaJugar)
         {
-            if (!jugadoresParaJugar.Contains(this.jugadoresDisponibles[indice]))
+            Jugador jugadorAux = new Jugador(UsuariosDisponibles[indice]);
+            if (!jugadoresParaJugar.Contains(jugadorAux))
             {
-                jugadoresParaJugar.Add(this.jugadoresDisponibles[indice]);
+                jugadoresParaJugar.Add(jugadorAux);
             }
             else
             {
@@ -152,7 +153,7 @@ namespace Grafica
             AgregarJugador(jugadoresPartida);
             if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
             {
-                frm_Partida partida = new frm_Partida(jugadoresPartida, 1+turnosAJugar*(int)(nud_CantidadJugadores.Value));
+                frm_Partida partida = new frm_Partida(jugadoresPartida, 1+turnosAJugar*(int)(nud_CantidadJugadores.Value),config);
                 this.Hide();
                 if (partida.ShowDialog() == DialogResult.OK)
                 {
@@ -278,7 +279,7 @@ namespace Grafica
                 case "en-US":
                     reglas = Archivo.Leer("reglasEn.txt", @".\Reglas");
                     break;
-                case "po":
+                case "pl":
                     reglas = Archivo.Leer("reglasPo.txt", @".\Reglas");
                     break;
                 default:

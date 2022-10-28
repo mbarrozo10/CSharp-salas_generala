@@ -42,13 +42,18 @@ namespace Grafica
             this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jugadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_Superior = new System.Windows.Forms.Panel();
             this.btn_Volver = new System.Windows.Forms.Button();
             this.lbl_Jugador3 = new System.Windows.Forms.Label();
             this.lbl_Jugador4 = new System.Windows.Forms.Label();
+            this.pnl_GuardarPartida = new System.Windows.Forms.Panel();
+            this.lbl_Guardar = new System.Windows.Forms.Label();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Aceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnl_Superior.SuspendLayout();
+            this.pnl_GuardarPartida.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_Jugador1
@@ -143,15 +148,15 @@ namespace Grafica
             // 
             this.jugadorBindingSource.DataSource = typeof(Funcionalidad.clases.Jugador);
             // 
-            // panel1
+            // pnl_Superior
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.btn_Volver);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1119, 37);
-            this.panel1.TabIndex = 6;
+            this.pnl_Superior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Superior.Controls.Add(this.btn_Volver);
+            this.pnl_Superior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_Superior.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Superior.Name = "pnl_Superior";
+            this.pnl_Superior.Size = new System.Drawing.Size(1119, 37);
+            this.pnl_Superior.TabIndex = 6;
             // 
             // btn_Volver
             // 
@@ -191,15 +196,70 @@ namespace Grafica
             this.lbl_Jugador4.Text = "Jugador4";
             this.lbl_Jugador4.Visible = false;
             // 
-            // frmPartida
+            // pnl_GuardarPartida
+            // 
+            this.pnl_GuardarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_GuardarPartida.Controls.Add(this.lbl_Guardar);
+            this.pnl_GuardarPartida.Controls.Add(this.btn_Cancelar);
+            this.pnl_GuardarPartida.Controls.Add(this.btn_Aceptar);
+            this.pnl_GuardarPartida.Location = new System.Drawing.Point(440, 192);
+            this.pnl_GuardarPartida.Name = "pnl_GuardarPartida";
+            this.pnl_GuardarPartida.Size = new System.Drawing.Size(200, 100);
+            this.pnl_GuardarPartida.TabIndex = 9;
+            this.pnl_GuardarPartida.Visible = false;
+            // 
+            // lbl_Guardar
+            // 
+            this.lbl_Guardar.AutoSize = true;
+            this.lbl_Guardar.ForeColor = System.Drawing.Color.White;
+            this.lbl_Guardar.Location = new System.Drawing.Point(30, 24);
+            this.lbl_Guardar.Name = "lbl_Guardar";
+            this.lbl_Guardar.Size = new System.Drawing.Size(143, 15);
+            this.lbl_Guardar.TabIndex = 2;
+            this.lbl_Guardar.Text = "Quiere guardar la partida?";
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Location = new System.Drawing.Point(97, 75);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(100, 23);
+            this.btn_Cancelar.TabIndex = 1;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // btn_Aceptar
+            // 
+            this.btn_Aceptar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Aceptar.FlatAppearance.BorderSize = 0;
+            this.btn_Aceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Aceptar.ForeColor = System.Drawing.Color.White;
+            this.btn_Aceptar.Location = new System.Drawing.Point(1, 75);
+            this.btn_Aceptar.Name = "btn_Aceptar";
+            this.btn_Aceptar.Size = new System.Drawing.Size(100, 23);
+            this.btn_Aceptar.TabIndex = 0;
+            this.btn_Aceptar.Text = "Aceptar";
+            this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
+            // 
+            // frm_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1119, 454);
+            this.Controls.Add(this.pnl_GuardarPartida);
             this.Controls.Add(this.lbl_Jugador4);
             this.Controls.Add(this.lbl_Jugador3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblTurnoJugador);
             this.Controls.Add(this.lblTiempoPartida);
@@ -207,12 +267,14 @@ namespace Grafica
             this.Controls.Add(this.lbl_Jugador2);
             this.Controls.Add(this.lbl_Jugador1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmPartida";
+            this.Name = "frm_Partida";
             this.Text = "frmPartida";
             this.Load += new System.EventHandler(this.frmPartida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnl_Superior.ResumeLayout(false);
+            this.pnl_GuardarPartida.ResumeLayout(false);
+            this.pnl_GuardarPartida.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,12 +290,16 @@ namespace Grafica
         private Label lblTurnoJugador;
         private DataGridView dataGridView1;
         private BindingSource jugadorBindingSource;
-        private Panel panel1;
+        private Panel pnl_Superior;
         private Button btn_Volver;
         private DataGridViewTextBoxColumn Tipo;
         private DataGridViewTextBoxColumn Jugador1;
         private DataGridViewTextBoxColumn Jugador2;
         private Label lbl_Jugador3;
         private Label lbl_Jugador4;
+        private Panel pnl_GuardarPartida;
+        private Button btn_Cancelar;
+        private Button btn_Aceptar;
+        private Label lbl_Guardar;
     }
 }

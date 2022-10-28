@@ -1,0 +1,13 @@
+Virar: 1 Lista:  1 Do: MatiasLista: 6-5-4-3-1
+Virar: 2 Lista:  1 Do: pepeLista: 5-3-3-2-2
+Virar: 2 Lista:  2 Do: pepeLista: 6-5-2-2-2
+Virar: 2 Lista:  3 Do: pepeLista: 4-2-2-2-2
+Virar: 3 Lista:  3 Do: MatiasLista: 5-5-3-3-1
+Virar: 4 Lista:  3 Do: pepeLista: 4-4-3-2-2
+Virar: 5 Lista:  1 Do: MatiasLista: 5-4-3-3-2
+Virar: 5 Lista:  2 Do: MatiasLista: 6-3-3-2-1
+Virar: 5 Lista:  3 Do: MatiasLista: 4-4-3-3-2
+Virar: 6 Lista:  1 Do: pepeLista: 6-5-4-3-3
+Virar: 6 Lista:  2 Do: pepeLista: 5-3-3-3-1
+Virar: 6 Lista:  3 Do: pepeLista: 6-3-3-3-3
+

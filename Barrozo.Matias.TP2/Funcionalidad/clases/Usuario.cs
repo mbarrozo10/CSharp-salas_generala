@@ -8,15 +8,17 @@ namespace Funcionalidad.clases
 {
     public class Usuario
     {
+        public int id;
         private string? nombre;
         private string? apellido;
         private string user;
         private string contraseña;
 
-        public Usuario(string nombre, string apellido, string usuario, string contraseña) : this(usuario, contraseña)
+        public Usuario(string nombre, string apellido, string usuario, string contraseña, int id) : this(usuario, contraseña)
         {
             this.nombre = nombre;
             this.apellido = apellido;
+            this.id = id;
         }
 
         public Usuario(string usuario, string contraseña)
@@ -26,17 +28,15 @@ namespace Funcionalidad.clases
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
         public string User { get => user; set => user = value; }
-        public string Contraseña { get => contraseña; set => contraseña = value; }
-
+        public string? Apellido { get => apellido; set => apellido = value; }
 
         public bool ComprobarInicio()
         {
             List<Usuario> usuarios = ConexionBd.ObtenerUsuarios();
             foreach (Usuario usuarioBd in usuarios)
             {
-                if (User == usuarioBd.User && Contraseña == usuarioBd.contraseña)
+                if (User == usuarioBd.User && contraseña == usuarioBd.contraseña)
                 {
                     nombre = usuarioBd.nombre;
                     apellido = usuarioBd.apellido;

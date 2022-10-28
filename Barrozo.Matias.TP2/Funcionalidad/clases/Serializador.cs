@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 using System.Numerics;
 using System.Diagnostics;
 
-namespace Funcionalidad
+namespace Funcionalidad.clases
 {
     public class Serializazdor<T>
     {
@@ -19,7 +19,7 @@ namespace Funcionalidad
             ruta = @"./Archivos-Serializacion"; //Crea una carpeta
         }
 
-       
+
 
         public static void EscribirJSON(T datos, string archivo)
         {
@@ -34,10 +34,10 @@ namespace Funcionalidad
                 Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
             };
             string objetoJson = "";
-               objetoJson += JsonSerializer.Serialize(datos, options);
+            objetoJson += JsonSerializer.Serialize(datos, options);
 
             File.WriteAllText(completa, objetoJson);
-           
+
 
         }
 
@@ -63,7 +63,7 @@ namespace Funcionalidad
 
         }
 
-       
+
 
 
     }

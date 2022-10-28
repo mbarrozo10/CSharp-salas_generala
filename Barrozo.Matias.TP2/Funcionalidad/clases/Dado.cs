@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Funcionalidad.clases
 {
-    public class Dados
+    public class Dado
     {
         List<int> caras;
 
-        public Dados()
+        public Dado()
         {
             Caras = CargarDado();
         }

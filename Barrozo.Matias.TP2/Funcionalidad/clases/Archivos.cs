@@ -4,7 +4,7 @@ using System.IO;
 namespace BibliotecaDeClases
 {
     public static class Archivo
-    { 
+    {
         public static string Leer(string archivo, string ruta)
         {
             string rutaCompleta;
@@ -12,7 +12,7 @@ namespace BibliotecaDeClases
             if (Directory.Exists(ruta))
             {
                 rutaCompleta = BuscarArchivo(ruta, archivo);
-                if(rutaCompleta!=null)
+                if (rutaCompleta != null)
                 {
                     using (StreamReader sr = new StreamReader(rutaCompleta))
                     {
@@ -27,9 +27,9 @@ namespace BibliotecaDeClases
                 {
                     throw new Exception("No se encontró el archivo solicitado");
                 }
-      
+
             }
-            return datos ;
+            return datos;
 
         }
         private static string BuscarArchivo(string ruta, string nombreArchivo)
@@ -44,6 +44,31 @@ namespace BibliotecaDeClases
                 }
             }
             return null;
+        }
+
+
+        public static bool Escribir(string mensaje, string nombreArchivo, string ruta)
+        {
+            string completa = ruta + @$"/{nombreArchivo}" + ".txt";
+            try
+            {
+                if (!Directory.Exists(ruta))//Esto significa que la carpeta NO EXISTE
+                {
+                    Directory.CreateDirectory(ruta); //Aca la creamos
+                }
+                using (StreamWriter sw = new StreamWriter(completa))//Si se le agrega un segundo parametro (true), si el archivo existe se le va a appendar
+                {
+                    sw.WriteLine(mensaje);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error en el archivo {completa}");
+            }
+            return false;
+
+
         }
 
     }

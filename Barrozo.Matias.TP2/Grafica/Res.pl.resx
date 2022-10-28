@@ -120,14 +120,53 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Aceitar</value>
   </data>
+  <data name="Bitacora" xml:space="preserve">
+    <value>¿Deseja exportar o jogo?</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Número de Jogadores</value>
+  </data>
+  <data name="Claro" xml:space="preserve">
+    <value>É claro</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Cor</value>
+  </data>
+  <data name="De" xml:space="preserve">
+    <value>Do: </value>
   </data>
   <data name="Demo" xml:space="preserve">
     <value>Teste</value>
   </data>
+  <data name="Empate" xml:space="preserve">
+    <value>Gravata</value>
+  </data>
+  <data name="Español" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Ganador" xml:space="preserve">
+    <value>Vencedora: </value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Ingles" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Inverso" xml:space="preserve">
+    <value>Marcha ré</value>
+  </data>
+  <data name="Japones" xml:space="preserve">
+    <value>日本</value>
+  </data>
   <data name="Juego" xml:space="preserve">
     <value>Jogo Completo</value>
+  </data>
+  <data name="Jugador" xml:space="preserve">
+    <value>Jogador: </value>
   </data>
   <data name="Jugadores" xml:space="preserve">
     <value>Jogadoras</value>
@@ -135,10 +174,28 @@
   <data name="Nueva" xml:space="preserve">
     <value>Novo Jogo</value>
   </data>
+  <data name="Oscuro" xml:space="preserve">
+    <value>Escuro</value>
+  </data>
   <data name="Partidas" xml:space="preserve">
     <value>Jogos</value>
   </data>
+  <data name="Portugues" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="Puntaje" xml:space="preserve">
+    <value>Pontuação: </value>
+  </data>
   <data name="Salir" xml:space="preserve">
     <value>Sair</value>
+  </data>
+  <data name="Tirada" xml:space="preserve">
+    <value>Lista: </value>
+  </data>
+  <data name="Turno" xml:space="preserve">
+    <value>Virar: </value>
+  </data>
+  <data name="Volver" xml:space="preserve">
+    <value>Retornar</value>
   </data>
 </root>

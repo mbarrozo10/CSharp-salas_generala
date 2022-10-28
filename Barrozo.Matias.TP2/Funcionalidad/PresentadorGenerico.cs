@@ -15,9 +15,20 @@ namespace Funcionalidad
             obj.MostrarDatos(ConexionBd.ObtenerDatosPartida());
         }
         
-        public void DevolverJugadores<T>(T obj) where T : IMostradorJugador
+        public void DevolverUsuarios<T>(T obj) where T : IMostradorUsuarios
         {
-            obj.MostrarDatos(ConexionBd.ObtenerJugadores());
+            obj.MostrarDatos(ConexionBd.ObtenerUsuarios());
+        }
+
+
+        public void Revisar <T> (T obj, Jugador jugador) where T: IPartida
+        {
+            obj.DevolverTiradas(jugador.del);
+        }
+        
+        public void ConseguirUltimoId <T> (T obj) where T: IPartida
+        {
+            obj.ConseguirUltimoId(ConexionBd.ObtenerUltimoId());
         }
     }
     

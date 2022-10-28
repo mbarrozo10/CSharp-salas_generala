@@ -31,7 +31,7 @@ namespace Funcionalidad.clases
 
             while (reader.Read())
             {
-                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
+                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4),reader.GetInt32(0)));
             }
 
             conexion.Close();
@@ -89,29 +89,50 @@ namespace Funcionalidad.clases
             return partidas;
         }
         
-        public static List<Jugador> ObtenerJugadores()
+        //public static List<Usuario> ObtenerJugadores()
+        //{
+        //    List<Usuario> jugadores = new List<Usuario>();
+
+
+        //    conexion.Open();
+
+
+        //    comando.Connection = conexion;
+        //    comando.CommandType = System.Data.CommandType.Text;
+        //    comando.CommandText = "SELECT * FROM jugadores_test";
+
+        //    SqlDataReader reader = comando.ExecuteReader();
+
+        //    while (reader.Read())
+        //    {
+        //        jugadores.Add(new Usuario(reader.GetString(1),reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0)));
+        //    }
+        //    conexion.Close();
+        //    return jugadores;
+        //}
+        
+        public static int ObtenerUltimoId()
         {
-            List<Jugador> jugadores = new List<Jugador>();
-
-
+            int id=0;
+            
             conexion.Open();
 
 
             comando.Connection = conexion;
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT * FROM jugadores_test";
+            comando.CommandText = "SELECT TOP(1) id FROM partidas_test ORDER BY id DESC";
 
             SqlDataReader reader = comando.ExecuteReader();
 
             while (reader.Read())
             {
-                jugadores.Add(new Jugador(reader.GetInt32(0),reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+                id= reader.GetInt32(0);
             }
             conexion.Close();
-            return jugadores;
+            return id;
         }
-
         
+       
 
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Azure.Core;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,72 +11,103 @@ namespace Funcionalidad.clases
 {
     public class Jugador
     {
-        int id;
-        string nombre;
-        string apellido;
-        string usuario;
+        Usuario usuario;
+        int turnosJugados;
+        bool terminoTurno;
         int puntaje;
         int generala;
         int dobleGenerala;
         int full;
         int poker;
         int escalera;
-
-        public Jugador()
+        int uno;
+        int dos;
+        int tres;
+        int cuatro;
+        int cinco;
+        int seis;
+        
+        public DTiradas del;
+        public delegate void DTiradas(int[] tirada);
+        public Jugador(Usuario usuario)
         {
-
-        }
-        public Jugador(int id,string nombre, string apellido, string usuario):this()
-        {
-            Nombre = nombre;
-            this.Apellido = apellido;
-            this.Usuario = usuario;
-            this.id = id;
+            this.usuario = usuario;
+            turnosJugados = 1;
             ReiniciarValores();
+            del = CheckEscalera;
+            del += CheckFull;
+            del += CheckPoker;
+            del += CheckGenerala;
+            del += AsignarANumeros;
         }
 
+        
 
-        public int Id { get { return id; } }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public string Usuario { get => usuario; set => usuario = value; }
+      
+
+      
         public int Puntaje { get => puntaje; set => puntaje = value; }
         public int Generala { get => generala; set => generala = value; }
         public int DobleGenerala { get => dobleGenerala; set => dobleGenerala = value; }
         public int Full { get => full; set => full = value; }
         public int Poker { get => poker; set => poker = value; }
         public int Escalera { get => escalera; set => escalera = value; }
-        
+        public int Uno { get => uno; set => uno = value; }
+        public int Dos { get => dos; set => dos = value; }
+        public int Tres { get => tres; set => tres = value; }
+        public int Cuatro { get => cuatro; set => cuatro = value; }
+        public int Cinco { get => cinco; set => cinco = value; }
+        public int Seis { get => seis; set => seis = value; }
+        public bool TerminoTurno { get => terminoTurno; set => terminoTurno = value; }
+        public Usuario Usuario { get => usuario; set => usuario = value; }
+        public int TurnosJugados { get => turnosJugados; set => turnosJugados = value; }
 
-        public bool CheckGenerala(int[] tirada)
+        public void CheckGenerala(int[] tirada)
         {
-            if (tirada[0] == tirada[1] && tirada[1] == tirada[2]
-                && tirada[2] == tirada[3] && tirada[3] == tirada[4])
+            if ((tirada[0] == tirada[1] && tirada[1] == tirada[2]
+                && tirada[2] == tirada[3] && tirada[3] == tirada[4])&& generala==0)
             {
-                return true;
+                generala = 50;
+                puntaje += 50;
+                TerminoTurno = true;
+            }else if((tirada[0] == tirada[1] && tirada[1] == tirada[2]
+                && tirada[2] == tirada[3] && tirada[3] == tirada[4]) && dobleGenerala == 0)
+            {
+                dobleGenerala = 50;
+                puntaje += 50;
+                TerminoTurno = true;
+
             }
-            return false;
+
         }
 
-        public bool CheckEscalera(int[] tirada)
+        public void CheckEscalera(int[] tirada)
         {
+            bool verificar = true ;
             for (int i = 0; i < tirada.Length - 1; i++)
             {
                 for (int j = i + 1; j < tirada.Length; j++)
                 {
                     if (tirada[j] == tirada[i])
                     {
-
-                        return false;
+                        
+                        verificar =false;
+                        break;
                     }
                 }
             }
+            if(verificar && escalera == 0)
+            {
+                escalera = 20;
+                puntaje += 20;
+                TerminoTurno = true;
+                turnosJugados = 1;
 
-            return true;
+            }
         }
 
 
-        public bool CheckPoker(int[] tirada)
+        public void CheckPoker(int[] tirada)
         {
             int contador = 0;
             Ordenar(tirada);
@@ -84,16 +117,19 @@ namespace Funcionalidad.clases
                     if (tirada[i] == tirada[j])
                     {
                         contador++;
-                        if (contador == 4)
+                        if ((contador == 4 && poker==0) && !terminoTurno)
                         {
-                            return true;
+                            poker = 40;
+                            puntaje += 40;
+                            TerminoTurno = true;
+                            turnosJugados = 1;
+
                         }
                     }
             }
-            return false;
         }
 
-        public bool CheckFull(int[] tirada)
+        public void CheckFull(int[] tirada)
         {
             int contadorUno = 1;
             int contadorDos = 1;
@@ -112,9 +148,13 @@ namespace Funcionalidad.clases
                         {
                             contadorUno++;
                         }
-                        if (contadorUno == 3 && contadorDos == 2 || contadorDos == 3 && contadorUno == 2)
+                        if ((contadorUno == 3 && contadorDos == 2 || contadorDos == 3 && contadorUno == 2)&& full==0 && !terminoTurno)
                         {
-                            return true;
+                            full = 30;
+                            puntaje += 30;
+                            TerminoTurno = true;
+                            turnosJugados = 1;
+
                         }
                         break;
 
@@ -124,7 +164,6 @@ namespace Funcionalidad.clases
                         numeroDistinto = true;
                     }
             }
-            return false;
         }
         public static void Ordenar(int[] vector)
         {
@@ -145,6 +184,80 @@ namespace Funcionalidad.clases
             }
         }
 
+        public void AsignarANumeros(int[] dadosEnMesa)
+        {
+            int numeroSumar= Partida.GuardarNumero(dadosEnMesa);
+            if (!terminoTurno && turnosJugados==4)
+            {
+                turnosJugados = 1;
+
+                switch (numeroSumar)
+                {
+                    case 1:
+                        if (Uno == 0)
+                        {
+                            Uno = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Uno;
+                        }
+                        break;
+                    case 2:
+                        if (Dos == 0)
+                        {
+                            Dos = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Dos;
+                        }
+                        break;
+                    case 3:
+                        if (Tres == 0)
+                        {
+                            Tres = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Tres;
+                        }
+                        break;
+                    case 4:
+                        if (Cuatro == 0)
+                        {
+                            Cuatro = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Cuatro;
+                        }
+                        break;
+                    case 5:
+                        if (Cinco == 0)
+                        {
+                            Cinco = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Cinco;
+                        }
+                        break;
+                    case 6:
+                        if (Seis == 0)
+                        {
+                            Seis = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                            puntaje += Seis;
+
+                        }
+                        break;
+                }
+            }
+            else if(!terminoTurno)
+            {
+                turnosJugados++;
+            }
+        }
+
+        private int BuscarCantidad(int[] dadosEnMesa, int numeroSumar)
+        {
+            int contador = 0;
+            for (int i = 0; i < dadosEnMesa.Length; i++)
+            {
+                if (dadosEnMesa[i] == numeroSumar)
+                {
+                    contador++;
+                }
+            }
+
+            return contador;
+        }
+
         private void ReiniciarValores()
         {
             this.generala = 0;
@@ -153,6 +266,12 @@ namespace Funcionalidad.clases
             this.poker = 0;
             this.dobleGenerala = 0;
             this.puntaje = 0;
+            this.uno = 0;
+            this.dos = 0;
+            this.tres = 0;
+            this.cuatro = 0;
+            this.cinco = 0;
+            this.seis = 0;
         }
     }
 }

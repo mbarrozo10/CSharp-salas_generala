@@ -1,0 +1,19 @@
+Virar: 1 Do: nicolasLista: 6-3-3-2-2
+Virar: 1 Do: nicolasLista: 6-5-2-2-2
+Virar: 1 Do: nicolasLista: 5-2-2-2-2
+Virar: 2 Do: matiasLista: 6-5-4-2-2
+Virar: 2 Do: matiasLista: 4-4-2-2-1
+Virar: 2 Do: matiasLista: 3-3-3-2-2
+Virar: 3 Do: nicolasLista: 6-4-4-3-1
+Virar: 3 Do: nicolasLista: 6-4-4-2-1
+Virar: 3 Do: nicolasLista: 6-4-4-3-3
+Virar: 4 Do: matiasLista: 6-6-6-3-3
+Virar: 4 Do: matiasLista: 6-6-6-6-1
+Virar: 4 Do: matiasLista: 6-6-6-6-3
+Virar: 5 Do: nicolasLista: 6-6-6-6-3
+Virar: 5 Do: nicolasLista: 6-6-6-6-1
+Virar: 5 Do: nicolasLista: 6-6-6-6-4
+Virar: 6 Do: matiasLista: 5-5-5-2-1
+Virar: 6 Do: matiasLista: 5-5-5-4-4
+Virar: 6 Do: matiasLista: 5-5-5-2-1
+

@@ -70,11 +70,47 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Quiere exportar la partida?.
+        /// </summary>
+        internal static string Bitacora {
+            get {
+                return ResourceManager.GetString("Bitacora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cantidad de Jugadores.
         /// </summary>
         internal static string Cantidad {
             get {
                 return ResourceManager.GetString("Cantidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Claro.
+        /// </summary>
+        internal static string Claro {
+            get {
+                return ResourceManager.GetString("Claro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Color.
+        /// </summary>
+        internal static string Color {
+            get {
+                return ResourceManager.GetString("Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a De: .
+        /// </summary>
+        internal static string De {
+            get {
+                return ResourceManager.GetString("De", resourceCulture);
             }
         }
         
@@ -88,11 +124,92 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Empate.
+        /// </summary>
+        internal static string Empate {
+            get {
+                return ResourceManager.GetString("Empate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Español.
+        /// </summary>
+        internal static string Español {
+            get {
+                return ResourceManager.GetString("Español", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ganador: .
+        /// </summary>
+        internal static string Ganador {
+            get {
+                return ResourceManager.GetString("Ganador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar.
+        /// </summary>
+        internal static string Guardar {
+            get {
+                return ResourceManager.GetString("Guardar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idioma.
+        /// </summary>
+        internal static string Idioma {
+            get {
+                return ResourceManager.GetString("Idioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a English.
+        /// </summary>
+        internal static string Ingles {
+            get {
+                return ResourceManager.GetString("Ingles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inverso.
+        /// </summary>
+        internal static string Inverso {
+            get {
+                return ResourceManager.GetString("Inverso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 日本.
+        /// </summary>
+        internal static string Japones {
+            get {
+                return ResourceManager.GetString("Japones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Juego Completo.
         /// </summary>
         internal static string Juego {
             get {
                 return ResourceManager.GetString("Juego", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Jugador: .
+        /// </summary>
+        internal static string Jugador {
+            get {
+                return ResourceManager.GetString("Jugador", resourceCulture);
             }
         }
         
@@ -115,6 +232,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Oscuro.
+        /// </summary>
+        internal static string Oscuro {
+            get {
+                return ResourceManager.GetString("Oscuro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Partidas.
         /// </summary>
         internal static string Partidas {
@@ -124,11 +250,56 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Português.
+        /// </summary>
+        internal static string Portugues {
+            get {
+                return ResourceManager.GetString("Portugues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntaje: .
+        /// </summary>
+        internal static string Puntaje {
+            get {
+                return ResourceManager.GetString("Puntaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salir.
         /// </summary>
         internal static string Salir {
             get {
                 return ResourceManager.GetString("Salir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tirada: .
+        /// </summary>
+        internal static string Tirada {
+            get {
+                return ResourceManager.GetString("Tirada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Turno: .
+        /// </summary>
+        internal static string Turno {
+            get {
+                return ResourceManager.GetString("Turno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volver.
+        /// </summary>
+        internal static string Volver {
+            get {
+                return ResourceManager.GetString("Volver", resourceCulture);
             }
         }
     }

@@ -120,14 +120,53 @@
   <data name="Aceptar" xml:space="preserve">
     <value>受け入れるために</value>
   </data>
+  <data name="Bitacora" xml:space="preserve">
+    <value>ゲームをエクスポートしますか?</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>プレイヤー数</value>
+  </data>
+  <data name="Claro" xml:space="preserve">
+    <value>もちろん</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>色</value>
+  </data>
+  <data name="De" xml:space="preserve">
+    <value>の: </value>
   </data>
   <data name="Demo" xml:space="preserve">
     <value>テスト</value>
   </data>
+  <data name="Empate" xml:space="preserve">
+    <value>ネクタイ</value>
+  </data>
+  <data name="Español" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="Ganador" xml:space="preserve">
+    <value>勝者: </value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>熟語</value>
+  </data>
+  <data name="Ingles" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Inverso" xml:space="preserve">
+    <value>逆行する</value>
+  </data>
+  <data name="Japones" xml:space="preserve">
+    <value>日本</value>
+  </data>
   <data name="Juego" xml:space="preserve">
     <value>新しいゲーム</value>
+  </data>
+  <data name="Jugador" xml:space="preserve">
+    <value>プレーヤー</value>
   </data>
   <data name="Jugadores" xml:space="preserve">
     <value>プレイヤー</value>
@@ -135,10 +174,28 @@
   <data name="Nueva" xml:space="preserve">
     <value>新しいゲーム</value>
   </data>
+  <data name="Oscuro" xml:space="preserve">
+    <value>暗い</value>
+  </data>
   <data name="Partidas" xml:space="preserve">
     <value>ゲーム</value>
   </data>
+  <data name="Portugues" xml:space="preserve">
+    <value>Português</value>
+  </data>
+  <data name="Puntaje" xml:space="preserve">
+    <value>スコア: </value>
+  </data>
   <data name="Salir" xml:space="preserve">
     <value>離れる</value>
+  </data>
+  <data name="Tirada" xml:space="preserve">
+    <value>ロール: </value>
+  </data>
+  <data name="Turno" xml:space="preserve">
+    <value>順番: </value>
+  </data>
+  <data name="Volver" xml:space="preserve">
+    <value>戻る</value>
   </data>
 </root>
