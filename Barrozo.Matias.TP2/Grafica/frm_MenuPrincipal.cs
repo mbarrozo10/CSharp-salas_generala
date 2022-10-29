@@ -14,9 +14,9 @@ using BibliotecaDeClases;
 
 namespace Grafica
 {
-    public partial class frm_MenuPrincipal : Form, IMostradorUsuarios, IMostradorPartidas
+    public partial class frm_MenuPrincipal : Form, IMenu
     {
-        PresentadorGenerico<frm_MenuPrincipal> presentador;
+        PresentadorGenerico<IMenu> presentador;
         List<Usuario> UsuariosDisponibles;
         List<Jugador> jugadoresPartida;
         Configuracion config;
@@ -40,13 +40,12 @@ namespace Grafica
         private void button2_Click(object sender, EventArgs e)
         {
             this.DialogResult= DialogResult.Cancel;
-
         }
 
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            presentador = new PresentadorGenerico<frm_MenuPrincipal>();
+            presentador = new PresentadorGenerico<IMenu >();
             UsuariosDisponibles = new List<Usuario>();
             jugadoresPartida = new List<Jugador>();
             delegado = CargarIdioma;
@@ -69,12 +68,6 @@ namespace Grafica
         
         }
 
-        public void MostrarDatos(List<Partida> partidas)
-        {
-
-            dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = partidas;
-        }
 
         private void ControlarSubmenu( Panel panel)
         {
@@ -122,12 +115,14 @@ namespace Grafica
             }
         }
 
-        public void MostrarDatos(List<Usuario> usuarios)
+        public void MostrarDatos<T>(List<T> usuarios)
         {
-
-            UsuariosDisponibles = usuarios;
+            if (usuarios is List<Usuario>)
+            {
+                UsuariosDisponibles = usuarios as List<Usuario>;
+            }
             dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = UsuariosDisponibles;
+            dgv_MenuPrincipal.DataSource = usuarios;
         }
 
         private void dgv_MenuPrincipal_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -190,8 +185,6 @@ namespace Grafica
                         btn_Aceptar.Visible = false;
                         lbl_Jugadores.Visible = false ;
                     }
-                    
-                
                 }catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
