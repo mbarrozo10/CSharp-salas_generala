@@ -141,6 +141,9 @@
   <data name="Empate" xml:space="preserve">
     <value>ネクタイ</value>
   </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>一部のデータが間違っています</value>
+  </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="Ingles" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="Inicio" xml:space="preserve">
+    <value>ログイン</value>
   </data>
   <data name="Inverso" xml:space="preserve">
     <value>逆行する</value>

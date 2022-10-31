@@ -10,9 +10,15 @@ namespace Funcionalidad
 {
     public interface IPartida
     {
-        public void DevolverTiradas(DTiradas delegado);
+        public void DevolverTiradas(DTiradas delegado, int[] dadosEnMesa);
 
         public void ConseguirUltimoId(int id);
+
+        public void Informacion(Partida partidaActual);
+
+        public void ActualizarDatagrid(Partida partidaActual, int turnosJugados, int indice);
+
+        public void FinalizarPartida(string Ganador);
 
     }
 }

@@ -10,5 +10,7 @@ namespace Funcionalidad
     public interface IMenu
     {
         public void MostrarDatos<T>(List<T> usuarios);
+
+        public bool AgregarUsuario();
     }
 }

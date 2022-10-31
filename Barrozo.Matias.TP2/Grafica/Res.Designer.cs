@@ -133,6 +133,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Algun dato es incorrecto.
+        /// </summary>
+        internal static string ErrorLogin {
+            get {
+                return ResourceManager.GetString("ErrorLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Español.
         /// </summary>
         internal static string Español {
@@ -174,6 +183,15 @@ namespace Grafica {
         internal static string Ingles {
             get {
                 return ResourceManager.GetString("Ingles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Iniciar.
+        /// </summary>
+        internal static string Inicio {
+            get {
+                return ResourceManager.GetString("Inicio", resourceCulture);
             }
         }
         

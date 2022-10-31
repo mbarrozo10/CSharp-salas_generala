@@ -17,17 +17,11 @@ namespace Grafica
     public partial class frm_Partida : Form, IPartida
     {
         DateTime hora = new DateTime(2022, 1, 2, 0, 0, 0);
-        //List<Jugador> jugadoresActivos= new List<Jugador>();
-        Partida partidaActual;
-        int indice=0;
-        //int tiradasJugador = 1;
-        int turnosJugados = 1;
-        int turnosMaximos;
-        int[] dadosEnMesa = new int[5];
         Configuracion config;
         string bitacora="";
-        PresentadorGenerico<frm_Partida> presentador;
+        PresentadorGenerico presentador;
         private int ultimoId;
+        bool primerTirada = true;
 
         public frm_Partida()
         {
@@ -36,37 +30,25 @@ namespace Grafica
         
         public frm_Partida(List<Jugador> jugadores, int turnos, Configuracion config) : this()
         {
-            presentador = new PresentadorGenerico<frm_Partida>();
-            //jugadoresActivos = jugadores;
+            presentador = new PresentadorGenerico();
             tmrTiempoPartida.Start();
             presentador.ConseguirUltimoId(this);
-            partidaActual = new Partida(jugadores, "",jugadores.Count, DateTime.Now,ultimoId);
-            turnosMaximos = turnos;
+            presentador.IniciarPartida<frm_Partida>(jugadores,ultimoId,turnos);
             this.config = config;
             CargarIdioma();
             CargarColores();
         }
-
-      
+ 
 
         private void frmPartida_Load(object sender, EventArgs e)
         {
-            Informacion();
-            if (partidaActual.Jugadores.Count > 2)
-            {
-                dataGridView1.Columns.Add("jugador3", partidaActual.Jugadores[2].Usuario.Nombre);
-            }
-            if (partidaActual.Jugadores.Count > 3)
-            {
-                dataGridView1.Columns.Add("jugador4", partidaActual.Jugadores[3].Usuario.Nombre);
-            }
-            ActualizarDatagrid();
+ 
         }
 
-        private void Informacion()
+        public void Informacion(Partida partidaActual)
         {
 
-             lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre + " "+ Res.Puntaje + partidaActual.Jugadores[0].Puntaje;
+            lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre + " "+ Res.Puntaje + partidaActual.Jugadores[0].Puntaje;
             lbl_Jugador2.Text = Res.Jugador + partidaActual.Jugadores[1].Usuario.Nombre + " " + Res.Puntaje + partidaActual.Jugadores[1].Puntaje;
             if (partidaActual.Jugadores.Count > 2)
             {
@@ -87,95 +69,32 @@ namespace Grafica
 
         private void TirarDados()
         {
-            lblTurnoJugador.Text = Res.Turno + turnosJugados +" " + Res.Tirada +" "  + partidaActual.Jugadores[indice].TurnosJugados +" "  + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
             hora = hora.AddSeconds(1);
             lblTiempoPartida.Text = hora.ToString("mm:ss");
             int horaInt = int.Parse(hora.ToString("ss"));
             if (horaInt % 2 == 0)
             {
-                if (partidaActual.Jugadores[indice].TurnosJugados == 1)
-                {
-                     partidaActual.TirarDados(5, -1, dadosEnMesa);
-                }
-                else
-                {
-                    int numeroAGuardar = Partida.GuardarNumero(dadosEnMesa);
-                    partidaActual.TirarDados(5, numeroAGuardar, dadosEnMesa);
-                }
-                //partidaActual.Jugadores[indice].TurnosJugados++;
-                lbl_Dados.Text = Res.Tirada + dadosEnMesa[0].ToString();
-                lbl_Dados.Text += "-" + dadosEnMesa[1].ToString();
-                lbl_Dados.Text += "-" + dadosEnMesa[2].ToString();
-                lbl_Dados.Text += "-" + dadosEnMesa[3].ToString();
-                lbl_Dados.Text += "-" + dadosEnMesa[4].ToString();
-
-               // revisar en futuro
-                presentador.Revisar(this, partidaActual.Jugadores[indice]);
-
+                lbl_Dados.Text = presentador.TirarDados(this);
                 bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
-
-                if (partidaActual.Jugadores[indice].TurnosJugados == 4 || partidaActual.Jugadores[indice].TerminoTurno)
-                {
-                    partidaActual.Jugadores[indice].AsignarANumeros(dadosEnMesa);
-                    partidaActual.Jugadores[indice].TerminoTurno = false;
-
-                    //partidaActual.Jugadores[indice].TurnosJugados = 1;
-                    CambiarJugador();
-                }
-                ActualizarDatagrid();
-           
             }
         }
 
-        private void CambiarJugador()
+        public void ActualizarDatagrid(Partida partidaActual, int turnosJugados, int indice)
         {
-            dadosEnMesa = new int[5];
-            Informacion();
-            if(indice != partidaActual.Jugadores.Count-1)
+            lblTurnoJugador.Text = Res.Turno + turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
+            if (primerTirada)
             {
-                indice++;
-            }
-            else
-            {
-                indice = 0;
-            }
-            turnosJugados++;
-            if(turnosJugados == turnosMaximos)
-            {
-                ActualizarDatagrid();
-                tmrTiempoPartida.Stop();
-
-                partidaActual.Ganador = EncontrarGanador();
-                MessageBox.Show(Res.Ganador + partidaActual.Ganador);
-                pnl_GuardarPartida.Visible = true;
-
-               
-            }
-
-        }
-
-        string EncontrarGanador()
-        {
-            string ganador=Res.Empate;
-            int puntajeMaximo = 0;
-            foreach (Jugador jugador in partidaActual.Jugadores)
-            {
-                if (jugador.Puntaje > puntajeMaximo)
+                primerTirada = false;
+                if (partidaActual.Jugadores.Count > 2)
                 {
-                    puntajeMaximo = jugador.Puntaje;
-                    ganador = jugador.Usuario.Nombre;
+                    dataGridView1.Columns.Add("jugador3", partidaActual.Jugadores[2].Usuario.Nombre);
                 }
-                else if(jugador.Puntaje == puntajeMaximo)
+                if (partidaActual.Jugadores.Count > 3)
                 {
-                    ganador = Res.Empate;
+                    dataGridView1.Columns.Add("jugador4", partidaActual.Jugadores[3].Usuario.Nombre);
                 }
             }
 
-            return ganador;
-        }
-
-        private void ActualizarDatagrid()
-        {
             dataGridView1.Columns[1].HeaderText = partidaActual.Jugadores[0].Usuario.Nombre;
             dataGridView1.Columns[2].HeaderText = partidaActual.Jugadores[1].Usuario.Nombre;
             dataGridView1.DataSource = null;
@@ -231,12 +150,12 @@ namespace Grafica
 
             if (partidaActual.Jugadores.Count > 2)
             {
-                CompletarJugadoresExtras(filas, 2,3);
+                CompletarJugadoresExtras(filas, 2,3,partidaActual);
 
             }
             if (partidaActual.Jugadores.Count > 3)
             {
-                CompletarJugadoresExtras(filas, 3,4);
+                CompletarJugadoresExtras(filas, 3,4,partidaActual);
             }
             for(int i = 0; i < filas.Length; i++)
             {
@@ -253,7 +172,7 @@ namespace Grafica
             return filas;
         }
 
-        private void CompletarJugadoresExtras(DataGridViewRow[] filas,int indice,int columna)
+        private void CompletarJugadoresExtras(DataGridViewRow[] filas,int indice,int columna, Partida partidaActual)
         {
             filas[0].Cells[columna].Value = partidaActual.Jugadores[indice].Full;
             filas[1].Cells[columna].Value = partidaActual.Jugadores[indice].Poker;
@@ -305,9 +224,9 @@ namespace Grafica
         {
             try
             {
-                string archivo = "BitacoraDePartida" + partidaActual.Id;
+                string archivo = "BitacoraDePartida" + ultimoId;
                 Archivo.Escribir(bitacora, archivo, @".\Bitacoras");
-                ConexionBd.GuardarPartida(partidaActual);
+                presentador.GuardarPartida();
             }
             catch (Exception ex)
             {
@@ -320,7 +239,7 @@ namespace Grafica
         {
             try
             {
-                ConexionBd.GuardarPartida(partidaActual);
+                presentador.GuardarPartida();
             }
             catch (Exception ex)
             {
@@ -329,7 +248,7 @@ namespace Grafica
             DialogResult = DialogResult.OK;
         }
 
-        public void DevolverTiradas(Jugador.DTiradas delegado)
+        public void DevolverTiradas(Jugador.DTiradas delegado, int[] dadosEnMesa)
         {
             delegado(dadosEnMesa);
         }
@@ -337,6 +256,13 @@ namespace Grafica
         public void ConseguirUltimoId(int id)
         {
             ultimoId = id+1;
+        }
+
+        public void FinalizarPartida(string ganador)
+        {
+            tmrTiempoPartida.Stop();
+            MessageBox.Show(Res.Ganador + ganador);
+            pnl_GuardarPartida.Visible = true;
         }
     }
 }

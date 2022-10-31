@@ -13,7 +13,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = true;
             Jugador jugadorTest = new Jugador(0,"pepe", "pepe","pepe");
 
-            bool resultado = jugadorTest.CheckEscalera(aux);
+            bool resultado = jugadorTest.RevisarEscalera(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -26,7 +26,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = false;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckEscalera(aux);
+            bool resultado = jugadorTest.RevisarEscalera(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -43,7 +43,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = true;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckGenerala(aux);
+            bool resultado = jugadorTest.RevisarGenerala(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -57,7 +57,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = false;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckGenerala(aux);
+            bool resultado = jugadorTest.RevisarGenerala(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -73,7 +73,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = false;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckPoker(aux);
+            bool resultado = jugadorTest.RevisarPoker(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -91,7 +91,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = true;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckPoker(aux);
+            bool resultado = jugadorTest.RevisarPoker(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -108,7 +108,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = false;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckFull(aux);
+            bool resultado = jugadorTest.RevisarFull(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }
@@ -123,7 +123,7 @@ namespace Biblioteca_test
             bool restultadoEsperado = true;
             Jugador jugadorTest = new Jugador(0, "pepe", "pepe", "pepe");
 
-            bool resultado = jugadorTest.CheckFull(aux);
+            bool resultado = jugadorTest.RevisarFull(aux);
 
             Assert.AreEqual(resultado, restultadoEsperado);
         }

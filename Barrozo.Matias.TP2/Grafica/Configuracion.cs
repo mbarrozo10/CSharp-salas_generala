@@ -9,8 +9,7 @@ namespace Grafica
     public class Configuracion
     {
         string idioma;
-        //Color fondo;
-        //Color colorSecundario;
+       
         int[] fondo;
         int[] colorSecundario;
         int[] foreColor;
@@ -21,10 +20,6 @@ namespace Grafica
         }
 
         public string Idioma { get => idioma; set => idioma = value; }
-        //public Color Fondo { get => fondo; set => fondo = value; }
-        //public Color ColorSecundario { get => colorSecundario; set => colorSecundario = value; }
-
-
         public int[] Fondo { get => fondo; set => fondo = value; }
         public int[] ColorSecundario { get => colorSecundario; set => colorSecundario = value; }
         public int[] ForeColor { get => foreColor; set => foreColor = value; }

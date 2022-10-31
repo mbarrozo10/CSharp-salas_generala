@@ -16,12 +16,13 @@ namespace Funcionalidad.clases
         string ganador;
         int cantidadJugadores;
         Dado dado;
+       
 
 
         public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id) : this(ganador, cantidad, date, id)
         {
             this.jugadores = jugadores;
-            Dado = new Dado();
+           dado = new Dado();
         }
         public Partida(string ganador, int cantidad, DateTime date, int id)
         {
@@ -35,7 +36,6 @@ namespace Funcionalidad.clases
         public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
         public string Ganador { get => ganador; set => ganador = value; }
         public int CantidadJugadores { get => cantidadJugadores; set => cantidadJugadores = value; }
-        public Dado Dado { get => dado; set => dado = value; }
 
         public int Id
         {
@@ -55,7 +55,7 @@ namespace Funcionalidad.clases
             {
                if (tirada[i] != discriminador)
                 {
-                    tirada[i] = Dado.Caras[rnd.Next(0, 6)];
+                    tirada[i] = dado.Caras[rnd.Next(0, 6)];
                 }
                 else
                 {

@@ -16,7 +16,7 @@ namespace Grafica
 {
     public partial class frm_MenuPrincipal : Form, IMenu
     {
-        PresentadorGenerico<IMenu> presentador;
+        PresentadorGenerico presentador;
         List<Usuario> UsuariosDisponibles;
         List<Jugador> jugadoresPartida;
         Configuracion config;
@@ -29,12 +29,15 @@ namespace Grafica
         {
             InitializeComponent();
         }
+        
+        public frm_MenuPrincipal(Configuracion config):this()
+        {
+            this.config = config;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             ControlarSubmenu(pnl_Submenu);
-           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace Grafica
 
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
-            presentador = new PresentadorGenerico<IMenu >();
+            presentador = new PresentadorGenerico();
             UsuariosDisponibles = new List<Usuario>();
             jugadoresPartida = new List<Jugador>();
             delegado = CargarIdioma;
@@ -56,18 +59,22 @@ namespace Grafica
 
         private void btn_MostrarPartidas_Click(object sender, EventArgs e)
         {
+            btn_Aceptar.Visible = false;
+            nud_CantidadJugadores.Enabled = true ;
+            lbl_Jugadores.Visible = false;
+            nud_CantidadJugadores.Visible = false;
             if (dgv_MenuPrincipal.Visible == true)
             {
                 dgv_MenuPrincipal.Visible = false;
             }
             else
             {
+                
                 presentador.DevolverPartidas(this);
                 dgv_MenuPrincipal.Visible = true;
             }
         
         }
-
 
         private void ControlarSubmenu( Panel panel)
         {
@@ -130,41 +137,8 @@ namespace Grafica
             indice = e.RowIndex;
         }
 
-        private void AgregarJugador(List<Jugador> jugadoresParaJugar)
-        {
-            Jugador jugadorAux = new Jugador(UsuariosDisponibles[indice]);
-            if (!jugadoresParaJugar.Contains(jugadorAux))
-            {
-                jugadoresParaJugar.Add(jugadorAux);
-            }
-            else
-            {
-                throw new Exception("Ya Esta agregado este jugador");
-            }
-        }
+       
 
-        private bool IniciarPartida()
-        {
-            AgregarJugador(jugadoresPartida);
-            if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
-            {
-                frm_Partida partida = new frm_Partida(jugadoresPartida, 1+turnosAJugar*(int)(nud_CantidadJugadores.Value),config);
-                this.Hide();
-                if (partida.ShowDialog() == DialogResult.OK)
-                {
-                    presentador.DevolverPartidas(this);
-                    jugadoresPartida.Clear();
-                    return true;
-                }
-                else
-                {
-                    jugadoresPartida.Clear();
-                    return true;
-                }
-                
-            }
-            return false;
-        }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
@@ -176,7 +150,7 @@ namespace Grafica
             {
                 try
                 {
-                    if (IniciarPartida())
+                    if (presentador.AgregarJugador(jugadoresPartida, UsuariosDisponibles[indice], this))
                     {
                         this.Show();
                         ControlarSubmenu(pnl_Submenu);
@@ -217,7 +191,7 @@ namespace Grafica
 
         private void CargarIdioma()
         {
-            config = Serializazdor<Configuracion>.LeerJSON("config");
+            //config = Serializazdor<Configuracion>.LeerJSON("config");
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
             lbl_Jugadores.Text = Res.Cantidad;
             btn_Aceptar.Text = Res.Aceptar;
@@ -261,23 +235,29 @@ namespace Grafica
 
         private void CargarReglas()
         {
-            switch (config.Idioma)
+            try
             {
-                case "":
-                    reglas=Archivo.Leer("reglas.txt", @".\Reglas");
-                    break;
-                case "ja":
-                    reglas=Archivo.Leer("reglasJa.txt", @".\Reglas");
-                    break;
-                case "en-US":
-                    reglas = Archivo.Leer("reglasEn.txt", @".\Reglas");
-                    break;
-                case "pl":
-                    reglas = Archivo.Leer("reglasPo.txt", @".\Reglas");
-                    break;
-                default:
-                    break;
+                switch (config.Idioma)
+                {
+                    case "":
+                        reglas=Archivo.Leer("reglas.txt", @".\Reglas");
+                        break;
+                    case "ja":
+                        reglas=Archivo.Leer("reglasJa.txt", @".\Reglas");
+                        break;
+                    case "en-US":
+                        reglas = Archivo.Leer("reglasEn.txt", @".\Reglas");
+                        break;
+                    case "pl":
+                        reglas = Archivo.Leer("reglasPo.txt", @".\Reglas");
+                        break;
+                    default:
+                        break;
 
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -290,6 +270,28 @@ namespace Grafica
                 this.Show();
                 delegado();
             }
+        }
+
+        public bool AgregarUsuario()
+        {
+            if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
+            {
+                frm_Partida partida = new frm_Partida(jugadoresPartida, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
+                this.Hide();
+                if (partida.ShowDialog() == DialogResult.OK)
+                {
+                    presentador.DevolverPartidas(this);
+                    jugadoresPartida.Clear();
+                    return true;
+                }
+                else
+                {
+                    jugadoresPartida.Clear();
+                    return true;
+                }
+
+            }
+            return false;
         }
     }
 }

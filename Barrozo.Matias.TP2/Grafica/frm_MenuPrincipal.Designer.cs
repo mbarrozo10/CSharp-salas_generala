@@ -104,6 +104,7 @@ namespace Grafica
             // dgv_MenuPrincipal
             // 
             this.dgv_MenuPrincipal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_MenuPrincipal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.dgv_MenuPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 82);
             this.dgv_MenuPrincipal.Name = "dgv_MenuPrincipal";
@@ -139,7 +140,7 @@ namespace Grafica
             this.btn_Jugadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Jugadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Jugadores.ForeColor = System.Drawing.Color.White;
-            this.btn_Jugadores.Location = new System.Drawing.Point(0, 188);
+            this.btn_Jugadores.Location = new System.Drawing.Point(0, 182);
             this.btn_Jugadores.Name = "btn_Jugadores";
             this.btn_Jugadores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Jugadores.Size = new System.Drawing.Size(172, 51);
@@ -158,7 +159,7 @@ namespace Grafica
             this.btn_Partidas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Partidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Partidas.ForeColor = System.Drawing.Color.White;
-            this.btn_Partidas.Location = new System.Drawing.Point(0, 137);
+            this.btn_Partidas.Location = new System.Drawing.Point(0, 131);
             this.btn_Partidas.Name = "btn_Partidas";
             this.btn_Partidas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Partidas.Size = new System.Drawing.Size(172, 51);
@@ -176,7 +177,7 @@ namespace Grafica
             this.pnl_Submenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Submenu.Location = new System.Drawing.Point(0, 51);
             this.pnl_Submenu.Name = "pnl_Submenu";
-            this.pnl_Submenu.Size = new System.Drawing.Size(172, 86);
+            this.pnl_Submenu.Size = new System.Drawing.Size(172, 80);
             this.pnl_Submenu.TabIndex = 6;
             this.pnl_Submenu.Visible = false;
             // 
@@ -296,7 +297,6 @@ namespace Grafica
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.FlatAppearance.BorderSize = 0;
             this.btn_Aceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Aceptar.ForeColor = System.Drawing.Color.White;

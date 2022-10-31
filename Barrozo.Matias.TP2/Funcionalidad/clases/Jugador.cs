@@ -34,16 +34,12 @@ namespace Funcionalidad.clases
             this.usuario = usuario;
             turnosJugados = 1;
             ReiniciarValores();
-            del = CheckEscalera;
-            del += CheckFull;
-            del += CheckPoker;
-            del += CheckGenerala;
+            del = RevisarEscalera;
+            del += RevisarFull;
+            del += RevisarPoker;
+            del += RevisarGenerala;
             del += AsignarANumeros;
         }
-
-        
-
-      
 
       
         public int Puntaje { get => puntaje; set => puntaje = value; }
@@ -62,7 +58,7 @@ namespace Funcionalidad.clases
         public Usuario Usuario { get => usuario; set => usuario = value; }
         public int TurnosJugados { get => turnosJugados; set => turnosJugados = value; }
 
-        public void CheckGenerala(int[] tirada)
+        public void RevisarGenerala(int[] tirada)
         {
             if ((tirada[0] == tirada[1] && tirada[1] == tirada[2]
                 && tirada[2] == tirada[3] && tirada[3] == tirada[4])&& generala==0)
@@ -81,7 +77,7 @@ namespace Funcionalidad.clases
 
         }
 
-        public void CheckEscalera(int[] tirada)
+        public void RevisarEscalera(int[] tirada)
         {
             bool verificar = true ;
             for (int i = 0; i < tirada.Length - 1; i++)
@@ -107,13 +103,14 @@ namespace Funcionalidad.clases
         }
 
 
-        public void CheckPoker(int[] tirada)
+        public void RevisarPoker(int[] tirada)
         {
             int contador = 0;
             Ordenar(tirada);
             for (int i = 0; i < tirada.Length - 1; i++)
             {
                 for (int j = i + 1; j < tirada.Length; j++)
+                {
                     if (tirada[i] == tirada[j])
                     {
                         contador++;
@@ -126,10 +123,12 @@ namespace Funcionalidad.clases
 
                         }
                     }
+
+                }
             }
         }
 
-        public void CheckFull(int[] tirada)
+        public void RevisarFull(int[] tirada)
         {
             int contadorUno = 1;
             int contadorDos = 1;
@@ -187,10 +186,10 @@ namespace Funcionalidad.clases
         public void AsignarANumeros(int[] dadosEnMesa)
         {
             int numeroSumar= Partida.GuardarNumero(dadosEnMesa);
-            if (!terminoTurno && turnosJugados==4)
+            if (!terminoTurno && turnosJugados==3)
             {
                 turnosJugados = 1;
-
+                terminoTurno = true;
                 switch (numeroSumar)
                 {
                     case 1:

@@ -19,8 +19,6 @@ namespace Funcionalidad.clases
             ruta = @"./Archivos-Serializacion"; //Crea una carpeta
         }
 
-
-
         public static void EscribirJSON(T datos, string archivo)
         {
             string completa = ruta + @"/" + archivo + ".json";

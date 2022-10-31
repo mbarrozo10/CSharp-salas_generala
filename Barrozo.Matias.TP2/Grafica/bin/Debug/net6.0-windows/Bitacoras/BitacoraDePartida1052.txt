@@ -1,0 +1,24 @@
+Virar: 1 Lista:  2 Do: MatiasTirada :6-4-3-1-1
+Virar: 2 Lista:  1 Do: pepeTirada :5-1-1-1-1
+Virar: 2 Lista:  2 Do: pepeTirada :5-4-4-2-2
+Virar: 2 Lista:  3 Do: pepeTirada :5-3-2-2-1
+Virar: 3 Lista:  1 Do: nicolasTirada :6-3-3-2-2
+Virar: 3 Lista:  2 Do: nicolasTirada :5-3-1-1-1
+Virar: 4 Lista:  1 Do: MatiasTirada :2-2-1-1-1
+Virar: 4 Lista:  2 Do: MatiasTirada :3-3-2-2-1
+Virar: 4 Lista:  3 Do: MatiasTirada :6-6-3-2-2
+Virar: 5 Lista:  1 Do: pepeTirada :6-5-2-2-2
+Virar: 5 Lista:  2 Do: pepeTirada :6-2-2-1-1
+Virar: 5 Lista:  3 Do: pepeTirada :3-2-1-1-1
+Virar: 6 Lista:  1 Do: nicolasTirada :4-1-1-1-1
+Virar: 6 Lista:  2 Do: nicolasTirada :6-5-2-2-1
+Virar: 7 Lista:  1 Do: MatiasTirada :4-4-2-2-2
+Virar: 7 Lista:  2 Do: MatiasTirada :6-4-3-1-1
+Virar: 8 Lista:  1 Do: pepeTirada :3-3-1-1-1
+Virar: 8 Lista:  2 Do: pepeTirada :6-4-4-4-1
+Virar: 8 Lista:  3 Do: pepeTirada :4-4-4-4-1
+Virar: 9 Lista:  1 Do: nicolasTirada :4-4-4-4-2
+Virar: 9 Lista:  2 Do: nicolasTirada :6-6-6-2-1
+Virar: 9 Lista:  3 Do: nicolasTirada :6-6-6-6-5
+Virar: 10 Lista:  1 Do: MatiasTirada :6-6-6-6-5
+

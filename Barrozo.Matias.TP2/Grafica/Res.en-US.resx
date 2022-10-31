@@ -138,6 +138,9 @@
   <data name="Empate" xml:space="preserve">
     <value>Tie</value>
   </data>
+  <data name="ErrorLogin" xml:space="preserve">
+    <value>Some data is wrong</value>
+  </data>
   <data name="Español" xml:space="preserve">
     <value>Spanish</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="Ingles" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="Inicio" xml:space="preserve">
+    <value>Login</value>
   </data>
   <data name="Inverso" xml:space="preserve">
     <value>Reverse</value>
