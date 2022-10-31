@@ -102,12 +102,14 @@ namespace Grafica
             rdb_Oscuro.Text = Res.Oscuro;
             rdb_Portugues.Text = Res.Portugues;
             btn_Guardar.Text = Res.Guardar;
+            btn_Volver.Text = Res.Volver;
         }
 
         void CargarColor()
         {
             this.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Guardar.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_Volver.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             grp_Color.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             grp_Idioma.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             rdb_Claro.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
@@ -117,13 +119,19 @@ namespace Grafica
             rdb_Oscuro.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             rdb_Portugues.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Guardar.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            
+            btn_Volver.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+
         }
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
             Serializazdor<Configuracion>.EscribirJSON(this.config, "config");
             DialogResult = DialogResult.OK;
+        }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

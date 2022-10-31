@@ -38,6 +38,7 @@
             this.rdb_Ingles = new System.Windows.Forms.RadioButton();
             this.rdb_Español = new System.Windows.Forms.RadioButton();
             this.btn_Guardar = new System.Windows.Forms.Button();
+            this.btn_Volver = new System.Windows.Forms.Button();
             this.grp_Color.SuspendLayout();
             this.grp_Idioma.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +154,7 @@
             // 
             // btn_Guardar
             // 
-            this.btn_Guardar.Location = new System.Drawing.Point(345, 375);
+            this.btn_Guardar.Location = new System.Drawing.Point(591, 415);
             this.btn_Guardar.Name = "btn_Guardar";
             this.btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_Guardar.TabIndex = 2;
@@ -161,11 +162,22 @@
             this.btn_Guardar.UseVisualStyleBackColor = true;
             this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
+            // btn_Volver
+            // 
+            this.btn_Volver.Location = new System.Drawing.Point(499, 415);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(75, 23);
+            this.btn_Volver.TabIndex = 3;
+            this.btn_Volver.Text = "Volver";
+            this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
+            // 
             // frm_Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Volver);
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.grp_Idioma);
             this.Controls.Add(this.grp_Color);
@@ -192,5 +204,6 @@
         private RadioButton rdb_Ingles;
         private RadioButton rdb_Español;
         private Button btn_Guardar;
+        private Button btn_Volver;
     }
 }

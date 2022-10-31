@@ -59,10 +59,9 @@ namespace Grafica
 
         private void btn_MostrarPartidas_Click(object sender, EventArgs e)
         {
-            btn_Aceptar.Visible = false;
             nud_CantidadJugadores.Enabled = true ;
-            lbl_Jugadores.Visible = false;
-            nud_CantidadJugadores.Visible = false;
+            pnl_Jugar.Visible = false ;
+            btn_AgregarJugador.Visible = false ;
             if (dgv_MenuPrincipal.Visible == true)
             {
                 dgv_MenuPrincipal.Visible = false;
@@ -91,9 +90,17 @@ namespace Grafica
         {
             presentador.DevolverUsuarios(this);
             dgv_MenuPrincipal.Visible=true;
-            nud_CantidadJugadores.Visible = true;
-            lbl_Jugadores.Visible = true;
-            btn_Aceptar.Visible = true;
+            //nud_CantidadJugadores.Visible = true;
+            //lbl_Jugadores.Visible = true;
+            //btn_Aceptar.Visible = true;
+            if(pnl_Jugar.Visible == true)
+            {
+                pnl_Jugar.Visible = false;
+            }
+            else
+            {
+                pnl_Jugar.Visible = true;
+            }
             turnosAJugar = 3;
          
         }
@@ -103,9 +110,17 @@ namespace Grafica
             presentador.DevolverUsuarios(this);
             MostrarDatos(UsuariosDisponibles);
             dgv_MenuPrincipal.Visible = true;
-            nud_CantidadJugadores.Visible = true;
-            lbl_Jugadores.Visible = true;
-            btn_Aceptar.Visible = true;
+            //nud_CantidadJugadores.Visible = true;
+            //lbl_Jugadores.Visible = true;
+            //btn_Aceptar.Visible = true;
+            if (pnl_Jugar.Visible == true)
+            {
+                pnl_Jugar.Visible = false;
+            }
+            else
+            {
+                pnl_Jugar.Visible = true;
+            }
             turnosAJugar = 6;
         }
 
@@ -139,29 +154,8 @@ namespace Grafica
         }
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            if (nud_CantidadJugadores.Enabled == true)
-            {
-                nud_CantidadJugadores.Enabled = false;
-            }
-            else
-            {
-                try
-                {
-                    if (presentador.AgregarJugador(jugadoresPartida, UsuariosDisponibles[indice], this))
-                    {
-                        this.Show();
-                        ControlarSubmenu(pnl_Submenu);
-                        nud_CantidadJugadores.Enabled = true;
-                        nud_CantidadJugadores.Visible = false;
-                        btn_Aceptar.Visible = false;
-                        lbl_Jugadores.Visible = false ;
-                    }
-                }catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            
+            nud_CantidadJugadores.Enabled = false;
+            btn_AgregarJugador.Visible = true;
         }
 
         private void btn_Reglas_Click(object sender, EventArgs e)
@@ -191,13 +185,14 @@ namespace Grafica
             //config = Serializazdor<Configuracion>.LeerJSON("config");
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
             lbl_Jugadores.Text = Res.Cantidad;
-            btn_Aceptar.Text = Res.Aceptar;
+            btn_AceptarCantidad.Text = Res.Aceptar;
             btn_Demo.Text = Res.Demo;
             btn_Partidas.Text = Res.Partidas;
             btn_Full.Text = Res.Juego;
             btn_Jugadores.Text = Res.Jugadores;
             btn_Salir.Text = Res.Salir;
             btn_PartidaNueva.Text = Res.Nueva;
+            btn_AgregarJugador.Text = Res.Aceptar;
         }
 
         private void CargarColor()
@@ -206,7 +201,8 @@ namespace Grafica
             pnl_Menu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
             pnl_Submenu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
             pnl_Superior.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
-            btn_Aceptar.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_AceptarCantidad.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_AgregarJugador.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Configuracion.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Demo.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Full.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
@@ -217,7 +213,7 @@ namespace Grafica
             btn_Reglas.BackColor= Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
 
             lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_Aceptar.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Demo.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Full.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
@@ -226,6 +222,7 @@ namespace Grafica
             btn_PartidaNueva.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Reglas.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Configuracion.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
+            btn_AgregarJugador.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
 
 
         }
@@ -267,6 +264,10 @@ namespace Grafica
                 this.Show();
                 delegado();
             }
+            else
+            {
+                this.Show();
+            }
         }
 
         public bool AgregarUsuario()
@@ -279,16 +280,38 @@ namespace Grafica
                 {
                     presentador.DevolverPartidas(this);
                     jugadoresPartida.Clear();
+                    pnl_Jugar.Visible = false;
                     return true;
                 }
                 else
                 {
                     jugadoresPartida.Clear();
+                    pnl_Jugar.Visible = false;
                     return true;
                 }
 
             }
             return false;
+        }
+
+        private void bnt_AgregarJugador_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (presentador.AgregarJugador(jugadoresPartida, UsuariosDisponibles[indice], this))
+                {
+                    this.Show();
+                    ControlarSubmenu(pnl_Submenu);
+                    nud_CantidadJugadores.Enabled = true;
+                    nud_CantidadJugadores.Visible = false;
+                    btn_AceptarCantidad.Visible = false;
+                    lbl_Jugadores.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

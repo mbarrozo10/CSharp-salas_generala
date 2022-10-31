@@ -47,14 +47,17 @@ namespace Grafica
             this.btn_Reglas = new System.Windows.Forms.Button();
             this.lbl_Jugadores = new System.Windows.Forms.Label();
             this.nud_CantidadJugadores = new System.Windows.Forms.NumericUpDown();
-            this.btn_Aceptar = new System.Windows.Forms.Button();
+            this.btn_AceptarCantidad = new System.Windows.Forms.Button();
             this.rtx_Reglas = new System.Windows.Forms.RichTextBox();
+            this.pnl_Jugar = new System.Windows.Forms.Panel();
+            this.btn_AgregarJugador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Submenu.SuspendLayout();
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).BeginInit();
+            this.pnl_Jugar.SuspendLayout();
             this.SuspendLayout();
             // 
             // ganadorDataGridViewTextBoxColumn
@@ -106,7 +109,7 @@ namespace Grafica
             this.dgv_MenuPrincipal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_MenuPrincipal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.dgv_MenuPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 82);
+            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(340, 82);
             this.dgv_MenuPrincipal.Name = "dgv_MenuPrincipal";
             this.dgv_MenuPrincipal.RowTemplate.Height = 25;
             this.dgv_MenuPrincipal.Size = new System.Drawing.Size(494, 459);
@@ -265,16 +268,15 @@ namespace Grafica
             // 
             this.lbl_Jugadores.AutoSize = true;
             this.lbl_Jugadores.ForeColor = System.Drawing.Color.White;
-            this.lbl_Jugadores.Location = new System.Drawing.Point(228, 55);
+            this.lbl_Jugadores.Location = new System.Drawing.Point(3, 13);
             this.lbl_Jugadores.Name = "lbl_Jugadores";
             this.lbl_Jugadores.Size = new System.Drawing.Size(129, 15);
             this.lbl_Jugadores.TabIndex = 6;
             this.lbl_Jugadores.Text = "Cantidad de jugadores:";
-            this.lbl_Jugadores.Visible = false;
             // 
             // nud_CantidadJugadores
             // 
-            this.nud_CantidadJugadores.Location = new System.Drawing.Point(376, 53);
+            this.nud_CantidadJugadores.Location = new System.Drawing.Point(8, 40);
             this.nud_CantidadJugadores.Maximum = new decimal(new int[] {
             4,
             0,
@@ -293,21 +295,19 @@ namespace Grafica
             0,
             0,
             0});
-            this.nud_CantidadJugadores.Visible = false;
             // 
-            // btn_Aceptar
+            // btn_AceptarCantidad
             // 
-            this.btn_Aceptar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.btn_Aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Aceptar.ForeColor = System.Drawing.Color.White;
-            this.btn_Aceptar.Location = new System.Drawing.Point(436, 53);
-            this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Aceptar.TabIndex = 8;
-            this.btn_Aceptar.Text = "Aceptar";
-            this.btn_Aceptar.UseVisualStyleBackColor = true;
-            this.btn_Aceptar.Visible = false;
-            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
+            this.btn_AceptarCantidad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_AceptarCantidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AceptarCantidad.ForeColor = System.Drawing.Color.White;
+            this.btn_AceptarCantidad.Location = new System.Drawing.Point(58, 40);
+            this.btn_AceptarCantidad.Name = "btn_AceptarCantidad";
+            this.btn_AceptarCantidad.Size = new System.Drawing.Size(75, 23);
+            this.btn_AceptarCantidad.TabIndex = 8;
+            this.btn_AceptarCantidad.Text = "Aceptar";
+            this.btn_AceptarCantidad.UseVisualStyleBackColor = true;
+            this.btn_AceptarCantidad.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
             // rtx_Reglas
             // 
@@ -319,17 +319,42 @@ namespace Grafica
             this.rtx_Reglas.Text = "";
             this.rtx_Reglas.Visible = false;
             // 
+            // pnl_Jugar
+            // 
+            this.pnl_Jugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Jugar.Controls.Add(this.lbl_Jugadores);
+            this.pnl_Jugar.Controls.Add(this.nud_CantidadJugadores);
+            this.pnl_Jugar.Controls.Add(this.btn_AceptarCantidad);
+            this.pnl_Jugar.Location = new System.Drawing.Point(170, 88);
+            this.pnl_Jugar.Name = "pnl_Jugar";
+            this.pnl_Jugar.Size = new System.Drawing.Size(154, 80);
+            this.pnl_Jugar.TabIndex = 10;
+            this.pnl_Jugar.Visible = false;
+            // 
+            // btn_AgregarJugador
+            // 
+            this.btn_AgregarJugador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_AgregarJugador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AgregarJugador.ForeColor = System.Drawing.Color.White;
+            this.btn_AgregarJugador.Location = new System.Drawing.Point(840, 81);
+            this.btn_AgregarJugador.Name = "btn_AgregarJugador";
+            this.btn_AgregarJugador.Size = new System.Drawing.Size(75, 23);
+            this.btn_AgregarJugador.TabIndex = 9;
+            this.btn_AgregarJugador.Text = "Aceptar";
+            this.btn_AgregarJugador.UseVisualStyleBackColor = true;
+            this.btn_AgregarJugador.Visible = false;
+            this.btn_AgregarJugador.Click += new System.EventHandler(this.bnt_AgregarJugador_Click);
+            // 
             // frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.Controls.Add(this.btn_AgregarJugador);
+            this.Controls.Add(this.pnl_Jugar);
             this.Controls.Add(this.dgv_MenuPrincipal);
             this.Controls.Add(this.rtx_Reglas);
-            this.Controls.Add(this.btn_Aceptar);
-            this.Controls.Add(this.nud_CantidadJugadores);
-            this.Controls.Add(this.lbl_Jugadores);
             this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.pnl_Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -343,8 +368,9 @@ namespace Grafica
             this.pnl_Submenu.ResumeLayout(false);
             this.pnl_Superior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).EndInit();
+            this.pnl_Jugar.ResumeLayout(false);
+            this.pnl_Jugar.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -363,9 +389,11 @@ namespace Grafica
         private Button btn_Jugadores;
         private Label lbl_Jugadores;
         private NumericUpDown nud_CantidadJugadores;
-        private Button btn_Aceptar;
+        private Button btn_AceptarCantidad;
         private Button btn_Reglas;
         private RichTextBox rtx_Reglas;
         private Button btn_Configuracion;
+        private Panel pnl_Jugar;
+        private Button btn_AgregarJugador;
     }
 }
