@@ -100,6 +100,7 @@ namespace Grafica
 
         private void btn_Full_Click(object sender, EventArgs e)
         {
+            presentador.DevolverUsuarios(this);
             MostrarDatos(UsuariosDisponibles);
             dgv_MenuPrincipal.Visible = true;
             nud_CantidadJugadores.Visible = true;
@@ -136,10 +137,6 @@ namespace Grafica
         {
             indice = e.RowIndex;
         }
-
-       
-
-
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             if (nud_CantidadJugadores.Enabled == true)

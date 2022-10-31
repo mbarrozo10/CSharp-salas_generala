@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -185,63 +186,185 @@ namespace Funcionalidad.clases
 
         public void AsignarANumeros(int[] dadosEnMesa)
         {
+            int vueltasEnWhile = 0;
+            int numeroRepetido = 0;
+            bool salir =false;
             int numeroSumar= Partida.GuardarNumero(dadosEnMesa);
             if (!terminoTurno && turnosJugados==3)
             {
                 turnosJugados = 1;
-                terminoTurno = true;
-                switch (numeroSumar)
+                do
                 {
-                    case 1:
-                        if (Uno == 0)
-                        {
-                            Uno = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Uno;
-                        }
-                        break;
-                    case 2:
-                        if (Dos == 0)
-                        {
-                            Dos = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Dos;
-                        }
-                        break;
-                    case 3:
-                        if (Tres == 0)
-                        {
-                            Tres = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Tres;
-                        }
-                        break;
-                    case 4:
-                        if (Cuatro == 0)
-                        {
-                            Cuatro = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Cuatro;
-                        }
-                        break;
-                    case 5:
-                        if (Cinco == 0)
-                        {
-                            Cinco = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Cinco;
-                        }
-                        break;
-                    case 6:
-                        if (Seis == 0)
-                        {
-                            Seis = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                            puntaje += Seis;
+                    terminoTurno = true;
+                    switch (numeroSumar)
+                    {
+                        case 1:
+                            if (Uno == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Uno = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Uno;
+                                    salir = true;
+                                }
+                                else if (terminoTurno)
+                                {
+                                    Uno = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
+                            break;
+                        case 2:
+                            if (Dos == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Dos = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Dos;
+                                    salir = true;
+                                }
+                                else if (terminoTurno)
+                                {
+                                    Dos = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
 
-                        }
-                        break;
-                }
+                            break;
+                        case 3:
+                            if (Tres == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Tres = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Tres;
+                                    salir = true;
+                                }
+                                else if (terminoTurno)
+                                {
+                                    Tres = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
+                            break;
+                        case 4:
+                            if (Cuatro == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Cuatro = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Cuatro;
+                                    salir = true;
+                                }
+                                else if (terminoTurno)
+                                {
+                                    Cuatro = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
+                            break;
+                        case 5:
+                            if (Cinco == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Cinco = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Cinco;
+                                    salir = true;
+                                }
+                                else if (terminoTurno)
+                                {
+                                    Cinco = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
+                            break;
+                        case 6:
+                            if (Seis == 0)
+                            {
+                                if (!salir)
+                                {
+                                    Seis = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
+                                    puntaje += Seis;
+                                    salir = true;
+                                }
+                                else if (terminoTurno && Seis==0)
+                                {
+                                    Seis = -1;
+                                    salir = true;
+                                }
+                                else
+                                {
+                                    numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                                }
+                            }
+                            else
+                            {
+                                numeroRepetido = numeroSumar;
+                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                            }
+                            break;
+
+                    }
+                    vueltasEnWhile++;
+                    if (vueltasEnWhile > 3)
+                    {
+                        Random rnd = new Random();
+                        numeroSumar = rnd.Next(1, 7);
+                    }
+                } while (!salir);
             }
             else if(!terminoTurno)
             {
                 turnosJugados++;
             }
         }
+
 
         private int BuscarCantidad(int[] dadosEnMesa, int numeroSumar)
         {
@@ -255,6 +378,31 @@ namespace Funcionalidad.clases
             }
 
             return contador;
+        }
+
+        private int Tachar(int[] dadosEnMesa, int numeroRepetido)
+        {
+            Dado dado = new Dado();
+            int minimo = 5;
+            int retorno = 0;
+            foreach (int cara in dado.Caras)
+            {
+                int contador = 0;
+                foreach (int numeroEnArray in dadosEnMesa)
+                {
+                    if (cara == numeroEnArray && cara!= numeroRepetido)
+                    {
+                        contador++;
+                    }
+                }
+                if (contador < minimo)
+                {
+                    minimo = contador;
+                    retorno = cara;
+                }
+            }
+
+            return retorno;
         }
 
         private void ReiniciarValores()

@@ -19,6 +19,9 @@
           },
           "ja/Grafica.resources.dll": {
             "locale": "ja"
+          },
+          "pl/Grafica.resources.dll": {
+            "locale": "pl"
           }
         }
       },

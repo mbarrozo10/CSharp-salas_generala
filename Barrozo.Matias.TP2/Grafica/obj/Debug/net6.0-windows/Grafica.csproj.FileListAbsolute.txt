@@ -119,9 +119,6 @@ C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\Funcionalidad.dll
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\Funcionalidad.pdb
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.csproj.AssemblyReference.cache
-C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frmLogin.resources
-C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frmMenuPrincipal.resources
-C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frmPartida.resources
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.csproj.GenerateResource.cache
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.AssemblyInfoInputs.cache
@@ -189,3 +186,17 @@ C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\
 C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\pl\Grafica.resources.dll
 C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.Res.pl.resources
 C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\pl\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\en-US\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\ja\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\pl\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frm_Configuracion.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frm_Login.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frm_MenuPrincipal.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frm_Partida.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.Res.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.Res.en-US.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.Res.ja.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.Res.pl.resources
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\en-US\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\ja\Grafica.resources.dll
+C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\pl\Grafica.resources.dll
