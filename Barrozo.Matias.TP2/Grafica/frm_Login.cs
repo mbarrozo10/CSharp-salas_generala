@@ -59,9 +59,10 @@ namespace Grafica
             this.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             txt_Contraseña.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             txt_Usuario.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_Login.BackColor= Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
 
-            lbl_Error.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            lbl_Login.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            //lbl_Error.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            //lbl_Login.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             txt_Contraseña.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             txt_Usuario.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Login.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);

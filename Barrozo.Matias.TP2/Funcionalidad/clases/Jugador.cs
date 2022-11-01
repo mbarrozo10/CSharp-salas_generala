@@ -27,9 +27,8 @@ namespace Funcionalidad.clases
         int cuatro;
         int cinco;
         int seis;
-        
-        public DTiradas del;
         public delegate void DTiradas(int[] tirada);
+        public DTiradas del;
         public Jugador(Usuario usuario)
         {
             this.usuario = usuario;
@@ -80,26 +79,17 @@ namespace Funcionalidad.clases
 
         public void RevisarEscalera(int[] tirada)
         {
-            bool verificar = true ;
-            for (int i = 0; i < tirada.Length - 1; i++)
+            Ordenar(tirada);
+            if (tirada[4]+1 == tirada[3] && tirada[3]+1 == tirada[2]&& tirada[2]+1 == tirada[1] && tirada[1]+1 == tirada[0] )
             {
-                for (int j = i + 1; j < tirada.Length; j++)
+                if(escalera == 0)
                 {
-                    if (tirada[j] == tirada[i])
-                    {
-                        
-                        verificar =false;
-                        break;
-                    }
-                }
-            }
-            if(verificar && escalera == 0)
-            {
-                escalera = 20;
-                puntaje += 20;
-                TerminoTurno = true;
-                turnosJugados = 1;
+                    escalera = 20;
+                    puntaje += 20;
+                    TerminoTurno = true;
+                    turnosJugados = 1;
 
+                }
             }
         }
 
@@ -186,41 +176,35 @@ namespace Funcionalidad.clases
 
         public void AsignarANumeros(int[] dadosEnMesa)
         {
-            int vueltasEnWhile = 0;
-            int numeroRepetido = 0;
-            bool salir =false;
-            int numeroSumar= Partida.GuardarNumero(dadosEnMesa);
             if (!terminoTurno && turnosJugados==3)
             {
+                int vueltasEnWhile = 0;
+                int numeroRepetido = 0; 
+                bool salir =false;
+                int numeroSumar= Partida.GuardarNumero(dadosEnMesa);
                 turnosJugados = 1;
                 do
                 {
-                    terminoTurno = true;
                     switch (numeroSumar)
                     {
                         case 1:
                             if (Uno == 0)
                             {
-                                if (!salir)
+                                if (terminoTurno)
+                                {
+                                    Uno = -1;
+                                    salir = true;
+                                }  
+                                else if (!salir)
                                 {
                                     Uno = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
                                     puntaje += Uno;
-                                    salir = true;
-                                }
-                                else if (terminoTurno)
-                                {
-                                    Uno = -1;
                                     salir = true;
                                 }
                                 else
                                 {
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
-                            }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                             }
                             break;
                         case 2:
@@ -241,11 +225,6 @@ namespace Funcionalidad.clases
                                 {
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
-                            }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                             }
 
                             break;
@@ -268,11 +247,6 @@ namespace Funcionalidad.clases
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
                             }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
-                            }
                             break;
                         case 4:
                             if (Cuatro == 0)
@@ -292,11 +266,6 @@ namespace Funcionalidad.clases
                                 {
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
-                            }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                             }
                             break;
                         case 5:
@@ -318,11 +287,6 @@ namespace Funcionalidad.clases
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
                             }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
-                            }
                             break;
                         case 6:
                             if (Seis == 0)
@@ -333,7 +297,7 @@ namespace Funcionalidad.clases
                                     puntaje += Seis;
                                     salir = true;
                                 }
-                                else if (terminoTurno && Seis==0)
+                                else if (terminoTurno)
                                 {
                                     Seis = -1;
                                     salir = true;
@@ -343,16 +307,18 @@ namespace Funcionalidad.clases
                                     numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
                                 }
                             }
-                            else
-                            {
-                                numeroRepetido = numeroSumar;
-                                numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
-                            }
+                           
                             break;
 
                     }
+                    if(Uno!=0 || Dos!=0 || Tres!=0 || Cuatro !=0 || Cinco != 0 || Seis != 0)
+                    {
+                        numeroRepetido = numeroSumar;
+                        numeroSumar = Tachar(dadosEnMesa, numeroRepetido);
+                    }
+                    terminoTurno = true;
                     vueltasEnWhile++;
-                    if (vueltasEnWhile > 3)
+                    if (vueltasEnWhile > 3 && !salir)
                     {
                         Random rnd = new Random();
                         numeroSumar = rnd.Next(1, 7);

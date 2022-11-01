@@ -15,6 +15,10 @@ namespace Grafica
     public partial class frm_Configuracion : Form
     {
         Configuracion config;
+        string idioma="";
+        int[] fondo;
+        int[] colorSecundario;
+        int[] foreColor;
         public frm_Configuracion()
         {
             InitializeComponent();
@@ -38,21 +42,21 @@ namespace Grafica
                 switch (radio.Name)
                 {
                     case "rdb_Claro":
-                        config.Fondo = new int[3] {255,255,255};
-                        config.ColorSecundario = new int[3] { 34, 34, 54 };
-                        config.ForeColor = new int[3] { 34, 34, 34 };
+                        fondo = new int[3] {255,255,255};
+                        colorSecundario = new int[3] { 34, 34, 54 };
+                        foreColor = new int[3] { 34, 34, 34 };
                         break;
                     case "rdb_Oscuro":
-                        config.Fondo = new int[3] { 34, 34, 34 };
-                        config.ColorSecundario = new int[3] { 34, 34, 54 };
-                        config.ForeColor = new int[3] { 255, 255, 255 };
+                        fondo = new int[3] { 34, 34, 34 };
+                        colorSecundario = new int[3] { 34, 34, 54 };
+                        foreColor = new int[3] { 255, 255, 255 };
                         //config.Fondo = Color.FromArgb(34,34,34);
                         //config.ColorSecundario = Color.FromArgb(34, 34, 54);
                         break;
                     case "rdb_Inverso":
-                        config.Fondo = new int[3] { 34, 34, 54 };
-                        config.ColorSecundario = new int[3] { 34, 34, 34 };
-                        config.ForeColor = new int[3] { 255, 255, 255 };
+                        fondo = new int[3] { 34, 34, 54 };
+                        colorSecundario = new int[3] { 34, 34, 34 };
+                        foreColor = new int[3] { 255, 255, 255 };
 
                         //config.Fondo = Color.FromArgb(34,34,54);
                         //config.ColorSecundario = Color.FromArgb(34, 34, 34);
@@ -71,16 +75,16 @@ namespace Grafica
                 switch (radio.Name)
                 {
                     case "rdb_Español":
-                        config.Idioma = "";
+                        idioma = "";
                         break;
                     case "rdb_Ingles":
-                        config.Idioma = "en-US";
+                        idioma = "en-US";
                         break;
                     case "rdb_Japones":
-                        config.Idioma = "ja";
+                        idioma = "ja";
                         break;
                     case "rdb_Portugues":
-                        config.Idioma = "pl";
+                        idioma = "pl";
                         break;
                     case null:
                         break;
@@ -125,6 +129,10 @@ namespace Grafica
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
+            config.Idioma = idioma;
+            config.Fondo = fondo;
+            config.ColorSecundario = colorSecundario;
+            config.ForeColor = foreColor;
             Serializazdor<Configuracion>.EscribirJSON(this.config, "config");
             DialogResult = DialogResult.OK;
         }

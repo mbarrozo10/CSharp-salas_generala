@@ -204,8 +204,8 @@ namespace Grafica
             btn_AceptarCantidad.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_AgregarJugador.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Configuracion.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Demo.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Full.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_Demo.BackColor = Color.FromArgb(44,44,44);
+            btn_Full.BackColor = Color.FromArgb(44,44,44);
             btn_Jugadores.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_PartidaNueva.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Salir.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
@@ -214,9 +214,9 @@ namespace Grafica
 
             lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            btn_Demo.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_Full.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
+            //btn_Demo.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            //btn_Full.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Salir.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_PartidaNueva.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
@@ -281,12 +281,14 @@ namespace Grafica
                     presentador.DevolverPartidas(this);
                     jugadoresPartida.Clear();
                     pnl_Jugar.Visible = false;
+                    btn_AgregarJugador.Visible = false;
                     return true;
                 }
                 else
                 {
                     jugadoresPartida.Clear();
                     pnl_Jugar.Visible = false;
+                    btn_AgregarJugador.Visible = false;
                     return true;
                 }
 
@@ -312,6 +314,27 @@ namespace Grafica
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        int m, mx, my;
+
+        private void pnl_Superior_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+        private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
+
+        private void pnl_Superior_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
         }
     }
 }

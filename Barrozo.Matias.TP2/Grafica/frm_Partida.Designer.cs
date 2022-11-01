@@ -157,6 +157,9 @@ namespace Grafica
             this.pnl_Superior.Name = "pnl_Superior";
             this.pnl_Superior.Size = new System.Drawing.Size(1119, 37);
             this.pnl_Superior.TabIndex = 6;
+            this.pnl_Superior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseDown);
+            this.pnl_Superior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseMove);
+            this.pnl_Superior.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseUp);
             // 
             // btn_Volver
             // 

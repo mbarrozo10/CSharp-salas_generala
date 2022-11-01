@@ -14,9 +14,9 @@ namespace Funcionalidad
 
         public void ConseguirUltimoId(int id);
 
-        public void Informacion(Partida partidaActual);
+        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice);
 
-        public void ActualizarDatagrid(Partida partidaActual, int turnosJugados, int indice);
+        public void ActualizarDatagrid(Partida partidaActual);
 
         public void FinalizarPartida(string Ganador);
 

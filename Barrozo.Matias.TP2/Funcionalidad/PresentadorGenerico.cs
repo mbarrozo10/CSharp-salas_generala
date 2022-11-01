@@ -46,10 +46,10 @@ namespace Funcionalidad
 
         }
 
-        public string TirarDados<U>(U obj)where U : IPartida
+        public void TirarDados<U>(U obj)where U : IPartida
         {
             string retorno;
-            obj.Informacion(partidaActual);
+            //obj.Informacion(partidaActual);
             if (partidaActual.Jugadores[indice].TurnosJugados == 1)
             {
                 partidaActual.TirarDados(5, -1, dadosEnMesa);
@@ -66,8 +66,9 @@ namespace Funcionalidad
             retorno += "-" + dadosEnMesa[4].ToString();
 
 
+            obj.Informacion(partidaActual,retorno, turnosJugados, indice);
             // revisar en futuro
-            this.Revisar(obj, partidaActual.Jugadores[indice]);
+            Revisar(obj, partidaActual.Jugadores[indice]);
 
             //bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
 
@@ -79,13 +80,13 @@ namespace Funcionalidad
                 //partidaActual.Jugadores[indice].TurnosJugados = 1;
                 CambiarJugador(obj);
             }
-            obj.Informacion(partidaActual);
-            obj.ActualizarDatagrid(partidaActual,turnosJugados,indice);
-            return retorno;
+            obj.ActualizarDatagrid(partidaActual);
         }
 
         void CambiarJugador<U>(U obj)where U : IPartida
         {
+            //obj.Informacion(partidaActual);
+
             dadosEnMesa = new int[5];
             if (indice != partidaActual.Jugadores.Count - 1)
             {
@@ -98,8 +99,7 @@ namespace Funcionalidad
             turnosJugados++;
             if (turnosJugados == turnosMaximos)
             {
-                obj.ActualizarDatagrid(partidaActual, turnosJugados, indice);
-                //tmrTiempoPartida.Stop();
+                obj.ActualizarDatagrid(partidaActual);
 
                 partidaActual.Ganador = EncontrarGanador();
                 

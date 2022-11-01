@@ -45,8 +45,10 @@ namespace Grafica
  
         }
 
-        public void Informacion(Partida partidaActual)
+        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice)
         {
+            lbl_Dados.Text = tirada;
+            lblTurnoJugador.Text = Res.Turno + turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
 
             lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre + " "+ Res.Puntaje + partidaActual.Jugadores[0].Puntaje;
             lbl_Jugador2.Text = Res.Jugador + partidaActual.Jugadores[1].Usuario.Nombre + " " + Res.Puntaje + partidaActual.Jugadores[1].Puntaje;
@@ -74,14 +76,13 @@ namespace Grafica
             int horaInt = int.Parse(hora.ToString("ss"));
             if (horaInt % 2 == 0)
             {
-                lbl_Dados.Text = presentador.TirarDados(this);
+                presentador.TirarDados(this);
                 bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
             }
         }
 
-        public void ActualizarDatagrid(Partida partidaActual, int turnosJugados, int indice)
+        public void ActualizarDatagrid(Partida partidaActual)
         {
-            lblTurnoJugador.Text = Res.Turno + turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
             if (primerTirada)
             {
                 primerTirada = false;
@@ -263,6 +264,28 @@ namespace Grafica
             tmrTiempoPartida.Stop();
             MessageBox.Show(Res.Ganador + ganador);
             pnl_GuardarPartida.Visible = true;
+        }
+
+        int m, mx, my;
+
+        private void pnl_Superior_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+        private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
+
+        private void pnl_Superior_MouseUp(object sender, MouseEventArgs e)
+        {
+            m = 0;
         }
     }
 }
