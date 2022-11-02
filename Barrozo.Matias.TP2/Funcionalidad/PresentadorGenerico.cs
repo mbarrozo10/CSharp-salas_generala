@@ -16,7 +16,8 @@ namespace Funcionalidad
         private int turnosMaximos;
         private int turnosJugados=1;
 
-
+        //public delegate string DGanador();
+        //public event DGanador EventEncontrarGanador;
         //Menu Principal
         public void DevolverPartidas<U>(U obj) where U : IMenu
         {
@@ -99,35 +100,29 @@ namespace Funcionalidad
             turnosJugados++;
             if (turnosJugados == turnosMaximos)
             {
+                for (int i=0; i < partidaActual.Jugadores.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        partidaActual.EventAction += partidaActual.Jugadores[i].SumarPuntaje;
+                    }
+                    else
+                    {
+                        partidaActual.EventAction += partidaActual.Jugadores[i].SumarPuntaje;
+                    }
+                }
+                 
                 obj.ActualizarDatagrid(partidaActual);
 
-                partidaActual.Ganador = EncontrarGanador();
-                
+                partidaActual.EncontrarGanador();
+
                 obj.FinalizarPartida(partidaActual.Ganador);
 
             }
 
         }
 
-        string EncontrarGanador()
-        {
-            string ganador = "Empate";
-            int puntajeMaximo = 0;
-            foreach (Jugador jugador in partidaActual.Jugadores)
-            {
-                if (jugador.Puntaje > puntajeMaximo)
-                {
-                    puntajeMaximo = jugador.Puntaje;
-                    ganador = jugador.Usuario.Nombre;
-                }
-                else if (jugador.Puntaje == puntajeMaximo)
-                {
-                    ganador = "Empate";
-                }
-            }
-
-            return ganador;
-        }
+        
 
         public void GuardarPartida()
         {
@@ -145,18 +140,9 @@ namespace Funcionalidad
         {
             bool encontroError = false;
             Jugador jugadorAux = new Jugador(usuario);
-            //if (!jugadoresPartida.Contains(jugadorAux))
-            //{
-            //    jugadoresPartida.Add(jugadorAux);
-            //}
-            //else
-            //{
-            //    throw new Exception("Ya Esta agregado este jugador");
-            //}
             if (jugadoresPartida.Count == 0)
             {
                 jugadoresPartida.Add(jugadorAux);
-
             }
             else
             {

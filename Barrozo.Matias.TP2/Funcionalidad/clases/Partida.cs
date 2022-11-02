@@ -16,7 +16,7 @@ namespace Funcionalidad.clases
         string ganador;
         int cantidadJugadores;
         Dado dado;
-       
+        public event Action EventAction;
 
 
         public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id) : this(ganador, cantidad, date, id)
@@ -87,6 +87,24 @@ namespace Funcionalidad.clases
                 }
             }
             return retorno;
+        }
+
+        public void EncontrarGanador()
+        {
+            EventAction();
+            int puntajeMaximo = 0;
+            foreach (Jugador jugador in Jugadores)
+            {
+                if (jugador.Puntaje > puntajeMaximo)
+                {
+                    puntajeMaximo = jugador.Puntaje;
+                    Ganador = jugador.Usuario.Nombre;
+                }
+                else if (jugador.Puntaje == puntajeMaximo)
+                {
+                    Ganador = "Empate";
+                }
+            }
         }
     }
 }

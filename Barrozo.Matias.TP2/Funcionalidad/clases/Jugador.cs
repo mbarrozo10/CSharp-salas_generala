@@ -64,13 +64,11 @@ namespace Funcionalidad.clases
                 && tirada[2] == tirada[3] && tirada[3] == tirada[4])&& generala==0)
             {
                 generala = 50;
-                puntaje += 50;
                 TerminoTurno = true;
             }else if((tirada[0] == tirada[1] && tirada[1] == tirada[2]
                 && tirada[2] == tirada[3] && tirada[3] == tirada[4]) && dobleGenerala == 0)
             {
                 dobleGenerala = 50;
-                puntaje += 50;
                 TerminoTurno = true;
 
             }
@@ -85,7 +83,6 @@ namespace Funcionalidad.clases
                 if(escalera == 0)
                 {
                     escalera = 20;
-                    puntaje += 20;
                     TerminoTurno = true;
                     turnosJugados = 1;
 
@@ -108,7 +105,6 @@ namespace Funcionalidad.clases
                         if ((contador == 4 && poker==0) && !terminoTurno)
                         {
                             poker = 40;
-                            puntaje += 40;
                             TerminoTurno = true;
                             turnosJugados = 1;
 
@@ -141,7 +137,6 @@ namespace Funcionalidad.clases
                         if ((contadorUno == 3 && contadorDos == 2 || contadorDos == 3 && contadorUno == 2)&& full==0 && !terminoTurno)
                         {
                             full = 30;
-                            puntaje += 30;
                             TerminoTurno = true;
                             turnosJugados = 1;
 
@@ -198,7 +193,6 @@ namespace Funcionalidad.clases
                                 else if (!salir)
                                 {
                                     Uno = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Uno;
                                     salir = true;
                                 }
                                 else
@@ -213,7 +207,6 @@ namespace Funcionalidad.clases
                                 if (!salir)
                                 {
                                     Dos = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Dos;
                                     salir = true;
                                 }
                                 else if (terminoTurno)
@@ -234,7 +227,6 @@ namespace Funcionalidad.clases
                                 if (!salir)
                                 {
                                     Tres = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Tres;
                                     salir = true;
                                 }
                                 else if (terminoTurno)
@@ -254,7 +246,6 @@ namespace Funcionalidad.clases
                                 if (!salir)
                                 {
                                     Cuatro = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Cuatro;
                                     salir = true;
                                 }
                                 else if (terminoTurno)
@@ -274,7 +265,6 @@ namespace Funcionalidad.clases
                                 if (!salir)
                                 {
                                     Cinco = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Cinco;
                                     salir = true;
                                 }
                                 else if (terminoTurno)
@@ -294,7 +284,6 @@ namespace Funcionalidad.clases
                                 if (!salir)
                                 {
                                     Seis = BuscarCantidad(dadosEnMesa, numeroSumar) * numeroSumar;
-                                    puntaje += Seis;
                                     salir = true;
                                 }
                                 else if (terminoTurno)
@@ -385,6 +374,23 @@ namespace Funcionalidad.clases
             this.cuatro = 0;
             this.cinco = 0;
             this.seis = 0;
+        }
+
+        public void SumarPuntaje()
+        {
+            Puntaje += Full + Poker + Generala+ DobleGenerala+ Escalera;
+            if(Uno!=-1)
+                Puntaje+=Uno;
+            if (Dos != -1)
+                Puntaje += Dos;
+            if (Tres != -1)
+                Puntaje += Tres;
+            if (Cuatro!=-1)
+                Puntaje += Cuatro;
+            if (Cinco != -1)
+                Puntaje += Cinco;
+            if(Seis!=-1)
+                Puntaje += Seis;
         }
     }
 }
