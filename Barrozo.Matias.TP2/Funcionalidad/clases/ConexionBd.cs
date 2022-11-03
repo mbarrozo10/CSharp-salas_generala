@@ -1,8 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.Concurrent;
 
 namespace Funcionalidad.clases
 {
-    public static class ConexionBd
+    public class ConexionBd
     {
         private static string stringConexion;
         private static SqlConnection conexion;
@@ -15,7 +16,7 @@ namespace Funcionalidad.clases
             comando = new SqlCommand();
         }
 
-        public static List<Usuario> ObtenerUsuarios()
+        public  List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> clientes = new List<Usuario>();
 
@@ -31,14 +32,14 @@ namespace Funcionalidad.clases
 
             while (reader.Read())
             {
-                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4),reader.GetInt32(0)));
+                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4),reader.GetInt32(0),EEstado.libre));
             }
 
             conexion.Close();
             return clientes;
         }
 
-        public static void GuardarPartida(Partida partida)
+        public  void GuardarPartida(Partida partida)
         {
             try
             {
@@ -66,7 +67,7 @@ namespace Funcionalidad.clases
 
         }
 
-        public static List<Partida> ObtenerDatosPartida()
+        public  List<Partida> ObtenerDatosPartida()
         {
             List<Partida> partidas = new List<Partida>();
 
@@ -88,7 +89,28 @@ namespace Funcionalidad.clases
             conexion.Close();
             return partidas;
         }
-        
+        public  ConcurrentBag<Partida> ObtenerDatosPartidaBag()
+        {
+            ConcurrentBag<Partida> partidas = new ConcurrentBag<Partida>();
+
+
+            conexion.Open();
+
+
+            comando.Connection = conexion;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "SELECT * FROM partidas_test";
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                partidas.Add(new Partida(reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetInt32(0)));
+            }
+
+            conexion.Close();
+            return partidas;
+        }
         //public static List<Usuario> ObtenerJugadores()
         //{
         //    List<Usuario> jugadores = new List<Usuario>();
@@ -110,8 +132,8 @@ namespace Funcionalidad.clases
         //    conexion.Close();
         //    return jugadores;
         //}
-        
-        public static int ObtenerUltimoId()
+
+        public int ObtenerUltimoId()
         {
             int id=0;
             

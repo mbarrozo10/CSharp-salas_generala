@@ -11,20 +11,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 using BibliotecaDeClases;
+using System.Collections.Concurrent;
+using Azure.Core;
 
 namespace Grafica
 {
     public partial class frm_MenuPrincipal : Form, IMenu
     {
         PresentadorGenerico presentador;
-        List<Usuario> UsuariosDisponibles;
+        //List<Usuario> UsuariosDisponibles;
         List<Jugador> jugadoresPartida;
+
+        List<Jugador> jugadoresPartida2;
+        List<Task> tareasTest = new List<Task>();
+
+        ConcurrentBag<Partida> listaPartidas;
         Configuracion config;
         int indice;
         private int turnosAJugar;
         string reglas;
         private delegate void DelConfig();
         DelConfig delegado;
+        
         public frm_MenuPrincipal()
         {
             InitializeComponent();
@@ -49,8 +57,12 @@ namespace Grafica
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             presentador = new PresentadorGenerico();
-            UsuariosDisponibles = new List<Usuario>();
+            //UsuariosDisponibles = new List<Usuario>();
             jugadoresPartida = new List<Jugador>();
+            listaPartidas = new ConcurrentBag<Partida>();
+
+            presentador.ConseguirUsuarios();
+
             delegado = CargarIdioma;
             delegado += CargarColor;
             delegado += CargarReglas;
@@ -68,9 +80,11 @@ namespace Grafica
             }
             else
             {
-                
                 presentador.DevolverPartidas(this);
+               
                 dgv_MenuPrincipal.Visible = true;
+                dgv_MenuPrincipal.DataSource = null;
+                dgv_MenuPrincipal.DataSource = listaPartidas.ToList();
             }
         
         }
@@ -90,9 +104,6 @@ namespace Grafica
         {
             presentador.DevolverUsuarios(this);
             dgv_MenuPrincipal.Visible=true;
-            //nud_CantidadJugadores.Visible = true;
-            //lbl_Jugadores.Visible = true;
-            //btn_Aceptar.Visible = true;
             if(pnl_Jugar.Visible == true)
             {
                 pnl_Jugar.Visible = false;
@@ -102,17 +113,13 @@ namespace Grafica
                 pnl_Jugar.Visible = true;
             }
             turnosAJugar = 3;
-         
         }
 
         private void btn_Full_Click(object sender, EventArgs e)
         {
             presentador.DevolverUsuarios(this);
-            MostrarDatos(UsuariosDisponibles);
+            //MostrarDatosUsuarios(presentador.DevolverUsuarios);
             dgv_MenuPrincipal.Visible = true;
-            //nud_CantidadJugadores.Visible = true;
-            //lbl_Jugadores.Visible = true;
-            //btn_Aceptar.Visible = true;
             if (pnl_Jugar.Visible == true)
             {
                 pnl_Jugar.Visible = false;
@@ -138,15 +145,21 @@ namespace Grafica
             }
         }
 
-        public void MostrarDatos<T>(List<T> usuarios)
+        public void MostrarDatosUsuarios(List<Usuario> usuarios)
         {
-            if (usuarios is List<Usuario>)
-            {
-                UsuariosDisponibles = usuarios as List<Usuario>;
-            }
+
+            //UsuariosDisponibles = usuarios;
             dgv_MenuPrincipal.DataSource = null;
             dgv_MenuPrincipal.DataSource = usuarios;
         }
+
+        public void MostrarDatosPartidas(ConcurrentBag<Partida> partidas)
+        {
+            listaPartidas = partidas;
+            dgv_MenuPrincipal.DataSource = null;
+            dgv_MenuPrincipal.DataSource = listaPartidas;
+        }
+
 
         private void dgv_MenuPrincipal_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -270,52 +283,96 @@ namespace Grafica
             }
         }
 
-        public bool AgregarUsuario()
+        public async Task<bool> AgregarUsuario()
         {
             if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
             {
-                frm_Partida partida = new frm_Partida(jugadoresPartida, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
-                this.Hide();
-                if (partida.ShowDialog() == DialogResult.OK)
-                {
-                    presentador.DevolverPartidas(this);
-                    jugadoresPartida.Clear();
-                    pnl_Jugar.Visible = false;
-                    btn_AgregarJugador.Visible = false;
-                    return true;
-                }
-                else
-                {
-                    jugadoresPartida.Clear();
-                    pnl_Jugar.Visible = false;
-                    btn_AgregarJugador.Visible = false;
-                    return true;
-                }
+                //frm_Partida partida = new frm_Partida(jugadoresPartida, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
 
+                tareasTest.Add(new Task(() =>
+                {
+                    // instanciar un presentador, y que el metodo haga un bucle hasta que encuentre un ganador
+                    //
+                    List<Jugador> test = new List<Jugador>();
+                    jugadoresPartida.ForEach((x) => test.Add(x));
+                    jugadoresPartida.Clear();
+                    frm_Partida partida = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
+                    //jugadoresPartida.Clear();
+                    partida.ShowDialog();
+                    test.ForEach((x) => x.Usuario.Estado = EEstado.libre);
+                    //if (partida.ShowDialog() == DialogResult.OK)
+                    //{
+                    //    //presentador.DevolverPartidas(this);
+                    //    //listaPartidas.Add(partida);
+                    //    jugadoresPartida.Clear();
+                    //    pnl_Jugar.Visible = false;
+                    //    btn_AgregarJugador.Visible = false;
+                    //}
+                    //else
+                    //{
+                    //    jugadoresPartida.Clear();
+                    //    pnl_Jugar.Visible = false;
+                    //    btn_AgregarJugador.Visible = false;
+                    //}
+
+                }));
+                nud_CantidadJugadores.Enabled = true;
+                pnl_Jugar.Visible = true;
+                await prueba(tareasTest);
+                //tareasTest.Add( new Task(() => {
+
+                //        frm_Partida partida = new frm_Partida(new Jugador(UsuariosDisponibles[2]), new Jugador(UsuariosDisponibles[3]), 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config); 
+                //        partida.ShowDialog();
+
+                //        }));
+
+                //if (partida.ShowDialog() == DialogResult.OK)
+                //{
+                //    //presentador.DevolverPartidas(this);
+                //    //listaPartidas.Add(partida);
+                //    jugadoresPartida.Clear();
+                //    pnl_Jugar.Visible = false;
+                //    btn_AgregarJugador.Visible = false;
+                //    return true;
+                //}
+                //else
+                //{
+                //    jugadoresPartida.Clear();
+                //    pnl_Jugar.Visible = false;
+                //    btn_AgregarJugador.Visible = false;
+                //    return true;
+                //}
+                return true;
             }
             return false;
         }
 
-        private void bnt_AgregarJugador_Click(object sender, EventArgs e)
+        private async void bnt_AgregarJugador_Click(object sender, EventArgs e)
         {
             try
             {
-                if (presentador.AgregarJugador(jugadoresPartida, UsuariosDisponibles[indice], this))
-                {
-                    this.Show();
-                    ControlarSubmenu(pnl_Submenu);
-                    nud_CantidadJugadores.Enabled = true;
-                    nud_CantidadJugadores.Visible = false;
-                    btn_AceptarCantidad.Visible = false;
-                    lbl_Jugadores.Visible = false;
-                }
+
+                //AgregarUsuario();
+                await presentador.AgregarJugador(jugadoresPartida, indice, this);
+                //{
+                    //this.Show();
+                    //ControlarSubmenu(pnl_Submenu);
+                    //nud_CantidadJugadores.Enabled = true;
+                    //nud_CantidadJugadores.Visible = false;
+                    //btn_AceptarCantidad.Visible = false;
+                    //lbl_Jugadores.Visible = false;
+                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        int m, mx, my;
+
+
+       
+
+            int m, mx, my;
 
         private void pnl_Superior_MouseDown(object sender, MouseEventArgs e)
         {
@@ -332,9 +389,33 @@ namespace Grafica
             }
         }
 
+        private async void button1_Click_1(object sender, EventArgs e)
+        {
+            await prueba(this.tareasTest);
+        }
+
+        private void btn_Partidas_Click(object sender, EventArgs e)
+        {
+            ControlarSubmenu(pnl_Partidas);
+        }
+
+        private void btn_Activas_Click(object sender, EventArgs e)
+        {
+            dgv_MenuPrincipal.Visible = true;
+            dgv_MenuPrincipal.DataSource = null;
+            dgv_MenuPrincipal.DataSource = tareasTest;
+        }
+
+        private async static Task prueba(List<Task> tareasTest)
+        {
+           tareasTest.Last().Start();
+        } 
+
         private void pnl_Superior_MouseUp(object sender, MouseEventArgs e)
         {
             m = 0;
         }
+
+
     }
 }

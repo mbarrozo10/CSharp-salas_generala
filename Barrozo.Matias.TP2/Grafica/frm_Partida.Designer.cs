@@ -50,10 +50,20 @@ namespace Grafica
             this.lbl_Guardar = new System.Windows.Forms.Label();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
+            this.pic_DadoUno = new System.Windows.Forms.PictureBox();
+            this.pic_DadoDos = new System.Windows.Forms.PictureBox();
+            this.pic_DadoTres = new System.Windows.Forms.PictureBox();
+            this.pic_DadoCuatro = new System.Windows.Forms.PictureBox();
+            this.pic_DadoCinco = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).BeginInit();
             this.pnl_Superior.SuspendLayout();
             this.pnl_GuardarPartida.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoUno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoDos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoTres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoCuatro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoCinco)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Jugador1
@@ -80,7 +90,7 @@ namespace Grafica
             // 
             this.lbl_Dados.AutoSize = true;
             this.lbl_Dados.ForeColor = System.Drawing.Color.White;
-            this.lbl_Dados.Location = new System.Drawing.Point(322, 213);
+            this.lbl_Dados.Location = new System.Drawing.Point(241, 192);
             this.lbl_Dados.Name = "lbl_Dados";
             this.lbl_Dados.Size = new System.Drawing.Size(39, 15);
             this.lbl_Dados.TabIndex = 2;
@@ -205,7 +215,7 @@ namespace Grafica
             this.pnl_GuardarPartida.Controls.Add(this.lbl_Guardar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Cancelar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Aceptar);
-            this.pnl_GuardarPartida.Location = new System.Drawing.Point(440, 192);
+            this.pnl_GuardarPartida.Location = new System.Drawing.Point(442, 154);
             this.pnl_GuardarPartida.Name = "pnl_GuardarPartida";
             this.pnl_GuardarPartida.Size = new System.Drawing.Size(200, 100);
             this.pnl_GuardarPartida.TabIndex = 9;
@@ -253,6 +263,56 @@ namespace Grafica
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
+            // pic_DadoUno
+            // 
+            this.pic_DadoUno.Image = global::Grafica.Res.dado6;
+            this.pic_DadoUno.Location = new System.Drawing.Point(286, 214);
+            this.pic_DadoUno.Name = "pic_DadoUno";
+            this.pic_DadoUno.Size = new System.Drawing.Size(46, 40);
+            this.pic_DadoUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_DadoUno.TabIndex = 10;
+            this.pic_DadoUno.TabStop = false;
+            // 
+            // pic_DadoDos
+            // 
+            this.pic_DadoDos.Image = global::Grafica.Res.dado6;
+            this.pic_DadoDos.Location = new System.Drawing.Point(338, 214);
+            this.pic_DadoDos.Name = "pic_DadoDos";
+            this.pic_DadoDos.Size = new System.Drawing.Size(46, 40);
+            this.pic_DadoDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_DadoDos.TabIndex = 11;
+            this.pic_DadoDos.TabStop = false;
+            // 
+            // pic_DadoTres
+            // 
+            this.pic_DadoTres.Image = global::Grafica.Res.dado6;
+            this.pic_DadoTres.Location = new System.Drawing.Point(390, 214);
+            this.pic_DadoTres.Name = "pic_DadoTres";
+            this.pic_DadoTres.Size = new System.Drawing.Size(46, 40);
+            this.pic_DadoTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_DadoTres.TabIndex = 12;
+            this.pic_DadoTres.TabStop = false;
+            // 
+            // pic_DadoCuatro
+            // 
+            this.pic_DadoCuatro.Image = global::Grafica.Res.dado6;
+            this.pic_DadoCuatro.Location = new System.Drawing.Point(442, 214);
+            this.pic_DadoCuatro.Name = "pic_DadoCuatro";
+            this.pic_DadoCuatro.Size = new System.Drawing.Size(46, 40);
+            this.pic_DadoCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_DadoCuatro.TabIndex = 13;
+            this.pic_DadoCuatro.TabStop = false;
+            // 
+            // pic_DadoCinco
+            // 
+            this.pic_DadoCinco.Image = global::Grafica.Res.dado6;
+            this.pic_DadoCinco.Location = new System.Drawing.Point(494, 214);
+            this.pic_DadoCinco.Name = "pic_DadoCinco";
+            this.pic_DadoCinco.Size = new System.Drawing.Size(46, 40);
+            this.pic_DadoCinco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_DadoCinco.TabIndex = 14;
+            this.pic_DadoCinco.TabStop = false;
+            // 
             // frm_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -260,6 +320,11 @@ namespace Grafica
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1119, 454);
             this.Controls.Add(this.pnl_GuardarPartida);
+            this.Controls.Add(this.pic_DadoCinco);
+            this.Controls.Add(this.pic_DadoCuatro);
+            this.Controls.Add(this.pic_DadoTres);
+            this.Controls.Add(this.pic_DadoDos);
+            this.Controls.Add(this.pic_DadoUno);
             this.Controls.Add(this.lbl_Jugador4);
             this.Controls.Add(this.lbl_Jugador3);
             this.Controls.Add(this.pnl_Superior);
@@ -278,6 +343,11 @@ namespace Grafica
             this.pnl_Superior.ResumeLayout(false);
             this.pnl_GuardarPartida.ResumeLayout(false);
             this.pnl_GuardarPartida.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoUno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoDos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoTres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoCuatro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_DadoCinco)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +374,10 @@ namespace Grafica
         private Button btn_Cancelar;
         private Button btn_Aceptar;
         private Label lbl_Guardar;
+        private PictureBox pic_DadoUno;
+        private PictureBox pic_DadoDos;
+        private PictureBox pic_DadoTres;
+        private PictureBox pic_DadoCuatro;
+        private PictureBox pic_DadoCinco;
     }
 }

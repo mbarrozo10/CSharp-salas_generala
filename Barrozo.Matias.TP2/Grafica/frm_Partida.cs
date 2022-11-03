@@ -22,12 +22,12 @@ namespace Grafica
         PresentadorGenerico presentador;
         private int ultimoId;
         bool primerTirada = true;
-
+        Image[] imagenes = new Image[7]; 
         public frm_Partida()
         {
             InitializeComponent();
         }
-        
+
         public frm_Partida(List<Jugador> jugadores, int turnos, Configuracion config) : this()
         {
             presentador = new PresentadorGenerico();
@@ -42,25 +42,35 @@ namespace Grafica
 
         private void frmPartida_Load(object sender, EventArgs e)
         {
- 
+            imagenes[1] = Res.dado1; 
+            imagenes[2] = Res.dado2; 
+            imagenes[3] = Res.dado3; 
+            imagenes[4] = Res.dado4; 
+            imagenes[5] = Res.dado5; 
+            imagenes[6] = Res.dado6; 
         }
 
-        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice)
+        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice, int[] dados)
         {
+            pic_DadoUno.Image = imagenes[dados[0]];
+            pic_DadoDos.Image = imagenes[dados[1]];
+            pic_DadoTres.Image = imagenes[dados[2]];
+            pic_DadoCuatro.Image = imagenes[dados[3]];
+            pic_DadoCinco.Image = imagenes[dados[4]];
             lbl_Dados.Text = tirada;
             lblTurnoJugador.Text = Res.Turno + turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
 
-            lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre + " "+ Res.Puntaje + partidaActual.Jugadores[0].Puntaje;
-            lbl_Jugador2.Text = Res.Jugador + partidaActual.Jugadores[1].Usuario.Nombre + " " + Res.Puntaje + partidaActual.Jugadores[1].Puntaje;
+            lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre ;
+            lbl_Jugador2.Text = Res.Jugador + partidaActual.Jugadores[1].Usuario.Nombre ;
             if (partidaActual.Jugadores.Count > 2)
             {
                 lbl_Jugador3.Visible = true;
-                lbl_Jugador3.Text = Res.Jugador + partidaActual.Jugadores[2].Usuario.Nombre + " " + Res.Puntaje + partidaActual.Jugadores[2].Puntaje;
+                lbl_Jugador3.Text = Res.Jugador + partidaActual.Jugadores[2].Usuario.Nombre;
             }
             if(partidaActual.Jugadores.Count > 3)
             {
                 lbl_Jugador4.Visible = true;
-                lbl_Jugador4.Text = Res.Jugador + partidaActual.Jugadores[3].Usuario.Nombre + " " + Res.Puntaje + partidaActual.Jugadores[3].Puntaje;
+                lbl_Jugador4.Text = Res.Jugador + partidaActual.Jugadores[3].Usuario.Nombre;
             }
         }
 

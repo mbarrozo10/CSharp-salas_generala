@@ -38,6 +38,9 @@ namespace Grafica
             this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Menu = new System.Windows.Forms.Panel();
             this.btn_Jugadores = new System.Windows.Forms.Button();
+            this.pnl_Partidas = new System.Windows.Forms.Panel();
+            this.btn_Finalizadas = new System.Windows.Forms.Button();
+            this.btn_Activas = new System.Windows.Forms.Button();
             this.btn_Partidas = new System.Windows.Forms.Button();
             this.pnl_Submenu = new System.Windows.Forms.Panel();
             this.btn_Full = new System.Windows.Forms.Button();
@@ -54,6 +57,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
+            this.pnl_Partidas.SuspendLayout();
             this.pnl_Submenu.SuspendLayout();
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).BeginInit();
@@ -125,6 +129,7 @@ namespace Grafica
             // 
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.pnl_Menu.Controls.Add(this.btn_Jugadores);
+            this.pnl_Menu.Controls.Add(this.pnl_Partidas);
             this.pnl_Menu.Controls.Add(this.btn_Partidas);
             this.pnl_Menu.Controls.Add(this.pnl_Submenu);
             this.pnl_Menu.Controls.Add(this.btn_PartidaNueva);
@@ -143,15 +148,63 @@ namespace Grafica
             this.btn_Jugadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Jugadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Jugadores.ForeColor = System.Drawing.Color.White;
-            this.btn_Jugadores.Location = new System.Drawing.Point(0, 182);
+            this.btn_Jugadores.Location = new System.Drawing.Point(0, 261);
             this.btn_Jugadores.Name = "btn_Jugadores";
             this.btn_Jugadores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Jugadores.Size = new System.Drawing.Size(172, 51);
-            this.btn_Jugadores.TabIndex = 8;
-            this.btn_Jugadores.Text = "Jugadores";
+            this.btn_Jugadores.TabIndex = 9;
+            this.btn_Jugadores.Text = "Usuarios";
             this.btn_Jugadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Jugadores.UseVisualStyleBackColor = false;
             this.btn_Jugadores.Click += new System.EventHandler(this.btn_Jugadores_Click);
+            // 
+            // pnl_Partidas
+            // 
+            this.pnl_Partidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.pnl_Partidas.Controls.Add(this.btn_Finalizadas);
+            this.pnl_Partidas.Controls.Add(this.btn_Activas);
+            this.pnl_Partidas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_Partidas.Location = new System.Drawing.Point(0, 182);
+            this.pnl_Partidas.Name = "pnl_Partidas";
+            this.pnl_Partidas.Size = new System.Drawing.Size(172, 79);
+            this.pnl_Partidas.TabIndex = 8;
+            this.pnl_Partidas.Visible = false;
+            // 
+            // btn_Finalizadas
+            // 
+            this.btn_Finalizadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Finalizadas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Finalizadas.FlatAppearance.BorderSize = 0;
+            this.btn_Finalizadas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Finalizadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Finalizadas.ForeColor = System.Drawing.Color.White;
+            this.btn_Finalizadas.Location = new System.Drawing.Point(0, 40);
+            this.btn_Finalizadas.Name = "btn_Finalizadas";
+            this.btn_Finalizadas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_Finalizadas.Size = new System.Drawing.Size(172, 40);
+            this.btn_Finalizadas.TabIndex = 7;
+            this.btn_Finalizadas.Text = "Finalizadas";
+            this.btn_Finalizadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Finalizadas.UseVisualStyleBackColor = true;
+            this.btn_Finalizadas.Click += new System.EventHandler(this.btn_MostrarPartidas_Click);
+            // 
+            // btn_Activas
+            // 
+            this.btn_Activas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Activas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Activas.FlatAppearance.BorderSize = 0;
+            this.btn_Activas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Activas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Activas.ForeColor = System.Drawing.Color.White;
+            this.btn_Activas.Location = new System.Drawing.Point(0, 0);
+            this.btn_Activas.Name = "btn_Activas";
+            this.btn_Activas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_Activas.Size = new System.Drawing.Size(172, 40);
+            this.btn_Activas.TabIndex = 6;
+            this.btn_Activas.Text = "Activas";
+            this.btn_Activas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Activas.UseVisualStyleBackColor = true;
+            this.btn_Activas.Click += new System.EventHandler(this.btn_Activas_Click);
             // 
             // btn_Partidas
             // 
@@ -170,7 +223,7 @@ namespace Grafica
             this.btn_Partidas.Text = "Partidas";
             this.btn_Partidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Partidas.UseVisualStyleBackColor = false;
-            this.btn_Partidas.Click += new System.EventHandler(this.btn_MostrarPartidas_Click);
+            this.btn_Partidas.Click += new System.EventHandler(this.btn_Partidas_Click);
             // 
             // pnl_Submenu
             // 
@@ -368,6 +421,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_Menu.ResumeLayout(false);
+            this.pnl_Partidas.ResumeLayout(false);
             this.pnl_Submenu.ResumeLayout(false);
             this.pnl_Superior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).EndInit();
@@ -388,8 +442,6 @@ namespace Grafica
         private Panel pnl_Submenu;
         private Button btn_Full;
         private Button btn_Demo;
-        private Button btn_Partidas;
-        private Button btn_Jugadores;
         private Label lbl_Jugadores;
         private NumericUpDown nud_CantidadJugadores;
         private Button btn_AceptarCantidad;
@@ -398,5 +450,10 @@ namespace Grafica
         private Button btn_Configuracion;
         private Panel pnl_Jugar;
         private Button btn_AgregarJugador;
+        private Button btn_Jugadores;
+        private Panel pnl_Partidas;
+        private Button btn_Finalizadas;
+        private Button btn_Activas;
+        private Button btn_Partidas;
     }
 }

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Funcionalidad.clases
 {
+    public enum EEstado
+    {
+        jugando,libre
+    }
     public class Usuario
     {
         public int id;
@@ -13,12 +17,14 @@ namespace Funcionalidad.clases
         private string? apellido;
         private string user;
         private string contraseña;
+        private EEstado estado;
 
-        public Usuario(string nombre, string apellido, string usuario, string contraseña, int id) : this(usuario, contraseña)
+        public Usuario(string nombre, string apellido, string usuario, string contraseña, int id, EEstado estado) : this(usuario, contraseña)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.id = id;
+            this.estado = estado;
         }
 
         public Usuario(string usuario, string contraseña)
@@ -30,10 +36,12 @@ namespace Funcionalidad.clases
         public string Nombre { get => nombre; set => nombre = value; }
         public string User { get => user; set => user = value; }
         public string? Apellido { get => apellido; set => apellido = value; }
+        public EEstado Estado { get => estado; set => estado = value; }
 
         public bool ComprobarInicio()
         {
-            List<Usuario> usuarios = ConexionBd.ObtenerUsuarios();
+            ConexionBd conexion = new ConexionBd();
+            List<Usuario> usuarios = conexion.ObtenerUsuarios();
             foreach (Usuario usuarioBd in usuarios)
             {
                 if (User == usuarioBd.User && contraseña == usuarioBd.contraseña)

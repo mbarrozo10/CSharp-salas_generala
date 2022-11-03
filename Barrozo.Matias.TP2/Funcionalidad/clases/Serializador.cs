@@ -16,7 +16,7 @@ namespace Funcionalidad.clases
         static string ruta;
         static Serializazdor()
         {
-            ruta = @"./Archivos-Serializacion"; //Crea una carpeta
+            ruta = @"./Archivos"; //Crea una carpeta
         }
 
         public static void EscribirJSON(T datos, string archivo)

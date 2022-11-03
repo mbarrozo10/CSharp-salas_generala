@@ -1,0 +1,17 @@
+Turno: 1 Tirada:  1 De: MatiasTirada :4-4-3-2-2
+Turno: 1 Tirada:  2 De: MatiasTirada :6-5-2-2-1
+Turno: 1 Tirada:  3 De: MatiasTirada :6-6-2-2-1
+Turno: 2 Tirada:  1 De: pepeTirada :6-6-5-3-2
+Turno: 2 Tirada:  2 De: pepeTirada :6-6-6-5-5
+Turno: 3 Tirada:  1 De: MatiasTirada :5-4-3-2-2
+Turno: 3 Tirada:  2 De: MatiasTirada :3-2-2-2-2
+Turno: 4 Tirada:  1 De: pepeTirada :6-5-5-4-1
+Turno: 4 Tirada:  2 De: pepeTirada :5-5-3-1-1
+Turno: 4 Tirada:  3 De: pepeTirada :6-2-1-1-1
+Turno: 5 Tirada:  1 De: MatiasTirada :6-6-5-2-1
+Turno: 5 Tirada:  2 De: MatiasTirada :6-6-6-5-4
+Turno: 5 Tirada:  3 De: MatiasTirada :6-6-6-6-5
+Turno: 6 Tirada:  1 De: pepeTirada :5-5-3-1-1
+Turno: 6 Tirada:  2 De: pepeTirada :3-2-1-1-1
+Turno: 6 Tirada:  3 De: pepeTirada :4-1-1-1-1
+

@@ -16,19 +16,73 @@ namespace Funcionalidad
         private int turnosMaximos;
         private int turnosJugados=1;
 
+        //valores de menuPrincipal
+        List<Usuario> usuarios;
+
         //public delegate string DGanador();
         //public event DGanador EventEncontrarGanador;
         //Menu Principal
         public void DevolverPartidas<U>(U obj) where U : IMenu
         {
-            obj.MostrarDatos(ConexionBd.ObtenerDatosPartida());
+            ConexionBd conexionBd = new ConexionBd();
+            //obj.MostrarDatos(conexionBd.ObtenerDatosPartida());
+            obj.MostrarDatosPartidas(conexionBd.ObtenerDatosPartidaBag());
+        }
+
+        public void ConseguirUsuarios()
+        {
+            ConexionBd conexionBd = new ConexionBd();
+            usuarios = conexionBd.ObtenerUsuarios();
         }
 
         public void DevolverUsuarios<U>(U obj) where U : IMenu
         {
-            obj.MostrarDatos(ConexionBd.ObtenerUsuarios());
+            
+            obj.MostrarDatosUsuarios(usuarios);
         }
 
+        public Task<bool> AgregarJugador<U>(List<Jugador> jugadoresPartida, int indice, U obj) where U : IMenu
+        {
+            bool encontroError = false;
+            if (usuarios[indice].Estado== EEstado.libre)
+            {
+               Jugador jugadorAux = new Jugador(usuarios[indice]);  
+                if (jugadoresPartida.Count == 0)
+                {
+                    usuarios[indice].Estado = EEstado.jugando;
+                    jugadoresPartida.Add(jugadorAux);
+                }
+                else
+                {
+                    foreach (Jugador jugador in jugadoresPartida)
+                    {
+                        if (jugador.Usuario == usuarios[indice])
+                        {
+                            encontroError = true;
+                            break;
+                        }
+                        else
+                        {
+                            usuarios[indice].Estado = EEstado.jugando;
+                            jugadoresPartida.Add(jugadorAux);
+                            break;
+                        }
+                    }
+                }
+                if (encontroError)
+                {
+                    throw new Exception("Ya Esta agregado este jugador");
+                }
+
+            }
+            else
+            {
+                throw new Exception("Ya Esta agregado este jugador");
+            }
+
+
+            return obj.AgregarUsuario();
+        }
         //Partida
         public void Revisar <U> (U obj, Jugador jugador) where U : IPartida
         {
@@ -37,12 +91,15 @@ namespace Funcionalidad
         
         public void ConseguirUltimoId <U> (U obj) where U : IPartida
         {
-            obj.ConseguirUltimoId(ConexionBd.ObtenerUltimoId());
+            ConexionBd conexion = new ConexionBd();
+            obj.ConseguirUltimoId(conexion.ObtenerUltimoId());
         }
 
+        // cambiar que retorne partida
         public void IniciarPartida<U>(List<Jugador> jugadores,int ultimoId, int turnos) where U : IPartida
         {
-            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, ultimoId);
+            ConexionBd conexion = new ConexionBd();
+            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexion.ObtenerUltimoId());
             turnosMaximos = turnos;
 
         }
@@ -67,7 +124,7 @@ namespace Funcionalidad
             retorno += "-" + dadosEnMesa[4].ToString();
 
 
-            obj.Informacion(partidaActual,retorno, turnosJugados, indice);
+            obj.Informacion(partidaActual,retorno, turnosJugados, indice, dadosEnMesa);
             // revisar en futuro
             Revisar(obj, partidaActual.Jugadores[indice]);
 
@@ -100,18 +157,7 @@ namespace Funcionalidad
             turnosJugados++;
             if (turnosJugados == turnosMaximos)
             {
-                for (int i=0; i < partidaActual.Jugadores.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        partidaActual.EventAction += partidaActual.Jugadores[i].SumarPuntaje;
-                    }
-                    else
-                    {
-                        partidaActual.EventAction += partidaActual.Jugadores[i].SumarPuntaje;
-                    }
-                }
-                 
+                partidaActual.Jugadores.ForEach((x) => partidaActual.EventAction += x.SumarPuntaje);
                 obj.ActualizarDatagrid(partidaActual);
 
                 partidaActual.EncontrarGanador();
@@ -122,11 +168,11 @@ namespace Funcionalidad
 
         }
 
-        
 
         public void GuardarPartida()
         {
-            ConexionBd.GuardarPartida(partidaActual);
+            ConexionBd conexion = new ConexionBd();
+            conexion.GuardarPartida(partidaActual);
         }
 
         //Login
@@ -136,37 +182,9 @@ namespace Funcionalidad
             obj.ComprobarInicio(usuario.ComprobarInicio());
         }
 
-        public bool AgregarJugador<U>(List<Jugador> jugadoresPartida, Usuario usuario, U obj) where U: IMenu
-        {
-            bool encontroError = false;
-            Jugador jugadorAux = new Jugador(usuario);
-            if (jugadoresPartida.Count == 0)
-            {
-                jugadoresPartida.Add(jugadorAux);
-            }
-            else
-            {
-                foreach (Jugador jugador in jugadoresPartida)
-                {
-                    if (jugador.Usuario == usuario)
-                    {
-                        encontroError = true;
-                        break;
-                    }
-                    else
-                    {
-                        jugadoresPartida.Add(jugadorAux);
-                        break;
-                    }
-                }
-            }
-            if (encontroError)
-            {
-                throw new Exception("Ya Esta agregado este jugador");
-            }
+     
 
-            return obj.AgregarUsuario();
-        }
+       
     }
     
    
