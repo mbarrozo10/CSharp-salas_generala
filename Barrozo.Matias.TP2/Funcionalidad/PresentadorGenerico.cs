@@ -1,5 +1,7 @@
-﻿using Funcionalidad.clases;
+﻿using BibliotecaDeClases;
+using Funcionalidad.clases;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,34 +16,45 @@ namespace Funcionalidad
         int indice = 0;
         Partida partidaActual;
         private int turnosMaximos;
-        private int turnosJugados=1;
+        private int turnosJugados = 1;
+        string bitacora = "";
+
 
         //valores de menuPrincipal
         List<Usuario> usuarios;
+        List<Jugador> jugadoresPartida = new List<Jugador>();
+        List<Task> tareasTest = new List<Task>();
+        ConcurrentBag<Partida> listaPartidas;
+      
 
-        //public delegate string DGanador();
-        //public event DGanador EventEncontrarGanador;
+
+
         //Menu Principal
         public void DevolverPartidas<U>(U obj) where U : IMenu
         {
-            ConexionBd conexionBd = new ConexionBd();
+            ConexionBdPartidas conexionBd = new ConexionBdPartidas();
             //obj.MostrarDatos(conexionBd.ObtenerDatosPartida());
-            obj.MostrarDatosPartidas(conexionBd.ObtenerDatosPartidaBag());
+            listaPartidas = conexionBd.ObtenerDatosPartidaBag();
+            obj.MostrarDatosPartidas(listaPartidas);
         }
 
         public void ConseguirUsuarios()
         {
-            ConexionBd conexionBd = new ConexionBd();
+            ConexionBdUsuarios conexionBd = new ConexionBdUsuarios();
             usuarios = conexionBd.ObtenerUsuarios();
         }
 
         public void DevolverUsuarios<U>(U obj) where U : IMenu
-        {
-            
+        { 
             obj.MostrarDatosUsuarios(usuarios);
         }
+        
+        public void DevolverTareas<U>(U obj) where U : IMenu
+        { 
+            obj.MostrarDatosTareas(tareasTest);
+        }
 
-        public Task<bool> AgregarJugador<U>(List<Jugador> jugadoresPartida, int indice, U obj) where U : IMenu
+        public Task<bool> AgregarJugador<U>(int indice, U obj) where U : IMenu
         {
             bool encontroError = false;
             if (usuarios[indice].Estado== EEstado.libre)
@@ -81,25 +94,33 @@ namespace Funcionalidad
             }
 
 
-            return obj.AgregarUsuario();
+            return obj.AgregarUsuario(jugadoresPartida, tareasTest);
+
         }
+
+        public async Task prueba()
+        {
+            tareasTest.Last().Start();
+        }
+
+
         //Partida
         public void Revisar <U> (U obj, Jugador jugador) where U : IPartida
         {
             obj.DevolverTiradas(jugador.del,dadosEnMesa);
         }
         
-        public void ConseguirUltimoId <U> (U obj) where U : IPartida
-        {
-            ConexionBd conexion = new ConexionBd();
-            obj.ConseguirUltimoId(conexion.ObtenerUltimoId());
-        }
+        //public void ConseguirUltimoId <U> (U obj) where U : IPartida
+        //{
+        //    ConexionBdPartidas conexion = new ConexionBdPartidas();
+        //    obj.ConseguirUltimoId(conexion.ObtenerUltimoId());
+        //}
 
         // cambiar que retorne partida
-        public void IniciarPartida<U>(List<Jugador> jugadores,int ultimoId, int turnos) where U : IPartida
+        public void IniciarPartida<U>(List<Jugador> jugadores, int turnos) where U : IPartida
         {
-            ConexionBd conexion = new ConexionBd();
-            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexion.ObtenerUltimoId());
+            ConexionBdPartidas conexion = new ConexionBdPartidas();
+            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexion.ObtenerUltimoId()+1);
             turnosMaximos = turnos;
 
         }
@@ -123,6 +144,7 @@ namespace Funcionalidad
             retorno += "-" + dadosEnMesa[3].ToString();
             retorno += "-" + dadosEnMesa[4].ToString();
 
+            bitacora += partidaActual.Jugadores[indice].Usuario.Nombre +" "+ retorno + "\n";
 
             obj.Informacion(partidaActual,retorno, turnosJugados, indice, dadosEnMesa);
             // revisar en futuro
@@ -168,10 +190,14 @@ namespace Funcionalidad
 
         }
 
-
-        public void GuardarPartida()
+        public void GuardarResumenPartida()
         {
-            ConexionBd conexion = new ConexionBd();
+            string archivo = "BitacoraDePartida" + partidaActual.Id;
+            Archivo.Escribir(bitacora, archivo, @".\Bitacoras");
+        }
+        public void GuardarPartida<U>() where U : IPartida
+        {
+            ConexionBdPartidas conexion = new ConexionBdPartidas();
             conexion.GuardarPartida(partidaActual);
         }
 
@@ -182,9 +208,19 @@ namespace Funcionalidad
             obj.ComprobarInicio(usuario.ComprobarInicio());
         }
 
-     
+        //public void AgregarTarea()
+        //{
+        //    tareasTest.Add(new Task(() =>
+        //    {
+        //        List<Jugador> test = new List<Jugador>();
+        //        jugadoresPartida.ForEach((x) => test.Add(x));
+        //        jugadoresPartida.Clear();
+        //        frm_Partida partida = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
+        //        partida.ShowDialog();
+        //        test.ForEach((x) => x.Usuario.Estado = EEstado.libre);
 
-       
+        //    }));
+        //}
     }
     
    

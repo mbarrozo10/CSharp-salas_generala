@@ -20,12 +20,11 @@ namespace Grafica
     {
         PresentadorGenerico presentador;
         //List<Usuario> UsuariosDisponibles;
-        List<Jugador> jugadoresPartida;
+        //List<Jugador> jugadoresPartida;
+        //List<Task> tareasTest = new List<Task>();
+        //ConcurrentBag<Partida> listaPartidas;
 
-        List<Jugador> jugadoresPartida2;
-        List<Task> tareasTest = new List<Task>();
 
-        ConcurrentBag<Partida> listaPartidas;
         Configuracion config;
         int indice;
         private int turnosAJugar;
@@ -58,8 +57,8 @@ namespace Grafica
         {
             presentador = new PresentadorGenerico();
             //UsuariosDisponibles = new List<Usuario>();
-            jugadoresPartida = new List<Jugador>();
-            listaPartidas = new ConcurrentBag<Partida>();
+            //jugadoresPartida = new List<Jugador>();
+            //listaPartidas = new ConcurrentBag<Partida>();
 
             presentador.ConseguirUsuarios();
 
@@ -83,8 +82,8 @@ namespace Grafica
                 presentador.DevolverPartidas(this);
                
                 dgv_MenuPrincipal.Visible = true;
-                dgv_MenuPrincipal.DataSource = null;
-                dgv_MenuPrincipal.DataSource = listaPartidas.ToList();
+                //dgv_MenuPrincipal.DataSource = null;
+                //dgv_MenuPrincipal.DataSource = listaPartidas.ToList();
             }
         
         }
@@ -155,9 +154,9 @@ namespace Grafica
 
         public void MostrarDatosPartidas(ConcurrentBag<Partida> partidas)
         {
-            listaPartidas = partidas;
+            //listaPartidas = partidas;
             dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = listaPartidas;
+            dgv_MenuPrincipal.DataSource = partidas.ToList();
         }
 
 
@@ -227,9 +226,7 @@ namespace Grafica
 
             lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            //btn_Demo.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            //btn_Full.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Salir.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_PartidaNueva.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
@@ -283,65 +280,26 @@ namespace Grafica
             }
         }
 
-        public async Task<bool> AgregarUsuario()
+        public async Task<bool> AgregarUsuario(List<Jugador> jugadoresPartida, List<Task> tareasTest)
         {
             if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
             {
-                //frm_Partida partida = new frm_Partida(jugadoresPartida, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
 
+                //presentador.AgregarTarea();
                 tareasTest.Add(new Task(() =>
                 {
-                    // instanciar un presentador, y que el metodo haga un bucle hasta que encuentre un ganador
-                    //
                     List<Jugador> test = new List<Jugador>();
                     jugadoresPartida.ForEach((x) => test.Add(x));
                     jugadoresPartida.Clear();
                     frm_Partida partida = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
-                    //jugadoresPartida.Clear();
                     partida.ShowDialog();
                     test.ForEach((x) => x.Usuario.Estado = EEstado.libre);
-                    //if (partida.ShowDialog() == DialogResult.OK)
-                    //{
-                    //    //presentador.DevolverPartidas(this);
-                    //    //listaPartidas.Add(partida);
-                    //    jugadoresPartida.Clear();
-                    //    pnl_Jugar.Visible = false;
-                    //    btn_AgregarJugador.Visible = false;
-                    //}
-                    //else
-                    //{
-                    //    jugadoresPartida.Clear();
-                    //    pnl_Jugar.Visible = false;
-                    //    btn_AgregarJugador.Visible = false;
-                    //}
 
                 }));
                 nud_CantidadJugadores.Enabled = true;
                 pnl_Jugar.Visible = true;
-                await prueba(tareasTest);
-                //tareasTest.Add( new Task(() => {
-
-                //        frm_Partida partida = new frm_Partida(new Jugador(UsuariosDisponibles[2]), new Jugador(UsuariosDisponibles[3]), 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config); 
-                //        partida.ShowDialog();
-
-                //        }));
-
-                //if (partida.ShowDialog() == DialogResult.OK)
-                //{
-                //    //presentador.DevolverPartidas(this);
-                //    //listaPartidas.Add(partida);
-                //    jugadoresPartida.Clear();
-                //    pnl_Jugar.Visible = false;
-                //    btn_AgregarJugador.Visible = false;
-                //    return true;
-                //}
-                //else
-                //{
-                //    jugadoresPartida.Clear();
-                //    pnl_Jugar.Visible = false;
-                //    btn_AgregarJugador.Visible = false;
-                //    return true;
-                //}
+                await presentador.prueba();
+              
                 return true;
             }
             return false;
@@ -353,7 +311,7 @@ namespace Grafica
             {
 
                 //AgregarUsuario();
-                await presentador.AgregarJugador(jugadoresPartida, indice, this);
+                await presentador.AgregarJugador(indice, this);
                 //{
                     //this.Show();
                     //ControlarSubmenu(pnl_Submenu);
@@ -389,11 +347,7 @@ namespace Grafica
             }
         }
 
-        private async void button1_Click_1(object sender, EventArgs e)
-        {
-            await prueba(this.tareasTest);
-        }
-
+        
         private void btn_Partidas_Click(object sender, EventArgs e)
         {
             ControlarSubmenu(pnl_Partidas);
@@ -401,15 +355,17 @@ namespace Grafica
 
         private void btn_Activas_Click(object sender, EventArgs e)
         {
+            presentador.DevolverTareas(this);
+            //dgv_MenuPrincipal.DataSource = null;
+            //dgv_MenuPrincipal.DataSource = tareasTest;
+        }
+        public void MostrarDatosTareas(List<Task> tareas)
+        {
             dgv_MenuPrincipal.Visible = true;
             dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = tareasTest;
+            dgv_MenuPrincipal.DataSource = tareas;
         }
 
-        private async static Task prueba(List<Task> tareasTest)
-        {
-           tareasTest.Last().Start();
-        } 
 
         private void pnl_Superior_MouseUp(object sender, MouseEventArgs e)
         {

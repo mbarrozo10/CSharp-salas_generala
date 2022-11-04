@@ -123,6 +123,9 @@
   <data name="Bitacora" xml:space="preserve">
     <value>Do you want to export the game?</value>
   </data>
+  <data name="Cancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Number of players</value>
   </data>

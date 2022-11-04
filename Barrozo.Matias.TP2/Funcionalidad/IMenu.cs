@@ -11,9 +11,10 @@ namespace Funcionalidad
     public interface IMenu
     {
         public void MostrarDatosUsuarios(List<Usuario> usuarios);
+        public void MostrarDatosTareas(List<Task> tareas);
         public void MostrarDatosPartidas(ConcurrentBag<Partida> partidas);
 
-        public async Task<bool> AgregarUsuario()
+        public async Task<bool> AgregarUsuario(List<Jugador> jugadoresPartida, List<Task> tareasTest)
         {
             return true;
         }

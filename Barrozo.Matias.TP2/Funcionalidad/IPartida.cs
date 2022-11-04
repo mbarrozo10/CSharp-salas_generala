@@ -12,7 +12,7 @@ namespace Funcionalidad
     {
         public void DevolverTiradas(DTiradas delegado, int[] dadosEnMesa);
 
-        public void ConseguirUltimoId(int id);
+        //public void ConseguirUltimoId(int id);
 
         public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice, int[] dados);
 

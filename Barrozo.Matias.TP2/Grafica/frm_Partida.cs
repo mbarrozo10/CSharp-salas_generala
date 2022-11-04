@@ -18,9 +18,7 @@ namespace Grafica
     {
         DateTime hora = new DateTime(2022, 1, 2, 0, 0, 0);
         Configuracion config;
-        string bitacora="";
         PresentadorGenerico presentador;
-        private int ultimoId;
         bool primerTirada = true;
         Image[] imagenes = new Image[7]; 
         public frm_Partida()
@@ -32,8 +30,8 @@ namespace Grafica
         {
             presentador = new PresentadorGenerico();
             tmrTiempoPartida.Start();
-            presentador.ConseguirUltimoId(this);
-            presentador.IniciarPartida<frm_Partida>(jugadores,ultimoId,turnos);
+            //presentador.ConseguirUltimoId(this);
+            presentador.IniciarPartida<frm_Partida>(jugadores,turnos);
             this.config = config;
             CargarIdioma();
             CargarColores();
@@ -87,7 +85,7 @@ namespace Grafica
             if (horaInt % 2 == 0)
             {
                 presentador.TirarDados(this);
-                bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
+                //bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
             }
         }
 
@@ -211,6 +209,8 @@ namespace Grafica
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
             btn_Volver.Text = Res.Volver;
             lbl_Guardar.Text = Res.Bitacora;
+            btn_Aceptar.Text = Res.Aceptar;
+            btn_Cancelar.Text = Res.Cancelar;
         }
 
         private void CargarColores()
@@ -235,9 +235,8 @@ namespace Grafica
         {
             try
             {
-                string archivo = "BitacoraDePartida" + ultimoId;
-                Archivo.Escribir(bitacora, archivo, @".\Bitacoras");
-                presentador.GuardarPartida();
+                presentador.GuardarResumenPartida();
+                presentador.GuardarPartida<IPartida>();
             }
             catch (Exception ex)
             {
@@ -250,7 +249,7 @@ namespace Grafica
         {
             try
             {
-                presentador.GuardarPartida();
+                presentador.GuardarPartida<IPartida>();
             }
             catch (Exception ex)
             {
@@ -264,10 +263,10 @@ namespace Grafica
             delegado(dadosEnMesa);
         }
 
-        public void ConseguirUltimoId(int id)
-        {
-            ultimoId = id+1;
-        }
+        //public void ConseguirUltimoId(int id)
+        //{
+        //    ultimoId = id+1;
+        //}
 
         public void FinalizarPartida(string ganador)
         {

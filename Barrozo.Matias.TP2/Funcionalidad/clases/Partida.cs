@@ -105,6 +105,15 @@ namespace Funcionalidad.clases
                     Ganador = "Empate";
                 }
             }
+            foreach(Jugador jugador in jugadores)
+            {
+                if(jugador.Puntaje== puntajeMaximo && Ganador!="Empate")
+                {
+                    jugador.Usuario.PartiasGanadas++;
+                    ConexionBdUsuarios conexion = new ConexionBdUsuarios();
+                    conexion.ActualizarPartidasGanadas(jugador.Usuario);
+                }
+            }
         }
     }
 }
