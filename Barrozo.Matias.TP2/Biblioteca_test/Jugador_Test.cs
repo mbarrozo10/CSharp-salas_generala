@@ -10,9 +10,9 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckEscalera_Success(int [] aux)
         {
-            int[] tiradaOk = {5,4,3,2,1};
+            int[] tiradaOk = { 5, 4, 3, 2, 1 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe","pepe"));
-            Jugador jugadorSuccess = new Jugador(new Usuario("pepe","pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
             jugadorSuccess.RevisarEscalera(tiradaOk);
             jugadorTest.RevisarEscalera(aux);
@@ -46,12 +46,14 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckGenerala_Success(int [] aux)
         {
-            bool restultadoEsperado = true;
+            int[] tiradaOk = { 5, 5, 5, 5, 5 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarGenerala(aux);
+            jugadorSuccess.RevisarGenerala(tiradaOk);
+            jugadorTest.RevisarGenerala(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Generala, jugadorTest.Generala);
         }
         
         [DataRow(new int[] {4,2,3,4,5})]
@@ -60,28 +62,31 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckGenerala_Fail(int[] aux)
         {
-            bool restultadoEsperado = false;
+            int[] tiradaOk = { 4, 4, 5, 2, 1 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarGenerala(aux);
+            jugadorSuccess.RevisarGenerala(tiradaOk);
+            jugadorTest.RevisarGenerala(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Generala, jugadorTest.Generala);
         }
         
         [DataRow(new int[] {4,2,3,4,5})]
         [DataRow(new int[] {4,2,4,3,6})]
         [DataRow(new int[] {2,2,4,3,6})]
         [DataRow(new int[] {2,2,4,3,6})]
-        [DataRow(new int[] {1,1,1,1,1})]
         [TestMethod]
         public void CheckPoker_Fail(int[] aux)
         {
-            bool restultadoEsperado = false;
+            int[] tiradaOk = { 1, 1, 4, 2, 2 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarPoker(aux);
+            jugadorSuccess.RevisarPoker(tiradaOk);
+            jugadorTest.RevisarPoker(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Poker, jugadorTest.Poker);
         }
 
         [DataRow(new int[] { 4, 4, 4, 4, 5 })]
@@ -94,12 +99,14 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckPoker_Succes(int[] aux)
         {
-            bool restultadoEsperado = true;
+            int[] tiradaOk = { 4, 4, 4, 4, 1 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarPoker(aux);
+            jugadorSuccess.RevisarPoker(tiradaOk);
+            jugadorTest.RevisarPoker(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Poker, jugadorTest.Poker);
         }
 
 
@@ -111,12 +118,14 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckFull_Fail(int[] aux)
         {
-            bool restultadoEsperado = false;
+            int[] tiradaOk = { 4, 4, 4, 4, 4 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarFull(aux);
+            jugadorSuccess.RevisarFull(tiradaOk);
+            jugadorTest.RevisarFull(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Full, jugadorTest.Full);
         }
 
         [DataRow(new int[] { 4, 4, 4, 5, 5 })]
@@ -126,12 +135,14 @@ namespace Biblioteca_test
         [TestMethod]
         public void CheckFull_Succes(int[] aux)
         {
-            bool restultadoEsperado = true;
+            int[] tiradaOk = { 4, 4, 4, 3, 3 };
             Jugador jugadorTest = new Jugador(new Usuario("pepe", "pepe"));
+            Jugador jugadorSuccess = new Jugador(new Usuario("pepe", "pepe"));
 
-            //bool resultado = jugadorTest.RevisarFull(aux);
+            jugadorSuccess.RevisarFull(tiradaOk);
+            jugadorTest.RevisarFull(aux);
 
-            //Assert.AreEqual(resultado, restultadoEsperado);
+            Assert.AreEqual(jugadorSuccess.Full, jugadorTest.Full);
         }
     }
 }

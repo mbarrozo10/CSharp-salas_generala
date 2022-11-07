@@ -107,7 +107,7 @@ namespace Funcionalidad.clases
                             poker = 40;
                             TerminoTurno = true;
                             turnosJugados = 1;
-
+                            break;
                         }
                     }
 

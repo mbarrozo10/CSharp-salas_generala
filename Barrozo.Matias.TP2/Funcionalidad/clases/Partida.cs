@@ -30,6 +30,7 @@ namespace Funcionalidad.clases
             cantidadJugadores = cantidad;
             this.id = id;
             this.date = date;
+            dado = new Dado();
         }
 
 
@@ -48,43 +49,55 @@ namespace Funcionalidad.clases
         }
 
 
-        public void TirarDados(int cantidad,int discriminador, int[] tirada)
+        public void TirarDados(int discriminador, int[] tirada)
         {
             Random rnd = new Random();
-            for (int i = 0; i < cantidad; i++)
+            if (tirada != null)
             {
-               if (tirada[i] != discriminador)
+                for (int i = 0; i < 5; i++)
                 {
-                    tirada[i] = dado.Caras[rnd.Next(0, 6)];
+                    if (tirada[i] != discriminador)
+                    {
+                        tirada[i] = dado.Caras[rnd.Next(0, 6)];
+                    }
+                    else
+                    {
+                        tirada[i] = discriminador;
+                    }
                 }
-                else
-                {
-                    tirada[i] = discriminador; 
-                }
+                Jugador.Ordenar(tirada);
             }
-            Jugador.Ordenar(tirada);
-           }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+        }
+            
 
         public static int GuardarNumero(int[] aux)
         {
             int maximo = -1;
             int retorno = 0;
             Dado dado = new Dado();
-            foreach(int cara in dado.Caras)
+            if(aux != null)
             {
-                int contador = 0;
-                foreach (int numeroEnArray in aux)
+                foreach(int cara in dado.Caras)
                 {
-                    if (cara == numeroEnArray)
+                    int contador = 0;
+                    foreach (int numeroEnArray in aux)
                     {
-                        contador++;
+                        if (cara == numeroEnArray)
+                        {
+                            contador++;
+                        }
+                    }
+                    if (contador > maximo)
+                    {
+                        maximo = contador;
+                        retorno = cara;
                     }
                 }
-                if (contador > maximo)
-                {
-                    maximo = contador;
-                    retorno = cara;
-                }
+
             }
             return retorno;
         }

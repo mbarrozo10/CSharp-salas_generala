@@ -330,22 +330,6 @@ namespace Grafica
 
        
 
-            int m, mx, my;
-
-        private void pnl_Superior_MouseDown(object sender, MouseEventArgs e)
-        {
-            m = 1;
-            mx = e.X;
-            my = e.Y;
-        }
-
-        private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (m == 1)
-            {
-                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
-            }
-        }
 
         
         private void btn_Partidas_Click(object sender, EventArgs e)
@@ -366,6 +350,22 @@ namespace Grafica
             dgv_MenuPrincipal.DataSource = tareas;
         }
 
+        int m, mx, my;
+
+        private void pnl_Superior_MouseDown(object sender, MouseEventArgs e)
+        {
+            m = 1;
+            mx = e.X;
+            my = e.Y;
+        }
+
+        private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (m == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+            }
+        }
 
         private void pnl_Superior_MouseUp(object sender, MouseEventArgs e)
         {

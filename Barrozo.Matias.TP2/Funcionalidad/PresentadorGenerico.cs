@@ -131,12 +131,12 @@ namespace Funcionalidad
             //obj.Informacion(partidaActual);
             if (partidaActual.Jugadores[indice].TurnosJugados == 1)
             {
-                partidaActual.TirarDados(5, -1, dadosEnMesa);
+                partidaActual.TirarDados( -1, dadosEnMesa);
             }
             else
             {
                 int numeroAGuardar = Partida.GuardarNumero(dadosEnMesa);
-                partidaActual.TirarDados(5, numeroAGuardar, dadosEnMesa);
+                partidaActual.TirarDados( numeroAGuardar, dadosEnMesa);
             }
             retorno = "Tirada :" + dadosEnMesa[0].ToString();
             retorno += "-" + dadosEnMesa[1].ToString();
