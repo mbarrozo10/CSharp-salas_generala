@@ -70,6 +70,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Activas.
+        /// </summary>
+        internal static string Activas {
+            get {
+                return ResourceManager.GetString("Activas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Quiere exportar la partida?.
         /// </summary>
         internal static string Bitacora {
@@ -216,6 +225,15 @@ namespace Grafica {
         internal static string Español {
             get {
                 return ResourceManager.GetString("Español", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizadas.
+        /// </summary>
+        internal static string Finalizadas {
+            get {
+                return ResourceManager.GetString("Finalizadas", resourceCulture);
             }
         }
         

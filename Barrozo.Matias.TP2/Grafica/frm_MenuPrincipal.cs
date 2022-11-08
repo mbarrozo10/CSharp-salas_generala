@@ -56,9 +56,7 @@ namespace Grafica
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
         {
             presentador = new PresentadorGenerico();
-            //UsuariosDisponibles = new List<Usuario>();
-            //jugadoresPartida = new List<Jugador>();
-            //listaPartidas = new ConcurrentBag<Partida>();
+
 
             presentador.ConseguirUsuarios();
 
@@ -194,17 +192,18 @@ namespace Grafica
 
         private void CargarIdioma()
         {
-            //config = Serializazdor<Configuracion>.LeerJSON("config");
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
             lbl_Jugadores.Text = Res.Cantidad;
             btn_AceptarCantidad.Text = Res.Aceptar;
             btn_Demo.Text = Res.Demo;
             btn_Partidas.Text = Res.Partidas;
             btn_Full.Text = Res.Juego;
-            btn_Jugadores.Text = Res.Jugadores;
+            btn_Usuarios.Text = Res.Jugadores;
             btn_Salir.Text = Res.Salir;
             btn_PartidaNueva.Text = Res.Nueva;
             btn_AgregarJugador.Text = Res.Aceptar;
+            btn_Activas.Text = Res.Activas;
+            btn_Finalizadas.Text = Res.Finalizadas;
         }
 
         private void CargarColor()
@@ -218,7 +217,7 @@ namespace Grafica
             btn_Configuracion.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Demo.BackColor = Color.FromArgb(44,44,44);
             btn_Full.BackColor = Color.FromArgb(44,44,44);
-            btn_Jugadores.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_Usuarios.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_PartidaNueva.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Salir.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
             btn_Partidas.BackColor= Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
@@ -227,7 +226,7 @@ namespace Grafica
             lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            btn_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
+            btn_Usuarios.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Salir.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_PartidaNueva.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
             btn_Reglas.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
@@ -340,14 +339,26 @@ namespace Grafica
         private void btn_Activas_Click(object sender, EventArgs e)
         {
             presentador.DevolverTareas(this);
-            //dgv_MenuPrincipal.DataSource = null;
-            //dgv_MenuPrincipal.DataSource = tareasTest;
         }
         public void MostrarDatosTareas(List<Task> tareas)
         {
             dgv_MenuPrincipal.Visible = true;
             dgv_MenuPrincipal.DataSource = null;
             dgv_MenuPrincipal.DataSource = tareas;
+        }
+
+
+        private void btn_Usuarios_Click(object sender, EventArgs e)
+        {
+            ControlarSubmenu(pnl_Usuarios);
+        }
+
+        private void btn_AltaUsuarios_Click(object sender, EventArgs e)
+        {
+            frm_AltaUsuarios users = new frm_AltaUsuarios(config);
+            this.Hide();
+            users.ShowDialog();
+            this.Show();
         }
 
         int m, mx, my;
@@ -358,6 +369,8 @@ namespace Grafica
             mx = e.X;
             my = e.Y;
         }
+
+     
 
         private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
         {

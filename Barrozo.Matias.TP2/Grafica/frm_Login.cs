@@ -10,7 +10,6 @@ namespace Grafica
         public frm_Login()
         {
             InitializeComponent();
-
         }
 
         public void ComprobarInicio(bool ok)

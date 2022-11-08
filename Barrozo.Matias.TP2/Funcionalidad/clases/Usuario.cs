@@ -35,6 +35,13 @@ namespace Funcionalidad.clases
             this.contraseña = contraseña;
         }
 
+        public Usuario(string nombre, string apellido, string usuario)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.user = usuario;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string User { get => user; set => user = value; }

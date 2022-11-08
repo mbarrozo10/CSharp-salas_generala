@@ -120,6 +120,9 @@
   <data name="Aceptar" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="Activas" xml:space="preserve">
+    <value>Active</value>
+  </data>
   <data name="Bitacora" xml:space="preserve">
     <value>Do you want to export the game?</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Spanish</value>
+  </data>
+  <data name="Finalizadas" xml:space="preserve">
+    <value>Finished</value>
   </data>
   <data name="Ganador" xml:space="preserve">
     <value>Winner: </value>

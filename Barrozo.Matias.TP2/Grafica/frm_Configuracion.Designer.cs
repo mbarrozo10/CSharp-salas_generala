@@ -39,6 +39,7 @@
             this.rdb_Español = new System.Windows.Forms.RadioButton();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Volver = new System.Windows.Forms.Button();
+            this.pnl_Superior = new System.Windows.Forms.Panel();
             this.grp_Color.SuspendLayout();
             this.grp_Idioma.SuspendLayout();
             this.SuspendLayout();
@@ -172,15 +173,28 @@
             this.btn_Volver.UseVisualStyleBackColor = true;
             this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
+            // pnl_Superior
+            // 
+            this.pnl_Superior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_Superior.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Superior.Name = "pnl_Superior";
+            this.pnl_Superior.Size = new System.Drawing.Size(800, 37);
+            this.pnl_Superior.TabIndex = 4;
+            this.pnl_Superior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseDown);
+            this.pnl_Superior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseMove);
+            this.pnl_Superior.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseUp);
+            // 
             // frm_Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.btn_Volver);
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.grp_Idioma);
             this.Controls.Add(this.grp_Color);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Configuracion";
             this.Text = "frm_Configuracion";
             this.Load += new System.EventHandler(this.frm_Configuracion_Load);
@@ -205,5 +219,6 @@
         private RadioButton rdb_Español;
         private Button btn_Guardar;
         private Button btn_Volver;
+        private Panel pnl_Superior;
     }
 }

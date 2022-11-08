@@ -85,7 +85,6 @@ namespace Grafica
             if (horaInt % 2 == 0)
             {
                 presentador.TirarDados(this);
-                //bitacora += lblTurnoJugador.Text + lbl_Dados.Text + "\n";
             }
         }
 

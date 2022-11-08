@@ -120,6 +120,9 @@
   <data name="Aceptar" xml:space="preserve">
     <value>受け入れるために</value>
   </data>
+  <data name="Activas" xml:space="preserve">
+    <value>アクティブ</value>
+  </data>
   <data name="Bitacora" xml:space="preserve">
     <value>ゲームをエクスポートしますか?</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Finalizadas" xml:space="preserve">
+    <value>終了した</value>
   </data>
   <data name="Ganador" xml:space="preserve">
     <value>勝者: </value>

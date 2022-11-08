@@ -37,7 +37,10 @@ namespace Grafica
             this.dgv_MenuPrincipal = new System.Windows.Forms.DataGridView();
             this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Menu = new System.Windows.Forms.Panel();
-            this.btn_Jugadores = new System.Windows.Forms.Button();
+            this.pnl_Usuarios = new System.Windows.Forms.Panel();
+            this.btn_VerUsuarios = new System.Windows.Forms.Button();
+            this.btn_AltaUsuarios = new System.Windows.Forms.Button();
+            this.btn_Usuarios = new System.Windows.Forms.Button();
             this.pnl_Partidas = new System.Windows.Forms.Panel();
             this.btn_Finalizadas = new System.Windows.Forms.Button();
             this.btn_Activas = new System.Windows.Forms.Button();
@@ -57,6 +60,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
+            this.pnl_Usuarios.SuspendLayout();
             this.pnl_Partidas.SuspendLayout();
             this.pnl_Submenu.SuspendLayout();
             this.pnl_Superior.SuspendLayout();
@@ -128,7 +132,8 @@ namespace Grafica
             // pnl_Menu
             // 
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.pnl_Menu.Controls.Add(this.btn_Jugadores);
+            this.pnl_Menu.Controls.Add(this.pnl_Usuarios);
+            this.pnl_Menu.Controls.Add(this.btn_Usuarios);
             this.pnl_Menu.Controls.Add(this.pnl_Partidas);
             this.pnl_Menu.Controls.Add(this.btn_Partidas);
             this.pnl_Menu.Controls.Add(this.pnl_Submenu);
@@ -139,24 +144,72 @@ namespace Grafica
             this.pnl_Menu.Size = new System.Drawing.Size(172, 530);
             this.pnl_Menu.TabIndex = 4;
             // 
-            // btn_Jugadores
+            // pnl_Usuarios
             // 
-            this.btn_Jugadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btn_Jugadores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Jugadores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Jugadores.FlatAppearance.BorderSize = 0;
-            this.btn_Jugadores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.btn_Jugadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Jugadores.ForeColor = System.Drawing.Color.White;
-            this.btn_Jugadores.Location = new System.Drawing.Point(0, 261);
-            this.btn_Jugadores.Name = "btn_Jugadores";
-            this.btn_Jugadores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Jugadores.Size = new System.Drawing.Size(172, 51);
-            this.btn_Jugadores.TabIndex = 9;
-            this.btn_Jugadores.Text = "Usuarios";
-            this.btn_Jugadores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Jugadores.UseVisualStyleBackColor = false;
-            this.btn_Jugadores.Click += new System.EventHandler(this.btn_Jugadores_Click);
+            this.pnl_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.pnl_Usuarios.Controls.Add(this.btn_VerUsuarios);
+            this.pnl_Usuarios.Controls.Add(this.btn_AltaUsuarios);
+            this.pnl_Usuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_Usuarios.Location = new System.Drawing.Point(0, 312);
+            this.pnl_Usuarios.Name = "pnl_Usuarios";
+            this.pnl_Usuarios.Size = new System.Drawing.Size(172, 79);
+            this.pnl_Usuarios.TabIndex = 10;
+            this.pnl_Usuarios.Visible = false;
+            // 
+            // btn_VerUsuarios
+            // 
+            this.btn_VerUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_VerUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_VerUsuarios.FlatAppearance.BorderSize = 0;
+            this.btn_VerUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_VerUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_VerUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btn_VerUsuarios.Location = new System.Drawing.Point(0, 40);
+            this.btn_VerUsuarios.Name = "btn_VerUsuarios";
+            this.btn_VerUsuarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_VerUsuarios.Size = new System.Drawing.Size(172, 40);
+            this.btn_VerUsuarios.TabIndex = 7;
+            this.btn_VerUsuarios.Text = "Existentes";
+            this.btn_VerUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_VerUsuarios.UseVisualStyleBackColor = true;
+            this.btn_VerUsuarios.Click += new System.EventHandler(this.btn_Jugadores_Click);
+            // 
+            // btn_AltaUsuarios
+            // 
+            this.btn_AltaUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AltaUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_AltaUsuarios.FlatAppearance.BorderSize = 0;
+            this.btn_AltaUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_AltaUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AltaUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btn_AltaUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.btn_AltaUsuarios.Name = "btn_AltaUsuarios";
+            this.btn_AltaUsuarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_AltaUsuarios.Size = new System.Drawing.Size(172, 40);
+            this.btn_AltaUsuarios.TabIndex = 6;
+            this.btn_AltaUsuarios.Text = "Alta";
+            this.btn_AltaUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_AltaUsuarios.UseVisualStyleBackColor = true;
+            this.btn_AltaUsuarios.Click += new System.EventHandler(this.btn_AltaUsuarios_Click);
+            // 
+            // btn_Usuarios
+            // 
+            this.btn_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Usuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Usuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Usuarios.FlatAppearance.BorderSize = 0;
+            this.btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Usuarios.ForeColor = System.Drawing.Color.White;
+            this.btn_Usuarios.Location = new System.Drawing.Point(0, 261);
+            this.btn_Usuarios.Name = "btn_Usuarios";
+            this.btn_Usuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Usuarios.Size = new System.Drawing.Size(172, 51);
+            this.btn_Usuarios.TabIndex = 9;
+            this.btn_Usuarios.Text = "Usuarios";
+            this.btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Usuarios.UseVisualStyleBackColor = false;
+            this.btn_Usuarios.Click += new System.EventHandler(this.btn_Usuarios_Click);
             // 
             // pnl_Partidas
             // 
@@ -421,6 +474,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_Menu.ResumeLayout(false);
+            this.pnl_Usuarios.ResumeLayout(false);
             this.pnl_Partidas.ResumeLayout(false);
             this.pnl_Submenu.ResumeLayout(false);
             this.pnl_Superior.ResumeLayout(false);
@@ -450,10 +504,13 @@ namespace Grafica
         private Button btn_Configuracion;
         private Panel pnl_Jugar;
         private Button btn_AgregarJugador;
-        private Button btn_Jugadores;
         private Panel pnl_Partidas;
         private Button btn_Finalizadas;
         private Button btn_Activas;
         private Button btn_Partidas;
+        private Panel pnl_Usuarios;
+        private Button btn_VerUsuarios;
+        private Button btn_AltaUsuarios;
+        private Button btn_Usuarios;
     }
 }

@@ -226,4 +226,10 @@
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="Activas" xml:space="preserve">
+    <value>Activas</value>
+  </data>
+  <data name="Finalizadas" xml:space="preserve">
+    <value>Finalizadas</value>
+  </data>
 </root>
