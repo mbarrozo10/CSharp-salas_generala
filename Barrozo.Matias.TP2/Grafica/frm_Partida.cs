@@ -31,7 +31,8 @@ namespace Grafica
             presentador = new PresentadorGenerico();
             tmrTiempoPartida.Start();
             //presentador.ConseguirUltimoId(this);
-            presentador.IniciarPartida<frm_Partida>(jugadores,turnos);
+            //presentador.IniciarPartida(jugadores,turnos,this);
+            presentador.IniciarPartida<frm_Partida>(jugadores, turnos);
             this.config = config;
             CargarIdioma();
             CargarColores();
@@ -45,7 +46,8 @@ namespace Grafica
             imagenes[3] = Res.dado3; 
             imagenes[4] = Res.dado4; 
             imagenes[5] = Res.dado5; 
-            imagenes[6] = Res.dado6; 
+            imagenes[6] = Res.dado6;
+            
         }
 
         public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice, int[] dados)
@@ -210,6 +212,7 @@ namespace Grafica
             lbl_Guardar.Text = Res.Bitacora;
             btn_Aceptar.Text = Res.Aceptar;
             btn_Cancelar.Text = Res.Cancelar;
+            lbl_Ubicacion.Text = Res.Ubicacion;
         }
 
         private void CargarColores()
@@ -225,7 +228,6 @@ namespace Grafica
             lbl_Jugador4.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_Volver.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
 
-            pnl_GuardarPartida.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[1]);
             pnl_Superior.BackColor= Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
 
         }
@@ -254,19 +256,9 @@ namespace Grafica
             {
                 MessageBox.Show(ex.Message);
             }
-            DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.Abort;
         }
-
-        public void DevolverTiradas(Jugador.DTiradas delegado, int[] dadosEnMesa)
-        {
-            delegado(dadosEnMesa);
-        }
-
-        //public void ConseguirUltimoId(int id)
-        //{
-        //    ultimoId = id+1;
-        //}
-
+    
         public void FinalizarPartida(string ganador)
         {
             tmrTiempoPartida.Stop();

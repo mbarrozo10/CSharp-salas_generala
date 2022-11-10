@@ -34,14 +34,14 @@ namespace Funcionalidad.clases
         }
 
 
-        public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
-        public string Ganador { get => ganador; set => ganador = value; }
-        public int CantidadJugadores { get => cantidadJugadores; set => cantidadJugadores = value; }
-
         public int Id
         {
             get { return id; }
         }
+
+        public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
+        public string Ganador { get => ganador; set => ganador = value; }
+        public int CantidadJugadores { get => cantidadJugadores; set => cantidadJugadores = value; }
 
         public DateTime Date
         {
@@ -52,7 +52,7 @@ namespace Funcionalidad.clases
         public void TirarDados(int discriminador, int[] tirada)
         {
             Random rnd = new Random();
-            if (tirada != null)
+            if (tirada is not null && tirada.Length!=0)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -79,7 +79,7 @@ namespace Funcionalidad.clases
             int maximo = -1;
             int retorno = 0;
             Dado dado = new Dado();
-            if(aux != null)
+            if(aux != null && aux.Length!=0)
             {
                 foreach(int cara in dado.Caras)
                 {
@@ -98,6 +98,9 @@ namespace Funcionalidad.clases
                     }
                 }
 
+            }else
+            {
+                throw new ArgumentNullException();
             }
             return retorno;
         }

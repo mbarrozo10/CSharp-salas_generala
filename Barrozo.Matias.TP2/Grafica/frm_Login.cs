@@ -51,6 +51,8 @@ namespace Grafica
             lbl_Login.Text = Res.Inicio;
             btn_Login.Text = Res.Inicio;
             btn_Salir.Text = Res.Salir;
+            txt_Usuario.PlaceholderText = Res.Usuario;
+            txt_Contraseña.PlaceholderText = Res.Contraseña;
         }
 
         void CambiarColor()

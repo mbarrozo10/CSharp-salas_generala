@@ -56,7 +56,7 @@ namespace Grafica
             this.btn_AceptarCantidad = new System.Windows.Forms.Button();
             this.rtx_Reglas = new System.Windows.Forms.RichTextBox();
             this.pnl_Jugar = new System.Windows.Forms.Panel();
-            this.btn_AgregarJugador = new System.Windows.Forms.Button();
+            this.lbl_Seleccion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
@@ -117,13 +117,13 @@ namespace Grafica
             this.dgv_MenuPrincipal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_MenuPrincipal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.dgv_MenuPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(340, 82);
+            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 67);
             this.dgv_MenuPrincipal.Name = "dgv_MenuPrincipal";
             this.dgv_MenuPrincipal.RowTemplate.Height = 25;
             this.dgv_MenuPrincipal.Size = new System.Drawing.Size(494, 459);
             this.dgv_MenuPrincipal.TabIndex = 3;
             this.dgv_MenuPrincipal.Visible = false;
-            this.dgv_MenuPrincipal.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseClick);
+            this.dgv_MenuPrincipal.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseDoubleClick);
             // 
             // partidaBindingSource
             // 
@@ -431,28 +431,26 @@ namespace Grafica
             // pnl_Jugar
             // 
             this.pnl_Jugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Jugar.Controls.Add(this.lbl_Seleccion);
             this.pnl_Jugar.Controls.Add(this.lbl_Jugadores);
             this.pnl_Jugar.Controls.Add(this.nud_CantidadJugadores);
             this.pnl_Jugar.Controls.Add(this.btn_AceptarCantidad);
-            this.pnl_Jugar.Location = new System.Drawing.Point(170, 88);
+            this.pnl_Jugar.Location = new System.Drawing.Point(728, 67);
             this.pnl_Jugar.Name = "pnl_Jugar";
-            this.pnl_Jugar.Size = new System.Drawing.Size(154, 80);
+            this.pnl_Jugar.Size = new System.Drawing.Size(154, 124);
             this.pnl_Jugar.TabIndex = 10;
             this.pnl_Jugar.Visible = false;
             // 
-            // btn_AgregarJugador
+            // lbl_Seleccion
             // 
-            this.btn_AgregarJugador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.btn_AgregarJugador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AgregarJugador.ForeColor = System.Drawing.Color.White;
-            this.btn_AgregarJugador.Location = new System.Drawing.Point(840, 81);
-            this.btn_AgregarJugador.Name = "btn_AgregarJugador";
-            this.btn_AgregarJugador.Size = new System.Drawing.Size(75, 23);
-            this.btn_AgregarJugador.TabIndex = 9;
-            this.btn_AgregarJugador.Text = "Aceptar";
-            this.btn_AgregarJugador.UseVisualStyleBackColor = true;
-            this.btn_AgregarJugador.Visible = false;
-            this.btn_AgregarJugador.Click += new System.EventHandler(this.bnt_AgregarJugador_Click);
+            this.lbl_Seleccion.AutoSize = true;
+            this.lbl_Seleccion.ForeColor = System.Drawing.Color.White;
+            this.lbl_Seleccion.Location = new System.Drawing.Point(8, 84);
+            this.lbl_Seleccion.Name = "lbl_Seleccion";
+            this.lbl_Seleccion.Size = new System.Drawing.Size(107, 30);
+            this.lbl_Seleccion.TabIndex = 9;
+            this.lbl_Seleccion.Text = "Dos click sobre \r\nel jugador deseado\r\n";
+            this.lbl_Seleccion.Visible = false;
             // 
             // frm_MenuPrincipal
             // 
@@ -460,7 +458,6 @@ namespace Grafica
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
-            this.Controls.Add(this.btn_AgregarJugador);
             this.Controls.Add(this.pnl_Jugar);
             this.Controls.Add(this.dgv_MenuPrincipal);
             this.Controls.Add(this.rtx_Reglas);
@@ -503,7 +500,6 @@ namespace Grafica
         private RichTextBox rtx_Reglas;
         private Button btn_Configuracion;
         private Panel pnl_Jugar;
-        private Button btn_AgregarJugador;
         private Panel pnl_Partidas;
         private Button btn_Finalizadas;
         private Button btn_Activas;
@@ -512,5 +508,6 @@ namespace Grafica
         private Button btn_VerUsuarios;
         private Button btn_AltaUsuarios;
         private Button btn_Usuarios;
+        private Label lbl_Seleccion;
     }
 }

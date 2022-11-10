@@ -79,6 +79,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Apellido.
+        /// </summary>
+        internal static string Apellido {
+            get {
+                return ResourceManager.GetString("Apellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¿Quiere exportar la partida?.
         /// </summary>
         internal static string Bitacora {
@@ -120,6 +129,15 @@ namespace Grafica {
         internal static string Color {
             get {
                 return ResourceManager.GetString("Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña.
+        /// </summary>
+        internal static string Contraseña {
+            get {
+                return ResourceManager.GetString("Contraseña", resourceCulture);
             }
         }
         
@@ -229,6 +247,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Existentes.
+        /// </summary>
+        internal static string Existentes {
+            get {
+                return ResourceManager.GetString("Existentes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Finalizadas.
         /// </summary>
         internal static string Finalizadas {
@@ -328,6 +355,15 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Nombre {
+            get {
+                return ResourceManager.GetString("Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nueva Partida.
         /// </summary>
         internal static string Nueva {
@@ -373,11 +409,30 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Registro.
+        /// </summary>
+        internal static string Registro {
+            get {
+                return ResourceManager.GetString("Registro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salir.
         /// </summary>
         internal static string Salir {
             get {
                 return ResourceManager.GetString("Salir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dos click sobre 
+        ///el jugador deseado.
+        /// </summary>
+        internal static string Seleccion {
+            get {
+                return ResourceManager.GetString("Seleccion", resourceCulture);
             }
         }
         
@@ -396,6 +451,24 @@ namespace Grafica {
         internal static string Turno {
             get {
                 return ResourceManager.GetString("Turno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se guardara en mis documentos.
+        /// </summary>
+        internal static string Ubicacion {
+            get {
+                return ResourceManager.GetString("Ubicacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario.
+        /// </summary>
+        internal static string Usuario {
+            get {
+                return ResourceManager.GetString("Usuario", resourceCulture);
             }
         }
         

@@ -19,12 +19,6 @@ namespace Grafica
     public partial class frm_MenuPrincipal : Form, IMenu
     {
         PresentadorGenerico presentador;
-        //List<Usuario> UsuariosDisponibles;
-        //List<Jugador> jugadoresPartida;
-        //List<Task> tareasTest = new List<Task>();
-        //ConcurrentBag<Partida> listaPartidas;
-
-
         Configuracion config;
         int indice;
         private int turnosAJugar;
@@ -70,7 +64,6 @@ namespace Grafica
         {
             nud_CantidadJugadores.Enabled = true ;
             pnl_Jugar.Visible = false ;
-            btn_AgregarJugador.Visible = false ;
             if (dgv_MenuPrincipal.Visible == true)
             {
                 dgv_MenuPrincipal.Visible = false;
@@ -145,27 +138,37 @@ namespace Grafica
         public void MostrarDatosUsuarios(List<Usuario> usuarios)
         {
 
-            //UsuariosDisponibles = usuarios;
             dgv_MenuPrincipal.DataSource = null;
             dgv_MenuPrincipal.DataSource = usuarios;
         }
 
         public void MostrarDatosPartidas(ConcurrentBag<Partida> partidas)
         {
-            //listaPartidas = partidas;
             dgv_MenuPrincipal.DataSource = null;
             dgv_MenuPrincipal.DataSource = partidas.ToList();
         }
 
 
-        private void dgv_MenuPrincipal_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private async void dgv_MenuPrincipal_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            indice = e.RowIndex;
+            if (nud_CantidadJugadores.Enabled == false)
+            {
+                indice = e.RowIndex;
+                try
+                {
+                    lbl_Seleccion.Visible = false;
+                    await presentador.AgregarJugador(indice, this);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             nud_CantidadJugadores.Enabled = false;
-            btn_AgregarJugador.Visible = true;
+            lbl_Seleccion.Visible = true;
         }
 
         private void btn_Reglas_Click(object sender, EventArgs e)
@@ -189,80 +192,7 @@ namespace Grafica
             }
 
         }
-
-        private void CargarIdioma()
-        {
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
-            lbl_Jugadores.Text = Res.Cantidad;
-            btn_AceptarCantidad.Text = Res.Aceptar;
-            btn_Demo.Text = Res.Demo;
-            btn_Partidas.Text = Res.Partidas;
-            btn_Full.Text = Res.Juego;
-            btn_Usuarios.Text = Res.Jugadores;
-            btn_Salir.Text = Res.Salir;
-            btn_PartidaNueva.Text = Res.Nueva;
-            btn_AgregarJugador.Text = Res.Aceptar;
-            btn_Activas.Text = Res.Activas;
-            btn_Finalizadas.Text = Res.Finalizadas;
-        }
-
-        private void CargarColor()
-        {
-            this.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            pnl_Menu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
-            pnl_Submenu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
-            pnl_Superior.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
-            btn_AceptarCantidad.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_AgregarJugador.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Configuracion.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Demo.BackColor = Color.FromArgb(44,44,44);
-            btn_Full.BackColor = Color.FromArgb(44,44,44);
-            btn_Usuarios.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_PartidaNueva.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Salir.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Partidas.BackColor= Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-            btn_Reglas.BackColor= Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
-
-            lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            btn_Partidas.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-            btn_Usuarios.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_Salir.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_PartidaNueva.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_Reglas.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_Configuracion.ForeColor = Color.FromArgb(config.ForeColor[0],config.ForeColor[1],config.ForeColor[2]);
-            btn_AgregarJugador.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-
-
-        }
-
-        private void CargarReglas()
-        {
-            try
-            {
-                switch (config.Idioma)
-                {
-                    case "":
-                        reglas=Archivo.Leer("reglas.txt", @".\Reglas");
-                        break;
-                    case "ja":
-                        reglas=Archivo.Leer("reglasJa.txt", @".\Reglas");
-                        break;
-                    case "en-US":
-                        reglas = Archivo.Leer("reglasEn.txt", @".\Reglas");
-                        break;
-                    case "pl":
-                        reglas = Archivo.Leer("reglasPo.txt", @".\Reglas");
-                        break;
-                    default:
-                        break;
-
-                }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+   
 
         private void btn_Configuracion_Click(object sender, EventArgs e)
         {
@@ -283,14 +213,15 @@ namespace Grafica
         {
             if (jugadoresPartida.Count == nud_CantidadJugadores.Value)
             {
-
                 //presentador.AgregarTarea();
                 tareasTest.Add(new Task(() =>
                 {
                     List<Jugador> test = new List<Jugador>();
                     jugadoresPartida.ForEach((x) => test.Add(x));
                     jugadoresPartida.Clear();
-                    frm_Partida partida = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
+                    // = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
+                    frm_Partida partida;
+                    partida = new frm_Partida(test, 1 + turnosAJugar * (int)(nud_CantidadJugadores.Value), config);
                     partida.ShowDialog();
                     test.ForEach((x) => x.Usuario.Estado = EEstado.libre);
 
@@ -304,33 +235,9 @@ namespace Grafica
             return false;
         }
 
-        private async void bnt_AgregarJugador_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                //AgregarUsuario();
-                await presentador.AgregarJugador(indice, this);
-                //{
-                    //this.Show();
-                    //ControlarSubmenu(pnl_Submenu);
-                    //nud_CantidadJugadores.Enabled = true;
-                    //nud_CantidadJugadores.Visible = false;
-                    //btn_AceptarCantidad.Visible = false;
-                    //lbl_Jugadores.Visible = false;
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
 
-       
-
-
-        
+  
         private void btn_Partidas_Click(object sender, EventArgs e)
         {
             ControlarSubmenu(pnl_Partidas);
@@ -357,8 +264,95 @@ namespace Grafica
         {
             frm_AltaUsuarios users = new frm_AltaUsuarios(config);
             this.Hide();
-            users.ShowDialog();
+            if(users.ShowDialog()== DialogResult.OK)
+            {
+                presentador.ConseguirUsuarios();
+            }
             this.Show();
+        }
+
+        private void CargarIdioma()
+        {
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
+            lbl_Jugadores.Text = Res.Cantidad;
+            btn_AceptarCantidad.Text = Res.Aceptar;
+            btn_Demo.Text = Res.Demo;
+            btn_Partidas.Text = Res.Partidas;
+            btn_Full.Text = Res.Juego;
+            btn_Usuarios.Text = Res.Jugadores;
+            btn_Salir.Text = Res.Salir;
+            btn_PartidaNueva.Text = Res.Nueva;
+            btn_Activas.Text = Res.Activas;
+            btn_Finalizadas.Text = Res.Finalizadas;
+            btn_AltaUsuarios.Text = Res.Registro;
+            btn_VerUsuarios.Text = Res.Existentes;
+            lbl_Seleccion.Text= Res.Seleccion;
+        }
+
+        private void CargarColor()
+        {
+            this.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            pnl_Menu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            pnl_Submenu.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            pnl_Superior.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_AceptarCantidad.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            btn_Full.BackColor = Color.FromArgb(44, 44, 44);
+            btn_Demo.BackColor = Color.FromArgb(44, 44, 44);
+
+            //btn_Usuarios.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_PartidaNueva.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Salir.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Partidas.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Reglas.BackColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]); 
+
+            //btn_AgregarJugador.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_Configuracion.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_Usuarios.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_PartidaNueva.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_Salir.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_Partidas.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            btn_Reglas.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+            //btn_Partidas.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Usuarios.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Salir.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Reglas.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_PartidaNueva.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            //btn_Configuracion.ForeColor = Color.FromArgb(config.Fondo[0], config.Fondo[1], config.Fondo[2]);
+            pnl_Jugar.BackColor = Color.FromArgb(config.ColorSecundario[0], config.ColorSecundario[1], config.ColorSecundario[2]);
+
+            lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+            btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
+
+
+        }
+
+        private void CargarReglas()
+        {
+            try
+            {
+                switch (config.Idioma)
+                {
+                    case "":
+                        reglas = Archivo.Leer("reglas.txt", @".\Reglas");
+                        break;
+                    case "ja":
+                        reglas = Archivo.Leer("reglasJa.txt", @".\Reglas");
+                        break;
+                    case "en-US":
+                        reglas = Archivo.Leer("reglasEn.txt", @".\Reglas");
+                        break;
+                    case "pl":
+                        reglas = Archivo.Leer("reglasPo.txt", @".\Reglas");
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         int m, mx, my;
@@ -370,7 +364,6 @@ namespace Grafica
             my = e.Y;
         }
 
-     
 
         private void pnl_Superior_MouseMove(object sender, MouseEventArgs e)
         {

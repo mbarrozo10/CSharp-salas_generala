@@ -41,7 +41,6 @@ namespace Grafica
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jugador2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jugadorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Superior = new System.Windows.Forms.Panel();
             this.btn_Volver = new System.Windows.Forms.Button();
             this.lbl_Jugador3 = new System.Windows.Forms.Label();
@@ -55,8 +54,8 @@ namespace Grafica
             this.pic_DadoTres = new System.Windows.Forms.PictureBox();
             this.pic_DadoCuatro = new System.Windows.Forms.PictureBox();
             this.pic_DadoCinco = new System.Windows.Forms.PictureBox();
+            this.lbl_Ubicacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).BeginInit();
             this.pnl_Superior.SuspendLayout();
             this.pnl_GuardarPartida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_DadoUno)).BeginInit();
@@ -154,10 +153,6 @@ namespace Grafica
             this.Jugador2.HeaderText = "jugador2";
             this.Jugador2.Name = "Jugador2";
             // 
-            // jugadorBindingSource
-            // 
-            this.jugadorBindingSource.DataSource = typeof(Funcionalidad.clases.Jugador);
-            // 
             // pnl_Superior
             // 
             this.pnl_Superior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
@@ -212,6 +207,7 @@ namespace Grafica
             // pnl_GuardarPartida
             // 
             this.pnl_GuardarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_GuardarPartida.Controls.Add(this.lbl_Ubicacion);
             this.pnl_GuardarPartida.Controls.Add(this.lbl_Guardar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Cancelar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Aceptar);
@@ -225,7 +221,7 @@ namespace Grafica
             // 
             this.lbl_Guardar.AutoSize = true;
             this.lbl_Guardar.ForeColor = System.Drawing.Color.White;
-            this.lbl_Guardar.Location = new System.Drawing.Point(30, 24);
+            this.lbl_Guardar.Location = new System.Drawing.Point(30, 16);
             this.lbl_Guardar.Name = "lbl_Guardar";
             this.lbl_Guardar.Size = new System.Drawing.Size(143, 15);
             this.lbl_Guardar.TabIndex = 2;
@@ -313,6 +309,16 @@ namespace Grafica
             this.pic_DadoCinco.TabIndex = 14;
             this.pic_DadoCinco.TabStop = false;
             // 
+            // lbl_Ubicacion
+            // 
+            this.lbl_Ubicacion.AutoSize = true;
+            this.lbl_Ubicacion.ForeColor = System.Drawing.Color.White;
+            this.lbl_Ubicacion.Location = new System.Drawing.Point(12, 38);
+            this.lbl_Ubicacion.Name = "lbl_Ubicacion";
+            this.lbl_Ubicacion.Size = new System.Drawing.Size(180, 15);
+            this.lbl_Ubicacion.TabIndex = 3;
+            this.lbl_Ubicacion.Text = " Se guardara en mis documentos";
+            // 
             // frm_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -339,7 +345,6 @@ namespace Grafica
             this.Text = "frmPartida";
             this.Load += new System.EventHandler(this.frmPartida_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jugadorBindingSource)).EndInit();
             this.pnl_Superior.ResumeLayout(false);
             this.pnl_GuardarPartida.ResumeLayout(false);
             this.pnl_GuardarPartida.PerformLayout();
@@ -362,7 +367,6 @@ namespace Grafica
         private Label lblTiempoPartida;
         private Label lblTurnoJugador;
         private DataGridView dataGridView1;
-        private BindingSource jugadorBindingSource;
         private Panel pnl_Superior;
         private Button btn_Volver;
         private DataGridViewTextBoxColumn Tipo;
@@ -379,5 +383,6 @@ namespace Grafica
         private PictureBox pic_DadoTres;
         private PictureBox pic_DadoCuatro;
         private PictureBox pic_DadoCinco;
+        private Label lbl_Ubicacion;
     }
 }

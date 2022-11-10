@@ -123,6 +123,9 @@
   <data name="Activas" xml:space="preserve">
     <value>Ativo</value>
   </data>
+  <data name="Apellido" xml:space="preserve">
+    <value>Sobrenome</value>
+  </data>
   <data name="Bitacora" xml:space="preserve">
     <value>¿Deseja exportar o jogo?</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="Color" xml:space="preserve">
     <value>Cor</value>
   </data>
+  <data name="Contraseña" xml:space="preserve">
+    <value>Senha</value>
+  </data>
   <data name="De" xml:space="preserve">
     <value>Do: </value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Existentes" xml:space="preserve">
+    <value>Existir</value>
   </data>
   <data name="Finalizadas" xml:space="preserve">
     <value>Finalizado</value>
@@ -186,6 +195,9 @@
   <data name="Jugadores" xml:space="preserve">
     <value>Jogadoras</value>
   </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Nome</value>
+  </data>
   <data name="Nueva" xml:space="preserve">
     <value>Novo Jogo</value>
   </data>
@@ -201,14 +213,27 @@
   <data name="Puntaje" xml:space="preserve">
     <value>Pontuação: </value>
   </data>
+  <data name="Registro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
   <data name="Salir" xml:space="preserve">
     <value>Sair</value>
+  </data>
+  <data name="Seleccion" xml:space="preserve">
+    <value>Dois cliques em
+o jogador desejado</value>
   </data>
   <data name="Tirada" xml:space="preserve">
     <value>Lista: </value>
   </data>
   <data name="Turno" xml:space="preserve">
     <value>Virar: </value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>Será salvo em meus documentos</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>Do utilizador</value>
   </data>
   <data name="Volver" xml:space="preserve">
     <value>Retornar</value>

@@ -47,8 +47,9 @@ namespace BibliotecaDeClases
         }
 
 
-        public static bool Escribir(string mensaje, string nombreArchivo, string ruta)
+        public static bool Escribir(string mensaje, string nombreArchivo)
         {
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string completa = ruta + @$"/{nombreArchivo}" + ".txt";
             try
             {

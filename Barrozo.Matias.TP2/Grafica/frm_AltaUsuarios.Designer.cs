@@ -149,7 +149,7 @@
             this.pnl_Fondo.Controls.Add(this.txt_Nombre);
             this.pnl_Fondo.Controls.Add(this.txt_Contraseña);
             this.pnl_Fondo.Controls.Add(this.txt_Apellido);
-            this.pnl_Fondo.Location = new System.Drawing.Point(114, 75);
+            this.pnl_Fondo.Location = new System.Drawing.Point(120, 75);
             this.pnl_Fondo.Name = "pnl_Fondo";
             this.pnl_Fondo.Size = new System.Drawing.Size(200, 325);
             this.pnl_Fondo.TabIndex = 8;
@@ -190,11 +190,11 @@
             // 
             this.lbl_Error.AutoSize = true;
             this.lbl_Error.ForeColor = System.Drawing.Color.White;
-            this.lbl_Error.Location = new System.Drawing.Point(77, 42);
+            this.lbl_Error.Location = new System.Drawing.Point(34, 45);
             this.lbl_Error.Name = "lbl_Error";
-            this.lbl_Error.Size = new System.Drawing.Size(38, 15);
+            this.lbl_Error.Size = new System.Drawing.Size(137, 15);
             this.lbl_Error.TabIndex = 9;
-            this.lbl_Error.Text = "label1";
+            this.lbl_Error.Text = "Algun dato es incorrecto";
             this.lbl_Error.Visible = false;
             // 
             // frm_AltaUsuarios
@@ -206,6 +206,7 @@
             this.Controls.Add(this.pnl_Superior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_AltaUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_AltaUsuarios";
             this.Load += new System.EventHandler(this.frm_AltaUsuarios_Load);
             this.pnl_Fondo.ResumeLayout(false);

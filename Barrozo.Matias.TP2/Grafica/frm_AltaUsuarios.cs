@@ -15,6 +15,7 @@ namespace Grafica
     public partial class frm_AltaUsuarios : Form
     {
         Configuracion config;
+        PresentadorGenerico PresentadorGenerico;
         public frm_AltaUsuarios(Configuracion config)
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace Grafica
         {
             CambiarIdioma();
             CambiarColor();
+            PresentadorGenerico = new PresentadorGenerico();
         }
 
         private void CambiarColor()
@@ -45,7 +47,11 @@ namespace Grafica
 
             btn_Aceptar.Text = Res.Aceptar;
             btn_Cancelar.Text = Res.Cancelar;
-
+            lbl_Alta.Text = Res.Registro;
+            txt_Apellido.PlaceholderText = Res.Apellido;
+            txt_Contraseña.PlaceholderText = Res.Contraseña;
+            txt_Nombre.PlaceholderText = Res.Nombre;
+            txt_Usuario.PlaceholderText = Res.Usuario;
             lbl_Error.Text = Res.ErrorLogin;
         }
 
@@ -59,8 +65,8 @@ namespace Grafica
             if (txt_Usuario.Text != string.Empty && txt_Nombre.Text!=string.Empty&& txt_Usuario.Text != string.Empty && txt_Contraseña.Text!= string.Empty)
             {
                 Usuario usuario = new Usuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text);
-                ConexionBdUsuarios conexionBdUsuarios = new ConexionBdUsuarios();
-                conexionBdUsuarios.GuardarUsuarios(usuario, txt_Contraseña.Text);
+                
+                PresentadorGenerico.AgregarUsuario(usuario,txt_Contraseña.Text);
                 DialogResult = DialogResult.OK;
             }
             else

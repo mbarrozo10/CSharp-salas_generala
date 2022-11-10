@@ -232,4 +232,29 @@
   <data name="Finalizadas" xml:space="preserve">
     <value>Finalizadas</value>
   </data>
+  <data name="Apellido" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Contraseña" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Registro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Existentes" xml:space="preserve">
+    <value>Existentes</value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>Se guardara en mis documentos</value>
+  </data>
+  <data name="Seleccion" xml:space="preserve">
+    <value>Dos click sobre 
+el jugador deseado</value>
+  </data>
 </root>

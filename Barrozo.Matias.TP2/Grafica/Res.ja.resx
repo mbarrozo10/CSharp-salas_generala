@@ -123,6 +123,9 @@
   <data name="Activas" xml:space="preserve">
     <value>アクティブ</value>
   </data>
+  <data name="Apellido" xml:space="preserve">
+    <value>姓</value>
+  </data>
   <data name="Bitacora" xml:space="preserve">
     <value>ゲームをエクスポートしますか?</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="Color" xml:space="preserve">
     <value>色</value>
   </data>
+  <data name="Contraseña" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
   <data name="De" xml:space="preserve">
     <value>の: </value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Existentes" xml:space="preserve">
+    <value>既存</value>
   </data>
   <data name="Finalizadas" xml:space="preserve">
     <value>終了した</value>
@@ -186,6 +195,9 @@
   <data name="Jugadores" xml:space="preserve">
     <value>プレイヤー</value>
   </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
   <data name="Nueva" xml:space="preserve">
     <value>新しいゲーム</value>
   </data>
@@ -201,14 +213,27 @@
   <data name="Puntaje" xml:space="preserve">
     <value>スコア: </value>
   </data>
+  <data name="Registro" xml:space="preserve">
+    <value>記録</value>
+  </data>
   <data name="Salir" xml:space="preserve">
     <value>離れる</value>
+  </data>
+  <data name="Seleccion" xml:space="preserve">
+    <value>二回クリック
+希望の選手</value>
   </data>
   <data name="Tirada" xml:space="preserve">
     <value>ロール: </value>
   </data>
   <data name="Turno" xml:space="preserve">
     <value>順番: </value>
+  </data>
+  <data name="Ubicacion" xml:space="preserve">
+    <value>ドキュメントに保存されます</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>ユーザー</value>
   </data>
   <data name="Volver" xml:space="preserve">
     <value>戻る</value>
