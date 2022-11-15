@@ -16,21 +16,25 @@ namespace Funcionalidad.clases
         string ganador;
         int cantidadJugadores;
         Dado dado;
+        public int[] dadosEnMesa = new int[5];
+        public int indice = 0;
         public event Action EventAction;
+        private int turnosMaximos;
+        public int turnosJugados = 1;
 
-
-        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id) : this(ganador, cantidad, date, id)
+        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id, int turnosMaximos) : this(ganador, cantidad, date, id,turnosMaximos)
         {
             this.jugadores = jugadores;
            dado = new Dado();
         }
-        public Partida(string ganador, int cantidad, DateTime date, int id)
+        public Partida(string ganador, int cantidad, DateTime date, int id, int turnosMaximos)
         {
             this.ganador = ganador;
             cantidadJugadores = cantidad;
             this.id = id;
             this.date = date;
             dado = new Dado();
+            this.turnosMaximos = turnosMaximos;
         }
 
 
@@ -130,6 +134,61 @@ namespace Funcionalidad.clases
                     conexion.ActualizarPartidasGanadas(jugador.Usuario);
                 }
             }
+        }
+
+
+        public string Jugar()
+        {
+            string retorno="Vacio";
+            if (dadosEnMesa != null)
+            {
+                if (Jugadores[indice].TurnosJugados == 1)
+                {
+                    TirarDados(-1, dadosEnMesa);
+                }
+                else
+                {
+                    int numeroAGuardar = GuardarNumero(dadosEnMesa);
+                    TirarDados(numeroAGuardar, dadosEnMesa);
+                }
+                retorno = "Tirada :" + dadosEnMesa[0].ToString();
+                retorno += "-" + dadosEnMesa[1].ToString();
+                retorno += "-" + dadosEnMesa[2].ToString();
+                retorno += "-" + dadosEnMesa[3].ToString();
+                retorno += "-" + dadosEnMesa[4].ToString();
+            }
+            return retorno;
+        }
+
+        public bool VerificarTurno(){
+
+            jugadores[indice].del(dadosEnMesa);
+            if (jugadores[indice].TerminoTurno)
+            {
+                jugadores[indice].TerminoTurno = false;
+                return CambiarJugador();
+            }
+            return false;
+        }
+
+        bool CambiarJugador() 
+        {
+            dadosEnMesa = new int[5];
+            if (indice >= 0 && indice < jugadores.Count-1) 
+            {
+                indice++;
+            }
+            else
+            {
+                indice = 0;
+            }
+            turnosJugados++;
+            if (turnosJugados == turnosMaximos)
+            {
+                EncontrarGanador();
+                return true;
+            }
+            return false;
         }
     }
 }

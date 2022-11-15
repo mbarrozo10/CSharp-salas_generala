@@ -228,7 +228,7 @@ namespace Grafica
                 }));
                 nud_CantidadJugadores.Enabled = true;
                 pnl_Jugar.Visible = true;
-                await presentador.prueba();
+                await presentador.EmpezarTarea();
               
                 return true;
             }

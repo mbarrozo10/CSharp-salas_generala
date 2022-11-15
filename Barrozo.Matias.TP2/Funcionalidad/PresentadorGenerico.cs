@@ -22,11 +22,8 @@ namespace Funcionalidad
             conexionBdPartidas = new ConexionBdPartidas();
         }
         //valores partida
-        int[] dadosEnMesa = new int[5];
-        int indice = 0;
+
         Partida partidaActual;
-        private int turnosMaximos;
-        private int turnosJugados = 1;
         string bitacora = "";
 
 
@@ -43,7 +40,6 @@ namespace Funcionalidad
         public void DevolverPartidas<U>(U obj) where U : IMenu
         {
             
-            //obj.MostrarDatos(conexionBd.ObtenerDatosPartida());
             listaPartidas = conexionBdPartidas.ObtenerDatosPartidaBag();
             obj.MostrarDatosPartidas(listaPartidas);
         }
@@ -107,90 +103,38 @@ namespace Funcionalidad
 
         }
 
-        public async Task prueba()
+        public async Task EmpezarTarea()
         {
-            tareasTest.Last().Start();
+             tareasTest.Last().Start();
         }
 
 
         //Partida
-        private void Revisar(Jugador jugador)
-        {
-            jugador.del(dadosEnMesa);
-        }
       
         public void IniciarPartida<U>(List<Jugador> jugadores, int turnos) where U : IPartida
         {
-            ConexionBdPartidas conexion = new ConexionBdPartidas();
-            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexion.ObtenerUltimoId()+1);
-            turnosMaximos = turnos;
+            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexionBdPartidas.ObtenerUltimoId()+1,turnos);
             partidaActual.Jugadores.ForEach((x) => partidaActual.EventAction += x.SumarPuntaje);
- 
-
         }
 
         public void TirarDados<U>(U obj)where U : IPartida
         {
-          //esto deberia ser parte de partida 
 
-                string retorno;
-                //obj.Informacion(partidaActual);
-                if (partidaActual.Jugadores[indice].TurnosJugados == 1)
-                {
-                    partidaActual.TirarDados(-1, dadosEnMesa);
-                }
-                else
-                {
-                    int numeroAGuardar = Partida.GuardarNumero(dadosEnMesa);
-                    partidaActual.TirarDados(numeroAGuardar, dadosEnMesa);
-                }
-                retorno = "Tirada :" + dadosEnMesa[0].ToString();
-                retorno += "-" + dadosEnMesa[1].ToString();
-                retorno += "-" + dadosEnMesa[2].ToString();
-                retorno += "-" + dadosEnMesa[3].ToString();
-                retorno += "-" + dadosEnMesa[4].ToString();
+            string resumenPartida = partidaActual.Jugar();
 
-                bitacora += partidaActual.Jugadores[indice].Usuario.Nombre + " " + retorno + "\n";
-
-                obj.Informacion(partidaActual, retorno, turnosJugados, indice, dadosEnMesa);
-                Revisar(partidaActual.Jugadores[indice]);
-
-
-                if (partidaActual.Jugadores[indice].TerminoTurno)
-                {
-                    partidaActual.Jugadores[indice].AsignarANumeros(dadosEnMesa);
-                    partidaActual.Jugadores[indice].TerminoTurno = false;
-                // tirar return y que en el timer llame a cambiar jugador a ver que onda
-                    CambiarJugador(obj);
-                }
-                obj.ActualizarDatagrid(partidaActual);
+            obj.Informacion(partidaActual);
             
-        }
-
-        void CambiarJugador<U>(U obj)where U : IPartida
-        {
-
-
-            dadosEnMesa = new int[5];
-            if (indice != partidaActual.Jugadores.Count - 1)
+            if (partidaActual.VerificarTurno())
             {
-                indice++;
-            }
-            else
-            {
-                indice = 0;
-            }
-            turnosJugados++;
-            if (turnosJugados == turnosMaximos)
-            {
-                obj.ActualizarDatagrid(partidaActual);
-
-                partidaActual.EncontrarGanador();
-
                 obj.FinalizarPartida(partidaActual.Ganador);
             }
 
+            bitacora += partidaActual.Jugadores[partidaActual.indice].Usuario.Nombre + " " + resumenPartida + "\n";
+
+            obj.ActualizarDatagrid(partidaActual);
+            
         }
+
 
         public void GuardarResumenPartida()
         {
@@ -211,10 +155,10 @@ namespace Funcionalidad
 
         //Alta Usuarios
 
-        public void AgregarUsuario(Usuario usuario, string contraseña)
+        public void AgregarUsuario(string nombre, string apellido, string user, string contraseña)
         {
+            Usuario usuario = new Usuario(nombre, apellido, user);
             conexionBdUsuarios.GuardarUsuarios(usuario, contraseña);
-            
         }
 
         //public void AgregarTarea()

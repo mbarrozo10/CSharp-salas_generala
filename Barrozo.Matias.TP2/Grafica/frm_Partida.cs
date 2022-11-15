@@ -30,6 +30,7 @@ namespace Grafica
         {
             presentador = new PresentadorGenerico();
             tmrTiempoPartida.Start();
+
             //presentador.ConseguirUltimoId(this);
             //presentador.IniciarPartida(jugadores,turnos,this);
             presentador.IniciarPartida<frm_Partida>(jugadores, turnos);
@@ -50,15 +51,15 @@ namespace Grafica
             
         }
 
-        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice, int[] dados)
+        public void Informacion(Partida partidaActual)
         {
-            pic_DadoUno.Image = imagenes[dados[0]];
-            pic_DadoDos.Image = imagenes[dados[1]];
-            pic_DadoTres.Image = imagenes[dados[2]];
-            pic_DadoCuatro.Image = imagenes[dados[3]];
-            pic_DadoCinco.Image = imagenes[dados[4]];
-            lbl_Dados.Text = tirada;
-            lblTurnoJugador.Text = Res.Turno + turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[indice].Usuario.Nombre;
+            pic_DadoUno.Image = imagenes[partidaActual.dadosEnMesa[0]];
+            pic_DadoDos.Image = imagenes[partidaActual.dadosEnMesa[1]];
+            pic_DadoTres.Image = imagenes[partidaActual.dadosEnMesa[2]];
+            pic_DadoCuatro.Image = imagenes[partidaActual.dadosEnMesa[3]];
+            pic_DadoCinco.Image = imagenes[partidaActual.dadosEnMesa[4]];
+            //lbl_Dados.Text = tirada;
+            lblTurnoJugador.Text = Res.Turno + partidaActual.turnosJugados + " " + Res.Tirada + " " + partidaActual.Jugadores[partidaActual.indice].TurnosJugados + " " + Res.De + partidaActual.Jugadores[partidaActual.indice].Usuario.Nombre;
 
             lbl_Jugador1.Text = Res.Jugador + partidaActual.Jugadores[0].Usuario.Nombre ;
             lbl_Jugador2.Text = Res.Jugador + partidaActual.Jugadores[1].Usuario.Nombre ;

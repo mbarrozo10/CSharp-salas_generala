@@ -12,7 +12,7 @@ namespace Funcionalidad
     {
 
 
-        public void Informacion(Partida partidaActual, string tirada, int turnosJugados, int indice, int[] dados);
+        public void Informacion(Partida partidaActual);
 
         public void ActualizarDatagrid(Partida partidaActual);
 

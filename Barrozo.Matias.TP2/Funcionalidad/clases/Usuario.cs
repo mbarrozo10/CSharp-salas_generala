@@ -55,10 +55,8 @@ namespace Funcionalidad.clases
             List<Usuario> usuarios = conexion.ObtenerUsuarios();
             foreach (Usuario usuarioBd in usuarios)
             {
-                if (User == usuarioBd.User && contraseña == usuarioBd.contraseña)
+                if (User.ToLower() == usuarioBd.User.ToLower() && contraseña == usuarioBd.contraseña)
                 {
-                    nombre = usuarioBd.nombre;
-                    apellido = usuarioBd.apellido;
                     return true;
                 }
             }

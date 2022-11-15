@@ -62,11 +62,11 @@ namespace Grafica
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            if (txt_Usuario.Text != string.Empty && txt_Nombre.Text!=string.Empty&& txt_Usuario.Text != string.Empty && txt_Contraseña.Text!= string.Empty)
+            if (txt_Usuario.Text != string.Empty && txt_Nombre.Text!=string.Empty&& txt_Usuario.Text != string.Empty && txt_Contraseña.Text!= string.Empty && txt_Apellido.Text!= string.Empty)
             {
-                Usuario usuario = new Usuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text);
+                //Usuario usuario = new Usuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text);
                 
-                PresentadorGenerico.AgregarUsuario(usuario,txt_Contraseña.Text);
+                PresentadorGenerico.AgregarUsuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text, txt_Contraseña.Text);
                 DialogResult = DialogResult.OK;
             }
             else
