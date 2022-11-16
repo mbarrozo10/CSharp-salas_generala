@@ -201,8 +201,8 @@ namespace Grafica
 
         private void btn_Volver_Click(object sender, EventArgs e)
         {
-
             tmrTiempoPartida.Stop();
+            presentador.CancelarPartida();
             DialogResult = DialogResult.Cancel;
         }
 

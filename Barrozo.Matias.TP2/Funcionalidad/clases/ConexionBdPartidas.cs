@@ -26,12 +26,13 @@ namespace Funcionalidad.clases
 
                 comando.Connection = conexion;
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "INSERT INTO partidas_test VALUES (@Nombre,@Cantidad,@date)";
+                comando.CommandText = "INSERT INTO partidas_test VALUES (@Nombre,@Cantidad,@date,@estado)";
 
                 comando.Parameters.Clear();
                 comando.Parameters.AddWithValue("@Nombre", partida.Ganador);
                 comando.Parameters.AddWithValue("@Cantidad", partida.Jugadores.Count());
-                comando.Parameters.AddWithValue("@Date", partida.Date);
+                comando.Parameters.AddWithValue("@date", partida.Date);
+                comando.Parameters.AddWithValue("@estado", partida.Estado);
 
                 comando.ExecuteNonQuery();
 
@@ -62,34 +63,12 @@ namespace Funcionalidad.clases
 
             while (reader.Read())
             {
-                partidas.Add(new Partida(reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetInt32(0),0));
+                partidas.Add(new Partida(reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetInt32(0),0, reader.GetString(4)));
             }
 
             conexion.Close();
             return partidas;
         }
-        //public static List<Usuario> ObtenerJugadores()
-        //{
-        //    List<Usuario> jugadores = new List<Usuario>();
-
-
-        //    conexion.Open();
-
-
-        //    comando.Connection = conexion;
-        //    comando.CommandType = System.Data.CommandType.Text;
-        //    comando.CommandText = "SELECT * FROM jugadores_test";
-
-        //    SqlDataReader reader = comando.ExecuteReader();
-
-        //    while (reader.Read())
-        //    {
-        //        jugadores.Add(new Usuario(reader.GetString(1),reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0)));
-        //    }
-        //    conexion.Close();
-        //    return jugadores;
-        //}
-
         public int ObtenerUltimoId()
         {
             int id=0;
@@ -110,8 +89,26 @@ namespace Funcionalidad.clases
             conexion.Close();
             return id;
         }
-        
-       
 
+        public string ConseguirEstadisticasDePartidas(string query)
+        {
+            int cantidad=0;
+
+            conexion.Open();
+
+
+            comando.Connection = conexion;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = query;
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cantidad = reader.GetInt32(0);
+            }
+            conexion.Close();
+            return cantidad.ToString();
+        }
     }
 }

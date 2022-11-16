@@ -35,14 +35,13 @@ namespace Grafica
             this.btn_PartidaNueva = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.dgv_MenuPrincipal = new System.Windows.Forms.DataGridView();
-            this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnl_Menu = new System.Windows.Forms.Panel();
+            this.btn_Estadisticas = new System.Windows.Forms.Button();
             this.pnl_Usuarios = new System.Windows.Forms.Panel();
             this.btn_VerUsuarios = new System.Windows.Forms.Button();
             this.btn_AltaUsuarios = new System.Windows.Forms.Button();
             this.btn_Usuarios = new System.Windows.Forms.Button();
             this.pnl_Partidas = new System.Windows.Forms.Panel();
-            this.btn_Finalizadas = new System.Windows.Forms.Button();
             this.btn_Activas = new System.Windows.Forms.Button();
             this.btn_Partidas = new System.Windows.Forms.Button();
             this.pnl_Submenu = new System.Windows.Forms.Panel();
@@ -57,8 +56,18 @@ namespace Grafica
             this.rtx_Reglas = new System.Windows.Forms.RichTextBox();
             this.pnl_Jugar = new System.Windows.Forms.Panel();
             this.lbl_Seleccion = new System.Windows.Forms.Label();
+            this.pnl_Estadisticas = new System.Windows.Forms.Panel();
+            this.lbl_PartidasCanceladas = new System.Windows.Forms.Label();
+            this.lbl_PartidasFinalizada = new System.Windows.Forms.Label();
+            this.lbl_PartidasEmpatadas = new System.Windows.Forms.Label();
+            this.dgv_Top = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partiasGanadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbl_Top = new System.Windows.Forms.Label();
+            this.lbl_CantidadPartidas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Usuarios.SuspendLayout();
             this.pnl_Partidas.SuspendLayout();
@@ -66,6 +75,9 @@ namespace Grafica
             this.pnl_Superior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).BeginInit();
             this.pnl_Jugar.SuspendLayout();
+            this.pnl_Estadisticas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Top)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ganadorDataGridViewTextBoxColumn
@@ -125,13 +137,10 @@ namespace Grafica
             this.dgv_MenuPrincipal.Visible = false;
             this.dgv_MenuPrincipal.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseDoubleClick);
             // 
-            // partidaBindingSource
-            // 
-            this.partidaBindingSource.DataSource = typeof(Funcionalidad.clases.Partida);
-            // 
             // pnl_Menu
             // 
             this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Menu.Controls.Add(this.btn_Estadisticas);
             this.pnl_Menu.Controls.Add(this.pnl_Usuarios);
             this.pnl_Menu.Controls.Add(this.btn_Usuarios);
             this.pnl_Menu.Controls.Add(this.pnl_Partidas);
@@ -144,13 +153,32 @@ namespace Grafica
             this.pnl_Menu.Size = new System.Drawing.Size(172, 530);
             this.pnl_Menu.TabIndex = 4;
             // 
+            // btn_Estadisticas
+            // 
+            this.btn_Estadisticas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Estadisticas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Estadisticas.FlatAppearance.BorderSize = 0;
+            this.btn_Estadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_Estadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Estadisticas.ForeColor = System.Drawing.Color.White;
+            this.btn_Estadisticas.Location = new System.Drawing.Point(0, 349);
+            this.btn_Estadisticas.Name = "btn_Estadisticas";
+            this.btn_Estadisticas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Estadisticas.Size = new System.Drawing.Size(172, 51);
+            this.btn_Estadisticas.TabIndex = 11;
+            this.btn_Estadisticas.Text = "Estadistica";
+            this.btn_Estadisticas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Estadisticas.UseVisualStyleBackColor = false;
+            this.btn_Estadisticas.Click += new System.EventHandler(this.btn_Estadisticas_Click);
+            // 
             // pnl_Usuarios
             // 
             this.pnl_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.pnl_Usuarios.Controls.Add(this.btn_VerUsuarios);
             this.pnl_Usuarios.Controls.Add(this.btn_AltaUsuarios);
             this.pnl_Usuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_Usuarios.Location = new System.Drawing.Point(0, 312);
+            this.pnl_Usuarios.Location = new System.Drawing.Point(0, 270);
             this.pnl_Usuarios.Name = "pnl_Usuarios";
             this.pnl_Usuarios.Size = new System.Drawing.Size(172, 79);
             this.pnl_Usuarios.TabIndex = 10;
@@ -201,7 +229,7 @@ namespace Grafica
             this.btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Usuarios.ForeColor = System.Drawing.Color.White;
-            this.btn_Usuarios.Location = new System.Drawing.Point(0, 261);
+            this.btn_Usuarios.Location = new System.Drawing.Point(0, 219);
             this.btn_Usuarios.Name = "btn_Usuarios";
             this.btn_Usuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_Usuarios.Size = new System.Drawing.Size(172, 51);
@@ -214,32 +242,13 @@ namespace Grafica
             // pnl_Partidas
             // 
             this.pnl_Partidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.pnl_Partidas.Controls.Add(this.btn_Finalizadas);
             this.pnl_Partidas.Controls.Add(this.btn_Activas);
             this.pnl_Partidas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Partidas.Location = new System.Drawing.Point(0, 182);
             this.pnl_Partidas.Name = "pnl_Partidas";
-            this.pnl_Partidas.Size = new System.Drawing.Size(172, 79);
+            this.pnl_Partidas.Size = new System.Drawing.Size(172, 37);
             this.pnl_Partidas.TabIndex = 8;
             this.pnl_Partidas.Visible = false;
-            // 
-            // btn_Finalizadas
-            // 
-            this.btn_Finalizadas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Finalizadas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Finalizadas.FlatAppearance.BorderSize = 0;
-            this.btn_Finalizadas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
-            this.btn_Finalizadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Finalizadas.ForeColor = System.Drawing.Color.White;
-            this.btn_Finalizadas.Location = new System.Drawing.Point(0, 40);
-            this.btn_Finalizadas.Name = "btn_Finalizadas";
-            this.btn_Finalizadas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_Finalizadas.Size = new System.Drawing.Size(172, 40);
-            this.btn_Finalizadas.TabIndex = 7;
-            this.btn_Finalizadas.Text = "Finalizadas";
-            this.btn_Finalizadas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Finalizadas.UseVisualStyleBackColor = true;
-            this.btn_Finalizadas.Click += new System.EventHandler(this.btn_MostrarPartidas_Click);
             // 
             // btn_Activas
             // 
@@ -452,12 +461,116 @@ namespace Grafica
             this.lbl_Seleccion.Text = "Dos click sobre \r\nel jugador deseado\r\n";
             this.lbl_Seleccion.Visible = false;
             // 
+            // pnl_Estadisticas
+            // 
+            this.pnl_Estadisticas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.pnl_Estadisticas.Controls.Add(this.lbl_PartidasCanceladas);
+            this.pnl_Estadisticas.Controls.Add(this.lbl_PartidasFinalizada);
+            this.pnl_Estadisticas.Controls.Add(this.lbl_PartidasEmpatadas);
+            this.pnl_Estadisticas.Controls.Add(this.dgv_Top);
+            this.pnl_Estadisticas.Controls.Add(this.lbl_Top);
+            this.pnl_Estadisticas.Controls.Add(this.lbl_CantidadPartidas);
+            this.pnl_Estadisticas.Location = new System.Drawing.Point(728, 67);
+            this.pnl_Estadisticas.Name = "pnl_Estadisticas";
+            this.pnl_Estadisticas.Size = new System.Drawing.Size(323, 459);
+            this.pnl_Estadisticas.TabIndex = 11;
+            this.pnl_Estadisticas.Visible = false;
+            // 
+            // lbl_PartidasCanceladas
+            // 
+            this.lbl_PartidasCanceladas.AutoSize = true;
+            this.lbl_PartidasCanceladas.ForeColor = System.Drawing.Color.White;
+            this.lbl_PartidasCanceladas.Location = new System.Drawing.Point(28, 167);
+            this.lbl_PartidasCanceladas.Name = "lbl_PartidasCanceladas";
+            this.lbl_PartidasCanceladas.Size = new System.Drawing.Size(182, 15);
+            this.lbl_PartidasCanceladas.TabIndex = 5;
+            this.lbl_PartidasCanceladas.Text = "Cantidad de partidas Canceladas:";
+            // 
+            // lbl_PartidasFinalizada
+            // 
+            this.lbl_PartidasFinalizada.AutoSize = true;
+            this.lbl_PartidasFinalizada.ForeColor = System.Drawing.Color.White;
+            this.lbl_PartidasFinalizada.Location = new System.Drawing.Point(28, 127);
+            this.lbl_PartidasFinalizada.Name = "lbl_PartidasFinalizada";
+            this.lbl_PartidasFinalizada.Size = new System.Drawing.Size(179, 15);
+            this.lbl_PartidasFinalizada.TabIndex = 4;
+            this.lbl_PartidasFinalizada.Text = "Cantidad de partidas Finalizadas:";
+            // 
+            // lbl_PartidasEmpatadas
+            // 
+            this.lbl_PartidasEmpatadas.AutoSize = true;
+            this.lbl_PartidasEmpatadas.ForeColor = System.Drawing.Color.White;
+            this.lbl_PartidasEmpatadas.Location = new System.Drawing.Point(28, 86);
+            this.lbl_PartidasEmpatadas.Name = "lbl_PartidasEmpatadas";
+            this.lbl_PartidasEmpatadas.Size = new System.Drawing.Size(180, 15);
+            this.lbl_PartidasEmpatadas.TabIndex = 3;
+            this.lbl_PartidasEmpatadas.Text = "Cantidad de partidas Empatadas:";
+            // 
+            // dgv_Top
+            // 
+            this.dgv_Top.AutoGenerateColumns = false;
+            this.dgv_Top.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.dgv_Top.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Top.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.userDataGridViewTextBoxColumn,
+            this.partiasGanadasDataGridViewTextBoxColumn});
+            this.dgv_Top.DataSource = this.usuarioBindingSource;
+            this.dgv_Top.Location = new System.Drawing.Point(28, 297);
+            this.dgv_Top.Name = "dgv_Top";
+            this.dgv_Top.RowTemplate.Height = 25;
+            this.dgv_Top.Size = new System.Drawing.Size(224, 150);
+            this.dgv_Top.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // userDataGridViewTextBoxColumn
+            // 
+            this.userDataGridViewTextBoxColumn.DataPropertyName = "User";
+            this.userDataGridViewTextBoxColumn.HeaderText = "User";
+            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
+            // 
+            // partiasGanadasDataGridViewTextBoxColumn
+            // 
+            this.partiasGanadasDataGridViewTextBoxColumn.DataPropertyName = "PartiasGanadas";
+            this.partiasGanadasDataGridViewTextBoxColumn.HeaderText = "PartiasGanadas";
+            this.partiasGanadasDataGridViewTextBoxColumn.Name = "partiasGanadasDataGridViewTextBoxColumn";
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataSource = typeof(Funcionalidad.clases.Usuario);
+            // 
+            // lbl_Top
+            // 
+            this.lbl_Top.AutoSize = true;
+            this.lbl_Top.ForeColor = System.Drawing.Color.White;
+            this.lbl_Top.Location = new System.Drawing.Point(28, 265);
+            this.lbl_Top.Name = "lbl_Top";
+            this.lbl_Top.Size = new System.Drawing.Size(82, 15);
+            this.lbl_Top.TabIndex = 1;
+            this.lbl_Top.Text = "Top Jugadores";
+            // 
+            // lbl_CantidadPartidas
+            // 
+            this.lbl_CantidadPartidas.AutoSize = true;
+            this.lbl_CantidadPartidas.ForeColor = System.Drawing.Color.White;
+            this.lbl_CantidadPartidas.Location = new System.Drawing.Point(28, 48);
+            this.lbl_CantidadPartidas.Name = "lbl_CantidadPartidas";
+            this.lbl_CantidadPartidas.Size = new System.Drawing.Size(119, 15);
+            this.lbl_CantidadPartidas.TabIndex = 0;
+            this.lbl_CantidadPartidas.Text = "Cantidad de partidas:";
+            // 
             // frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.Controls.Add(this.pnl_Estadisticas);
             this.Controls.Add(this.pnl_Jugar);
             this.Controls.Add(this.dgv_MenuPrincipal);
             this.Controls.Add(this.rtx_Reglas);
@@ -469,7 +582,6 @@ namespace Grafica
             this.Text = "frmMenuPrincipal";
             this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_Menu.ResumeLayout(false);
             this.pnl_Usuarios.ResumeLayout(false);
             this.pnl_Partidas.ResumeLayout(false);
@@ -478,6 +590,10 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadJugadores)).EndInit();
             this.pnl_Jugar.ResumeLayout(false);
             this.pnl_Jugar.PerformLayout();
+            this.pnl_Estadisticas.ResumeLayout(false);
+            this.pnl_Estadisticas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Top)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -488,7 +604,6 @@ namespace Grafica
         private DataGridViewTextBoxColumn ganadorDataGridViewTextBoxColumn;
         private DataGridView dgv_MenuPrincipal;
         private Panel pnl_Menu;
-        private BindingSource partidaBindingSource;
         private Panel pnl_Superior;
         private Panel pnl_Submenu;
         private Button btn_Full;
@@ -501,7 +616,6 @@ namespace Grafica
         private Button btn_Configuracion;
         private Panel pnl_Jugar;
         private Panel pnl_Partidas;
-        private Button btn_Finalizadas;
         private Button btn_Activas;
         private Button btn_Partidas;
         private Panel pnl_Usuarios;
@@ -509,5 +623,17 @@ namespace Grafica
         private Button btn_AltaUsuarios;
         private Button btn_Usuarios;
         private Label lbl_Seleccion;
+        private Button btn_Estadisticas;
+        private Panel pnl_Estadisticas;
+        private DataGridView dgv_Top;
+        private Label lbl_Top;
+        private Label lbl_CantidadPartidas;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn partiasGanadasDataGridViewTextBoxColumn;
+        private BindingSource usuarioBindingSource;
+        private Label lbl_PartidasEmpatadas;
+        private Label lbl_PartidasCanceladas;
+        private Label lbl_PartidasFinalizada;
     }
 }

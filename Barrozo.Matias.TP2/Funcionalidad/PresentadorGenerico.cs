@@ -32,7 +32,7 @@ namespace Funcionalidad
         List<Jugador> jugadoresPartida = new List<Jugador>();
         List<Task> tareasTest = new List<Task>();
         ConcurrentBag<Partida> listaPartidas;
-      
+        Estadisticas estadisticas = new Estadisticas(0, new List<Usuario>(),0,0,0);
 
 
 
@@ -108,12 +108,19 @@ namespace Funcionalidad
              tareasTest.Last().Start();
         }
 
+        public void CargarEstadisticas<U>(U obj) where U : IMenu
+        {
+            estadisticas.CantidadPartidasJugadas = listaPartidas.Count();
+            obj.MostrarEstadisticas(estadisticas.CantidadPartidasJugadas.ToString(),conexionBdPartidas.ConseguirEstadisticasDePartidas("SELECT COUNT(Ganador) FROM partidas_test WHERE Ganador= 'empate'"), 
+                conexionBdPartidas.ConseguirEstadisticasDePartidas("SELECT COUNT(id) FROM partidas_test WHERE Estado= 'Cancelada'"), 
+                conexionBdPartidas.ConseguirEstadisticasDePartidas("SELECT COUNT(id) FROM partidas_test WHERE Estado= 'Finalizada'"), conexionBdUsuarios.ObtenerTop());
+        }
 
         //Partida
       
         public void IniciarPartida<U>(List<Jugador> jugadores, int turnos) where U : IPartida
         {
-            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexionBdPartidas.ObtenerUltimoId()+1,turnos);
+            partidaActual = new Partida(jugadores, "", jugadores.Count, DateTime.Now, conexionBdPartidas.ObtenerUltimoId()+1,turnos,"Empezada");
             partidaActual.Jugadores.ForEach((x) => partidaActual.EventAction += x.SumarPuntaje);
         }
 
@@ -146,6 +153,12 @@ namespace Funcionalidad
             conexionBdPartidas.GuardarPartida(partidaActual);
         }
 
+        public void CancelarPartida()
+        {
+            partidaActual.Estado = "Cancelada";
+            conexionBdPartidas.GuardarPartida(partidaActual);
+        }
+
         //Login
 
         public void ComprobarLogin<U> (Usuario usuario, U obj) where U : ILogin
@@ -160,6 +173,8 @@ namespace Funcionalidad
             Usuario usuario = new Usuario(nombre, apellido, user);
             conexionBdUsuarios.GuardarUsuarios(usuario, contraseña);
         }
+
+    
 
         //public void AgregarTarea()
         //{

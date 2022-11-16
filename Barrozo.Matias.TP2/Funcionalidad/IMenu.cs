@@ -14,6 +14,8 @@ namespace Funcionalidad
         public void MostrarDatosTareas(List<Task> tareas);
         public void MostrarDatosPartidas(ConcurrentBag<Partida> partidas);
 
+        public void MostrarEstadisticas(string cantidad, string cantidadEmpatadas,string cantidadCanceladas, string cantidadFinalizada, List<Usuario> usuarios);
+
         public async Task<bool> AgregarUsuario(List<Jugador> jugadoresPartida, List<Task> tareasTest)
         {
             return true;

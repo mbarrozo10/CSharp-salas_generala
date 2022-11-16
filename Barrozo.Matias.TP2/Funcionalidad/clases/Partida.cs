@@ -21,13 +21,14 @@ namespace Funcionalidad.clases
         public event Action EventAction;
         private int turnosMaximos;
         public int turnosJugados = 1;
+        private string estado;
 
-        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id, int turnosMaximos) : this(ganador, cantidad, date, id,turnosMaximos)
+        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado) : this(ganador, cantidad, date, id, turnosMaximos, estado)
         {
             this.jugadores = jugadores;
-           dado = new Dado();
+            dado = new Dado();
         }
-        public Partida(string ganador, int cantidad, DateTime date, int id, int turnosMaximos)
+        public Partida(string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado)
         {
             this.ganador = ganador;
             cantidadJugadores = cantidad;
@@ -35,6 +36,7 @@ namespace Funcionalidad.clases
             this.date = date;
             dado = new Dado();
             this.turnosMaximos = turnosMaximos;
+            this.estado = estado;
         }
 
 
@@ -52,6 +54,7 @@ namespace Funcionalidad.clases
             get { return date; }
         }
 
+        public string Estado { get => estado; set => estado = value; }
 
         public void TirarDados(int discriminador, int[] tirada)
         {
@@ -134,6 +137,7 @@ namespace Funcionalidad.clases
                     conexion.ActualizarPartidasGanadas(jugador.Usuario);
                 }
             }
+            estado = "Finalizada";
         }
 
 

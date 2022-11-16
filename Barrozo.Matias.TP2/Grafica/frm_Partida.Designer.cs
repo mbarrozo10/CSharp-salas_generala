@@ -46,6 +46,7 @@ namespace Grafica
             this.lbl_Jugador3 = new System.Windows.Forms.Label();
             this.lbl_Jugador4 = new System.Windows.Forms.Label();
             this.pnl_GuardarPartida = new System.Windows.Forms.Panel();
+            this.lbl_Ubicacion = new System.Windows.Forms.Label();
             this.lbl_Guardar = new System.Windows.Forms.Label();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace Grafica
             this.pic_DadoTres = new System.Windows.Forms.PictureBox();
             this.pic_DadoCuatro = new System.Windows.Forms.PictureBox();
             this.pic_DadoCinco = new System.Windows.Forms.PictureBox();
-            this.lbl_Ubicacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnl_Superior.SuspendLayout();
             this.pnl_GuardarPartida.SuspendLayout();
@@ -211,11 +211,21 @@ namespace Grafica
             this.pnl_GuardarPartida.Controls.Add(this.lbl_Guardar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Cancelar);
             this.pnl_GuardarPartida.Controls.Add(this.btn_Aceptar);
-            this.pnl_GuardarPartida.Location = new System.Drawing.Point(442, 154);
+            this.pnl_GuardarPartida.Location = new System.Drawing.Point(457, 162);
             this.pnl_GuardarPartida.Name = "pnl_GuardarPartida";
             this.pnl_GuardarPartida.Size = new System.Drawing.Size(200, 100);
             this.pnl_GuardarPartida.TabIndex = 9;
             this.pnl_GuardarPartida.Visible = false;
+            // 
+            // lbl_Ubicacion
+            // 
+            this.lbl_Ubicacion.AutoSize = true;
+            this.lbl_Ubicacion.ForeColor = System.Drawing.Color.White;
+            this.lbl_Ubicacion.Location = new System.Drawing.Point(12, 38);
+            this.lbl_Ubicacion.Name = "lbl_Ubicacion";
+            this.lbl_Ubicacion.Size = new System.Drawing.Size(180, 15);
+            this.lbl_Ubicacion.TabIndex = 3;
+            this.lbl_Ubicacion.Text = " Se guardara en mis documentos";
             // 
             // lbl_Guardar
             // 
@@ -262,7 +272,7 @@ namespace Grafica
             // pic_DadoUno
             // 
             this.pic_DadoUno.Image = global::Grafica.Res.dado6;
-            this.pic_DadoUno.Location = new System.Drawing.Point(286, 214);
+            this.pic_DadoUno.Location = new System.Drawing.Point(301, 178);
             this.pic_DadoUno.Name = "pic_DadoUno";
             this.pic_DadoUno.Size = new System.Drawing.Size(46, 40);
             this.pic_DadoUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,7 +282,7 @@ namespace Grafica
             // pic_DadoDos
             // 
             this.pic_DadoDos.Image = global::Grafica.Res.dado6;
-            this.pic_DadoDos.Location = new System.Drawing.Point(338, 214);
+            this.pic_DadoDos.Location = new System.Drawing.Point(353, 178);
             this.pic_DadoDos.Name = "pic_DadoDos";
             this.pic_DadoDos.Size = new System.Drawing.Size(46, 40);
             this.pic_DadoDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -282,7 +292,7 @@ namespace Grafica
             // pic_DadoTres
             // 
             this.pic_DadoTres.Image = global::Grafica.Res.dado6;
-            this.pic_DadoTres.Location = new System.Drawing.Point(390, 214);
+            this.pic_DadoTres.Location = new System.Drawing.Point(405, 178);
             this.pic_DadoTres.Name = "pic_DadoTres";
             this.pic_DadoTres.Size = new System.Drawing.Size(46, 40);
             this.pic_DadoTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -292,7 +302,7 @@ namespace Grafica
             // pic_DadoCuatro
             // 
             this.pic_DadoCuatro.Image = global::Grafica.Res.dado6;
-            this.pic_DadoCuatro.Location = new System.Drawing.Point(442, 214);
+            this.pic_DadoCuatro.Location = new System.Drawing.Point(457, 178);
             this.pic_DadoCuatro.Name = "pic_DadoCuatro";
             this.pic_DadoCuatro.Size = new System.Drawing.Size(46, 40);
             this.pic_DadoCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -302,22 +312,12 @@ namespace Grafica
             // pic_DadoCinco
             // 
             this.pic_DadoCinco.Image = global::Grafica.Res.dado6;
-            this.pic_DadoCinco.Location = new System.Drawing.Point(494, 214);
+            this.pic_DadoCinco.Location = new System.Drawing.Point(509, 178);
             this.pic_DadoCinco.Name = "pic_DadoCinco";
             this.pic_DadoCinco.Size = new System.Drawing.Size(46, 40);
             this.pic_DadoCinco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_DadoCinco.TabIndex = 14;
             this.pic_DadoCinco.TabStop = false;
-            // 
-            // lbl_Ubicacion
-            // 
-            this.lbl_Ubicacion.AutoSize = true;
-            this.lbl_Ubicacion.ForeColor = System.Drawing.Color.White;
-            this.lbl_Ubicacion.Location = new System.Drawing.Point(12, 38);
-            this.lbl_Ubicacion.Name = "lbl_Ubicacion";
-            this.lbl_Ubicacion.Size = new System.Drawing.Size(180, 15);
-            this.lbl_Ubicacion.TabIndex = 3;
-            this.lbl_Ubicacion.Text = " Se guardara en mis documentos";
             // 
             // frm_Partida
             // 

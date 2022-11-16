@@ -23,7 +23,7 @@ namespace Funcionalidad
 
         public List<Usuario> ObtenerUsuarios()
         {
-            List<Usuario> clientes = new List<Usuario>();
+            List<Usuario> usuarios = new List<Usuario>();
 
 
             conexion.Open();
@@ -37,11 +37,11 @@ namespace Funcionalidad
 
             while (reader.Read())
             {
-                clientes.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0), EEstado.libre, reader.GetInt32(5)));
+                usuarios.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0), EEstado.libre, reader.GetInt32(5)));
             }
 
             conexion.Close();
-            return clientes;
+            return usuarios;
         }
 
         public void ActualizarPartidasGanadas(Usuario usuario)
@@ -100,6 +100,28 @@ namespace Funcionalidad
 
         }
 
+        public List<Usuario> ObtenerTop()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            conexion.Open();
+
+            comando.Connection = conexion;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "SELECT TOP(5) * FROM usuario_test ORDER BY PartidasGanadas DESC";
+
+            SqlDataReader reader = comando.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usuarios.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0), EEstado.libre, reader.GetInt32(5)));
+            }
+
+            conexion.Close();
+
+
+            return usuarios;
+        }
     }
 
 }
