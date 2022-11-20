@@ -69,7 +69,6 @@ namespace Funcionalidad_test
         [DataRow(20,10)]
         [DataRow(50,10)]
         [DataRow(60,10)]
-        //[DataRow(10,20)]
         [TestMethod]
         public void EncontrarGanador_Success(int puntajeGanador, int puntajePerdedor)
         {
@@ -78,7 +77,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10,0,"");
+            Partida partida = new Partida(new CancellationToken(),lista, "", 0, DateTime.Now, 10,0,"");
             partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
             ganador.Puntaje = puntajeGanador;
@@ -89,9 +88,6 @@ namespace Funcionalidad_test
         }
 
         [DataRow(0, 10)]
-        [DataRow(0, 10)]
-        [DataRow(0, 10)]
-        //[DataRow(10,20)]
         [TestMethod]
         public void EncontrarGanador_Fail(int puntajeGanador, int puntajePerdedor)
         {
@@ -100,7 +96,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0,"");
+            Partida partida = new Partida(new CancellationToken(),lista, "", 0, DateTime.Now, 10, 0,"");
             partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
             ganador.Puntaje = puntajeGanador;
@@ -119,7 +115,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0,"");
+            Partida partida = new Partida(new CancellationToken(), lista, "", 0, DateTime.Now, 10, 0,"");
             string retorno;
             //partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
@@ -137,7 +133,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 2, DateTime.Now, 10, 10,"");
+            Partida partida = new Partida(new CancellationToken(),lista, "", 2, DateTime.Now, 10, 10,"");
             int indiceInicial = partida.indice;
 
             partida.dadosEnMesa =new int[5] {1,1,1,1,1};

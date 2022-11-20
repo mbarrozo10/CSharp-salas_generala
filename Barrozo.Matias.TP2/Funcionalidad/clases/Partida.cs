@@ -17,10 +17,9 @@ namespace Funcionalidad.clases
         public int turnosJugados = 1; // hacer metodo
         private string estado;
         string bitacora = "";
-        public event Action<Partida> prueba;
-        Task test;
+        public event Action<Partida> mostrarInfo;
+        Task tarea;
         public event Action<Partida> finalizar;
-        public Action Guardar;
         static ConexionBdPartidas conexionBdPartidas = new ConexionBdPartidas();
         
  
@@ -28,7 +27,7 @@ namespace Funcionalidad.clases
         {
             this.jugadores = jugadores;
             dado = new Dado();
-            test = new Task(()=> EmpezarPartida(cancel));
+            tarea = new Task(()=> EmpezarPartida(cancel));
         }
         public Partida(string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado)
         {
@@ -210,7 +209,7 @@ namespace Funcionalidad.clases
                 Thread.Sleep(2000);
                 string resumenPartida = Jugar();
 
-                prueba?.Invoke(this);
+                mostrarInfo?.Invoke(this);
 
                 bitacora += Jugadores[indice].Usuario.Nombre + " " + resumenPartida + "\n";
                 if (VerificarTurno())
@@ -218,7 +217,7 @@ namespace Funcionalidad.clases
                     finalizar?.Invoke(this);
                     GuardarPartida();
                 }
-                prueba?.Invoke(this);
+                mostrarInfo?.Invoke(this);
             }
         }
 
@@ -230,7 +229,7 @@ namespace Funcionalidad.clases
 
         public async Task EmpezarTarea()
         {
-            test.Start();
+            tarea.Start();
         }
 
         public void GuardarPartida()

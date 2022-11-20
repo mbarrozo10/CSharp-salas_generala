@@ -42,6 +42,7 @@ namespace Funcionalidad.clases
             }
             catch (Exception)
             {
+                conexion.Close();
                 throw;
             }
 
@@ -112,6 +113,7 @@ namespace Funcionalidad.clases
             }
             catch (Exception)
             {
+                conexion.Close();
                 throw;
             }
             return cantidad.ToString();

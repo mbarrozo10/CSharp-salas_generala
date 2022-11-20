@@ -27,6 +27,9 @@ namespace Funcionalidad_test
             cmd.Parameters.AddWithValue("@parameter", parametro);
 
             cmd.ExecuteNonQuery();
+
+            conexion.Close();
+
         }
 
         public Partida ObtenerPartidaTest(string comando, string parametro)

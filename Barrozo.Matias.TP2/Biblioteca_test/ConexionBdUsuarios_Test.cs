@@ -39,7 +39,7 @@ namespace Funcionalidad_test
 
             Assert.AreNotEqual(usuarioBD.PartiasGanadas, usuario.PartiasGanadas);
 
-            BorrarUsuario(@"DELETE FROM usuario_test WHERE Usuario= @usuario", usuario.User);
+            BorrarUsuario(@"DELETE FROM usuario_test WHERE Usuario= @parameter", usuario.User);
         }
 
 
@@ -75,6 +75,8 @@ namespace Funcionalidad_test
             cmd.Parameters.AddWithValue("@parameter", parametro);
 
             cmd.ExecuteNonQuery();
+
+            conexion.Close();
         }
 
         public Usuario ObtenerUsuario(string comando,string parametro)

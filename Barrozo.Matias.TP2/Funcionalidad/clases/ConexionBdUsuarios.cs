@@ -44,6 +44,7 @@ namespace Funcionalidad
             }
             catch (Exception)
             {
+                conexion.Close();
                 throw;
             }
             return usuarios;
@@ -71,6 +72,7 @@ namespace Funcionalidad
             }
             catch (Exception)
             {
+                conexion.Close();
                 throw;
             }
 
@@ -100,6 +102,7 @@ namespace Funcionalidad
             }
             catch (Exception)
             {
+                conexion.Close();
                 throw;
             }
 

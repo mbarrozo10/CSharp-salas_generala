@@ -29,8 +29,8 @@ namespace Grafica
         public frm_Partida(Configuracion config, PresentadorPartida presentadorg) : this()
         {
             presentador= presentadorg;
-            presentador.PartidaActual.prueba += Informacion;
-            presentador.PartidaActual.prueba += ActualizarDatagrid;
+            presentador.PartidaActual.mostrarInfo += Informacion;
+            presentador.PartidaActual.mostrarInfo += ActualizarDatagrid;
             presentador.PartidaActual.finalizar += FinalizarPartida;
             presentador.enPantalla = true;
             this.config = config;
@@ -259,8 +259,8 @@ namespace Grafica
         {
             tmrTiempoPartida.Stop();
 
-            presentador.PartidaActual.prueba -= ActualizarDatagrid;
-            presentador.PartidaActual.prueba -= Informacion;
+            presentador.PartidaActual.mostrarInfo -= ActualizarDatagrid;
+            presentador.PartidaActual.mostrarInfo -= Informacion;
             presentador.PartidaActual.finalizar -= FinalizarPartida;
             presentador.enPantalla = false;
             this.Close();
