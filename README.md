@@ -37,55 +37,69 @@ En la izquierda superior hay 2 botones:
 
 
  Clase ConexionBdPartida:
- ![imagen](Matias.Barrozo.Parcial/sql.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/sql.png)
 
 
 - Excepciones: Se usan distintos bloques de try/catch a lo largo del programa para atajar los posibles errores.
 
  Clase frm_MenuPrincipal
- ![imagen](Matias.Barrozo.Parcial/excepciones.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/excepciones.png)
 
 - Unit Testing: Se genero un proyecto "Funcionalidades_Test" para comprobar el correcto funcionamiento de los metodos. No se probaron todos los metodos dado su nivel de proteccion o uso de los mismos.
 
  Proyecto Funcionalidades_Test:
- ![imagen](Matias.Barrozo.Parcial/unit.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/unit.png)
 
 - Generics: Se uso generics para la clase serializadora, asi esta puede serializar cualquier tipo de dato.
  
  Clase Serializadora:
- ![imagen](Matias.Barrozo.Parcial/generics.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/generics.png)
 
 - Serializacion: Se hizo una clase serializadora que genera archivos .json. En el programa se usa para guardar las configuraciones de color e idioma.
 
  Clase frm_Login:
- ![imagen](Matias.Barrozo.Parcial/leerserializador.png)
- ![imagen](Matias.Barrozo.Parcial/escribirserializador.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/leerserializador.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/escribirserializador.png)
 
 - Archivos: Se hizo una clase de archivos para guardar el resumen de la partida si es que el usuario lo desea.
 
  Clase Partida:
- ![imagen](Matias.Barrozo.Parcial/archivo.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/archivo.png)
 
 - Interfaces: Se utilizo interfaces para lograr un modelo de MVP, generando una interfaz por cada formulario.
 
  Interface IMenu:
- ![imagen](Matias.Barrozo.Parcial/interface.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/interface.png)
 
 - Delegados: Se uso delegados para el movimiento de metodos entre distintas clases, por ejemplo el uso de "DTiradas" en la clase jugador, que ejecuta todos los checkeos de las tiradas de los jugadores.
 
  Clase Jugador:
- ![imagen](Matias.Barrozo.Parcial/cargardelegados.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/cargardelegado.png)
+
  Clase Parida:
- ![imagen](Matias.Barrozo.Parcial/delegadoinvocado.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/delegadoinvocado.png)
 
 - Task: Se uso tareas para la ejecucion de partidas en segundo plano, estas corren sin que tengan que ser visualizadas.
 
  Clase Partida:
- ![imagen](Matias.Barrozo.Parcial/task.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/task.png)
 
 - Eventos: Se usa eventos en varios lugares, por ejemplo a la hora de mostrar informacion en pantalla, se usa el evento "mostrarInfo" para mostrar en pantalla en caso de que haya un formulario abierto.
 Tambien se usa un evento para encontrar al ganador de la partida.
 
  Clase Partida:
- ![imagen](Matias.Barrozo.Parcial/eventodeclarado.png)
- ![imagen](Matias.Barrozo.Parcial/eventoinvocado.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/eventodeclarado.png)
+
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/eventoinvocado.png)
