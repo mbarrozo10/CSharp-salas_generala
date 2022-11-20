@@ -70,11 +70,11 @@ En la izquierda superior hay 2 botones:
 
  Clase frm_Login:
 
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/leerserializador.png">
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/leerserializador.png)
 
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/escribirserializador.png">
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/escribirserializador.png)
 
 
 - Archivos: Se hizo una clase de archivos para guardar el resumen de la partida si es que el usuario lo desea.
@@ -82,7 +82,8 @@ En la izquierda superior hay 2 botones:
  Clase Partida:
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/archivo.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/archivo.png">
+
 
 
 - Interfaces: Se utilizo interfaces para lograr un modelo de MVP, generando una interfaz por cada formulario.
@@ -90,7 +91,8 @@ En la izquierda superior hay 2 botones:
  Interface IMenu:
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/interface.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/interface.png">
+
 
 
 - Delegados: Se uso delegados para el movimiento de metodos entre distintas clases, por ejemplo el uso de "DTiradas" en la clase jugador, que ejecuta todos los checkeos de las tiradas de los jugadores.
@@ -98,13 +100,13 @@ En la izquierda superior hay 2 botones:
  Clase Jugador:
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/cargardelegado.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/cargardelegado.png">
 
 
  Clase Parida:
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/delegadoinvocado.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/delegadoinvocado.png">
 
 
 - Task: Se uso tareas para la ejecucion de partidas en segundo plano, estas corren sin que tengan que ser visualizadas.
@@ -112,7 +114,8 @@ En la izquierda superior hay 2 botones:
  Clase Partida:
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/task.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/task.png">
+
 
 
 - Eventos: Se usa eventos en varios lugares, por ejemplo a la hora de mostrar informacion en pantalla, se usa el evento "mostrarInfo" para mostrar en pantalla en caso de que haya un formulario abierto.
@@ -120,9 +123,10 @@ Tambien se usa un evento para encontrar al ganador de la partida.
 
  Clase Partida:
 
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/eventodeclarado.png">
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/eventodeclarado.png)
 
 
- ![imagen](Barrozo.Matias.TP2/Imagenes Readme/eventoinvocado.png)
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/eventoinvocado.png">
+
 
