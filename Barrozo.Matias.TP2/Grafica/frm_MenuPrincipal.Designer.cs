@@ -31,6 +31,7 @@ namespace Grafica
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_MenuPrincipal));
             this.ganadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_PartidaNueva = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
@@ -607,6 +608,7 @@ namespace Grafica
             this.Controls.Add(this.pnl_Superior);
             this.Controls.Add(this.pnl_Menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuPrincipal";

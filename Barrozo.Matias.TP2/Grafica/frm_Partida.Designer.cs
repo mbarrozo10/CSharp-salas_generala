@@ -31,6 +31,7 @@ namespace Grafica
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Partida));
             this.lbl_Jugador1 = new System.Windows.Forms.Label();
             this.lbl_Jugador2 = new System.Windows.Forms.Label();
             this.lbl_Dados = new System.Windows.Forms.Label();
@@ -341,6 +342,7 @@ namespace Grafica
             this.Controls.Add(this.lbl_Jugador2);
             this.Controls.Add(this.lbl_Jugador1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Partida";
             this.Text = "frmPartida";
             this.Load += new System.EventHandler(this.frmPartida_Load);
