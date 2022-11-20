@@ -116,13 +116,7 @@ namespace Grafica
             btn_CancelarPartida.Visible = false;
 
             ControlarSubmenu(pnl_Jugar);
-            if(dgv_MenuPrincipal.Visible ==true)
-            {
-                dgv_MenuPrincipal.Visible= false;
-            }else
-            {
-                dgv_MenuPrincipal.Visible = true;
-            }
+            dgv_MenuPrincipal.Visible = true;
 
             turnosAJugar = 3;
         }
@@ -134,14 +128,8 @@ namespace Grafica
             presentador.DevolverUsuarios();
 
             ControlarSubmenu(pnl_Jugar);
-            if (dgv_MenuPrincipal.Visible == true)
-            {
-                dgv_MenuPrincipal.Visible = false;
-            }
-            else
-            {
-                dgv_MenuPrincipal.Visible = true;
-            }
+            dgv_MenuPrincipal.Visible = true;
+
             turnosAJugar = 6;
         }
 
@@ -197,7 +185,7 @@ namespace Grafica
                 {
                     frm_Partida partida = new frm_Partida(config, presentador.ListaDePresentadores[indice]);
                     partida.Show();
-                }
+                 }
 
             }
         }

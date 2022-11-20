@@ -10,11 +10,11 @@ namespace Funcionalidad.clases
         string ganador;
         int cantidadJugadores;
         Dado dado;
-        public int[] dadosEnMesa = new int[5]; //hacer metodo
-        public int indice = 0; //hacer
+        public int[] dadosEnMesa = new int[5]; 
+        public int indice = 0; 
         public event Action EventAction;
         private int turnosMaximos;
-        public int turnosJugados = 1; // hacer metodo
+        public int turnosJugados = 1;
         private string estado;
         string bitacora = "";
         public event Action<Partida> mostrarInfo;
@@ -40,11 +40,6 @@ namespace Funcionalidad.clases
             this.estado = estado;
         }
 
-
-        //public int Id
-        //{
-        //    get { return id; }
-        //}
 
         public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
         public string Ganador { get => ganador; set => ganador = value; }
