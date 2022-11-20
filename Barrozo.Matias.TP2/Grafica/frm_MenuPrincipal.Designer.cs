@@ -68,6 +68,7 @@ namespace Grafica
             this.lbl_Top = new System.Windows.Forms.Label();
             this.lbl_CantidadPartidas = new System.Windows.Forms.Label();
             this.btn_CancelarPartida = new System.Windows.Forms.Button();
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Usuarios.SuspendLayout();
@@ -115,10 +116,10 @@ namespace Grafica
             this.btn_Salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Salir.ForeColor = System.Drawing.Color.White;
-            this.btn_Salir.Location = new System.Drawing.Point(0, 474);
+            this.btn_Salir.Location = new System.Drawing.Point(0, 521);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Salir.Size = new System.Drawing.Size(172, 56);
+            this.btn_Salir.Size = new System.Drawing.Size(172, 51);
             this.btn_Salir.TabIndex = 2;
             this.btn_Salir.Text = "Salir";
             this.btn_Salir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,7 +131,7 @@ namespace Grafica
             this.dgv_MenuPrincipal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_MenuPrincipal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.dgv_MenuPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 67);
+            this.dgv_MenuPrincipal.Location = new System.Drawing.Point(228, 107);
             this.dgv_MenuPrincipal.Name = "dgv_MenuPrincipal";
             this.dgv_MenuPrincipal.RowTemplate.Height = 25;
             this.dgv_MenuPrincipal.Size = new System.Drawing.Size(494, 459);
@@ -152,7 +153,7 @@ namespace Grafica
             this.pnl_Menu.Controls.Add(this.btn_Salir);
             this.pnl_Menu.Location = new System.Drawing.Point(0, 37);
             this.pnl_Menu.Name = "pnl_Menu";
-            this.pnl_Menu.Size = new System.Drawing.Size(172, 530);
+            this.pnl_Menu.Size = new System.Drawing.Size(172, 572);
             this.pnl_Menu.TabIndex = 4;
             // 
             // btn_Estadisticas
@@ -345,7 +346,7 @@ namespace Grafica
             this.pnl_Superior.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Superior.Location = new System.Drawing.Point(0, 0);
             this.pnl_Superior.Name = "pnl_Superior";
-            this.pnl_Superior.Size = new System.Drawing.Size(1110, 37);
+            this.pnl_Superior.Size = new System.Drawing.Size(1123, 37);
             this.pnl_Superior.TabIndex = 5;
             this.pnl_Superior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseDown);
             this.pnl_Superior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_Superior_MouseMove);
@@ -359,7 +360,7 @@ namespace Grafica
             this.btn_Configuracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Configuracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Configuracion.ForeColor = System.Drawing.Color.White;
-            this.btn_Configuracion.Location = new System.Drawing.Point(1022, 0);
+            this.btn_Configuracion.Location = new System.Drawing.Point(1035, 0);
             this.btn_Configuracion.Name = "btn_Configuracion";
             this.btn_Configuracion.Size = new System.Drawing.Size(44, 37);
             this.btn_Configuracion.TabIndex = 1;
@@ -376,7 +377,7 @@ namespace Grafica
             this.btn_Reglas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_Reglas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reglas.ForeColor = System.Drawing.Color.White;
-            this.btn_Reglas.Location = new System.Drawing.Point(1066, 0);
+            this.btn_Reglas.Location = new System.Drawing.Point(1079, 0);
             this.btn_Reglas.Name = "btn_Reglas";
             this.btn_Reglas.Size = new System.Drawing.Size(44, 37);
             this.btn_Reglas.TabIndex = 0;
@@ -431,7 +432,7 @@ namespace Grafica
             // 
             // rtx_Reglas
             // 
-            this.rtx_Reglas.Location = new System.Drawing.Point(228, 82);
+            this.rtx_Reglas.Location = new System.Drawing.Point(225, 98);
             this.rtx_Reglas.Name = "rtx_Reglas";
             this.rtx_Reglas.ReadOnly = true;
             this.rtx_Reglas.Size = new System.Drawing.Size(823, 432);
@@ -446,7 +447,7 @@ namespace Grafica
             this.pnl_Jugar.Controls.Add(this.lbl_Jugadores);
             this.pnl_Jugar.Controls.Add(this.nud_CantidadJugadores);
             this.pnl_Jugar.Controls.Add(this.btn_AceptarCantidad);
-            this.pnl_Jugar.Location = new System.Drawing.Point(728, 67);
+            this.pnl_Jugar.Location = new System.Drawing.Point(728, 107);
             this.pnl_Jugar.Name = "pnl_Jugar";
             this.pnl_Jugar.Size = new System.Drawing.Size(154, 124);
             this.pnl_Jugar.TabIndex = 10;
@@ -472,7 +473,7 @@ namespace Grafica
             this.pnl_Estadisticas.Controls.Add(this.dgv_Top);
             this.pnl_Estadisticas.Controls.Add(this.lbl_Top);
             this.pnl_Estadisticas.Controls.Add(this.lbl_CantidadPartidas);
-            this.pnl_Estadisticas.Location = new System.Drawing.Point(728, 67);
+            this.pnl_Estadisticas.Location = new System.Drawing.Point(725, 107);
             this.pnl_Estadisticas.Name = "pnl_Estadisticas";
             this.pnl_Estadisticas.Size = new System.Drawing.Size(323, 459);
             this.pnl_Estadisticas.TabIndex = 11;
@@ -572,7 +573,7 @@ namespace Grafica
             this.btn_CancelarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
             this.btn_CancelarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_CancelarPartida.ForeColor = System.Drawing.Color.White;
-            this.btn_CancelarPartida.Location = new System.Drawing.Point(613, 532);
+            this.btn_CancelarPartida.Location = new System.Drawing.Point(613, 572);
             this.btn_CancelarPartida.Name = "btn_CancelarPartida";
             this.btn_CancelarPartida.Size = new System.Drawing.Size(109, 23);
             this.btn_CancelarPartida.TabIndex = 10;
@@ -581,12 +582,23 @@ namespace Grafica
             this.btn_CancelarPartida.Visible = false;
             this.btn_CancelarPartida.Click += new System.EventHandler(this.btn_CancelarPartida_Click);
             // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Titulo.Location = new System.Drawing.Point(206, 41);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(83, 32);
+            this.lbl_Titulo.TabIndex = 12;
+            this.lbl_Titulo.Text = "label1";
+            // 
             // frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.ClientSize = new System.Drawing.Size(1123, 607);
+            this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.btn_CancelarPartida);
             this.Controls.Add(this.pnl_Estadisticas);
             this.Controls.Add(this.pnl_Jugar);
@@ -613,6 +625,7 @@ namespace Grafica
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Top)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -654,5 +667,6 @@ namespace Grafica
         private Label lbl_PartidasCanceladas;
         private Label lbl_PartidasFinalizada;
         private Button btn_CancelarPartida;
+        private Label lbl_Titulo;
     }
 }

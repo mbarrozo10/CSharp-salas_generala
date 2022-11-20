@@ -204,6 +204,7 @@ namespace Funcionalidad.clases
                 {
                     ganador = "Cancelada";
                     estado = "Cancelada";
+                    jugadores.ForEach((x) => x.Usuario.Estado = EEstado.libre);
                     break;
                 }
                 Thread.Sleep(2000);
@@ -215,6 +216,7 @@ namespace Funcionalidad.clases
                 if (VerificarTurno())
                 {
                     finalizar?.Invoke(this);
+                    jugadores.ForEach((x) => x.Usuario.Estado = EEstado.libre);
                     GuardarPartida();
                 }
                 mostrarInfo?.Invoke(this);

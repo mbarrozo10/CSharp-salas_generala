@@ -16,6 +16,8 @@ namespace Funcionalidad
         public void MostrarEstadisticas(string cantidad, string cantidadEmpatadas,string cantidadCanceladas, string cantidadFinalizada, List<Usuario> usuarios);
 
         public bool AgregarUsuario(List<Jugador> jugadoresPartida);
+
+        public void MostrarActivas(List<Partida> partidasActivas);
      
     }
 }

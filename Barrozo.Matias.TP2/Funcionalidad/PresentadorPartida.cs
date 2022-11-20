@@ -35,6 +35,7 @@ namespace Funcionalidad
         {
             partidaActual.Estado = "Cancelada";
             partidaActual.GuardarPartida();
+          
         }
 
     }

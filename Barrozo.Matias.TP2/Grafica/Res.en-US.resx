@@ -244,6 +244,9 @@ the desired player</value>
   <data name="Tirada" xml:space="preserve">
     <value>Roll: </value>
   </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Generala Offline</value>
+  </data>
   <data name="Top" xml:space="preserve">
     <value>Top players</value>
   </data>

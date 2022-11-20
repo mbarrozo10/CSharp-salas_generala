@@ -4,7 +4,7 @@
 
 Al iniciar la aplicacion podemos iniciar con el usuario que ya esta ingresado (usuario: pepe, contraseña: pepe).
 
-inserte imagen menu principal
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/menu.png">
 
 Una vez iniciado del lado izquierdo tenemos las distintas opciones:
 - Iniciar Partida
@@ -28,7 +28,9 @@ En la izquierda superior hay 2 botones:
 
 ## Diagrama de clase
 
-![imagen](Matias.Barrozo.Parcial/diagrama.png)
+
+ <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/diagrama.png">
+
 
 
 ## Justificacion tecnica

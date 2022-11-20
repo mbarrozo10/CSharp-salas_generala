@@ -201,18 +201,7 @@ namespace Grafica
                     partida.Show();
                     //test2.Add(partida);
                 }
-                //if (test2.Count==0 || test2[indice].IsDisposed)
-                //{
-                //    test2.Add( new frm_Partida(config, presentador.ListaDePresentadores[indice]));
-                //    test2[indice].Show();
-                //}
-                //else
-                //{
-                //    if (test2[indice].WindowState == FormWindowState.Minimized)
-                //    {
-                //        test2[indice].BringToFront();
-                //    }
-                //}
+
             }
         }
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -220,6 +209,13 @@ namespace Grafica
             nud_CantidadJugadores.Enabled = false;
             lbl_Seleccion.Visible = true;
         }
+
+        public void MostrarActivas(List<Partida> partidasActivas)
+        {
+            dgv_MenuPrincipal.DataSource = null;
+            dgv_MenuPrincipal.DataSource = partidasActivas;
+        }
+
 
         private void btn_Reglas_Click(object sender, EventArgs e)
         {
@@ -278,8 +274,7 @@ namespace Grafica
 
         private void btn_Activas_Click(object sender, EventArgs e)
         {
-            dgv_MenuPrincipal.DataSource = null;
-            dgv_MenuPrincipal.DataSource = presentador.PartidasActivas;
+            presentador.TraerPartidasActivas();
             btn_CancelarPartida.Visible = true;
             pnl_Jugar.Visible = false;
         }
@@ -324,6 +319,7 @@ namespace Grafica
             btn_CancelarPartida.Text = Res.CancelarPartida;
             btn_Estadisticas.Text = Res.Estadisticas;
             lbl_Top.Text = Res.Top;
+            lbl_Titulo.Text = Res.Titulo;
         }
 
         private void CargarColor()
@@ -349,7 +345,7 @@ namespace Grafica
 
             lbl_Jugadores.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
             btn_AceptarCantidad.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
-
+            lbl_Titulo.ForeColor = Color.FromArgb(config.ForeColor[0], config.ForeColor[1], config.ForeColor[2]);
 
         }
 

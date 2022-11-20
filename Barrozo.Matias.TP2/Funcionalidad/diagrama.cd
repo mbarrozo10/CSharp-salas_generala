@@ -1,2 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BibliotecaDeClases.Archivo" Collapsed="true">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAA=</HashCode>
+      <FileName>clases\Archivos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.ConexionBdPartidas" Collapsed="true">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAABAAAACAAAAAAAAAAAgAAAAAAAQABAE=</HashCode>
+      <FileName>clases\ConexionBdPartidas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Dado" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>clases\Dado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Estadisticas" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAEAAAgAAAAAAABAAAAAQAAgAAAAIAAACAAAAAgA=</HashCode>
+      <FileName>clases\Estadisticas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Jugador" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAMIjAQIAJ4ECCIQBAIiAAACCEDAEQBCwBEAAAACAY=</HashCode>
+      <FileName>clases\Jugador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Partida" Collapsed="true">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ENAISAAgEAAAAAIEAAGCACIwACBCAAADAAAAQQSACgg=</HashCode>
+      <FileName>clases\Partida.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Serializador&lt;T&gt;" Collapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEBAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>clases\Serializador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.clases.Usuario" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADCAAQAAQAAACEAAAigAAAIAAAAAAAAAAAAAAAAwg=</HashCode>
+      <FileName>clases\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.ConexionBdUsuarios" Collapsed="true">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAAAAAAABAAAAAACAAAAAAAAAAAAAAAAEQAAAE=</HashCode>
+      <FileName>clases\ConexionBdUsuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.PresentadorAlta" Collapsed="true">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAIAAAAAEAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PresentadorAlta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.PresentadorLogin" Collapsed="true">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>PresentadorLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.PresentadorPartida" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgASAAAAAgAAAAAAAAAAAAAAEAAAAAAAAg=</HashCode>
+      <FileName>PresentadorPartida.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Funcionalidad.PresentadorPrincipal" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAIAAEAgAIAAAAgAAAUgEgQAAAQEIAAAKAAAAEAg=</HashCode>
+      <FileName>PresentadorPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Funcionalidad.IAlta" Collapsed="true">
+    <Position X="10" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAlta.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Funcionalidad.ILogin" Collapsed="true">
+    <Position X="11.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ILogin.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Funcionalidad.IMenu" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>IMenu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Funcionalidad.clases.EEstado" Collapsed="true">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>clases\Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -281,4 +281,7 @@ el jugador deseado</value>
   <data name="CancelarPartida" xml:space="preserve">
     <value>Cancelar partida</value>
   </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Generala Offline</value>
+  </data>
 </root>

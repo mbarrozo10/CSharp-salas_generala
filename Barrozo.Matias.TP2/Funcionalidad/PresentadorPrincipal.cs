@@ -128,6 +128,13 @@ namespace Funcionalidad
         {
             listaDePresentadores[indice].CancelarPartida();
             listaDeCancelaciones[indice].Cancel();
+            partidasActivas.RemoveAt(indice);
+            obj.MostrarActivas(PartidasActivas);
+        }
+
+        public void TraerPartidasActivas()
+        {
+            obj.MostrarActivas(PartidasActivas);
         }
     }
 }

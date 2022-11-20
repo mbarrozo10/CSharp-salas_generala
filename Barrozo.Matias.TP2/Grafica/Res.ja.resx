@@ -247,6 +247,9 @@
   <data name="Tirada" xml:space="preserve">
     <value>ロール: </value>
   </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>ゼネララオフライン</value>
+  </data>
   <data name="Top" xml:space="preserve">
     <value>トッププレーヤー</value>
   </data>

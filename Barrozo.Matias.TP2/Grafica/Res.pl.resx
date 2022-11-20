@@ -247,6 +247,9 @@ o jogador desejado</value>
   <data name="Tirada" xml:space="preserve">
     <value>Lista: </value>
   </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Geral Offline</value>
+  </data>
   <data name="Top" xml:space="preserve">
     <value>melhores jogadores</value>
   </data>
