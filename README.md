@@ -2,7 +2,7 @@
 
 ## Resumen
 
-Al iniciar la aplicacion podemos iniciar con el usuario que ya esta ingresado (usuario: pepe, contraseña: pepe).
+Al iniciar la aplicacion podemos iniciar con el usuario que ya esta ingresado (usuario: pepe, contraseÃ±a: pepe).
 
 inserte imagen menu principal
 
