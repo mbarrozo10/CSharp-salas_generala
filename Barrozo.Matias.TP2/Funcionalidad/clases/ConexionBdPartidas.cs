@@ -93,21 +93,27 @@ namespace Funcionalidad.clases
         public string ConseguirEstadisticasDePartidas(string query)
         {
             int cantidad=0;
-
-            conexion.Open();
-
-
-            comando.Connection = conexion;
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = query;
-
-            SqlDataReader reader = comando.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                cantidad = reader.GetInt32(0);
+                conexion.Open();
+
+
+                comando.Connection = conexion;
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = query;
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cantidad = reader.GetInt32(0);
+                }
+                conexion.Close();
             }
-            conexion.Close();
+            catch (Exception)
+            {
+                throw;
+            }
             return cantidad.ToString();
         }
     }

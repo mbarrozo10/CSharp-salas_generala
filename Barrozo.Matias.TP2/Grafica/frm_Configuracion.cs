@@ -134,7 +134,7 @@ namespace Grafica
             config.Fondo = fondo;
             config.ColorSecundario = colorSecundario;
             config.ForeColor = foreColor;
-            Serializazdor<Configuracion>.EscribirJSON(this.config, "config");
+            Serializador<Configuracion>.EscribirJSON(this.config, "config");
             DialogResult = DialogResult.OK;
         }
 

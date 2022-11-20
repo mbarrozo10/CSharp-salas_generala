@@ -5,7 +5,7 @@ namespace Grafica
 {
     public partial class frm_Login : Form, ILogin
     {
-        PresentadorGenerico presentador;
+        PresentadorLogin presentador;
         Configuracion config;
         public frm_Login()
         {
@@ -35,7 +35,7 @@ namespace Grafica
             if(txt_Usuario.Text!= string.Empty && txt_Contraseña.Text != string.Empty)
             {
                 Usuario user = new Usuario(txt_Usuario.Text, txt_Contraseña.Text);
-                presentador.ComprobarLogin(user, this);
+                presentador.ComprobarLogin(user);
             }else
             {
                 lbl_Error.Visible = true;
@@ -45,7 +45,7 @@ namespace Grafica
 
         void CambiarIdioma()
         {
-            config = Serializazdor<Configuracion>.LeerJSON("config");
+            config = Serializador<Configuracion>.LeerJSON("config");
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(config.Idioma);
             lbl_Error.Text = Res.ErrorLogin;
             lbl_Login.Text = Res.Inicio;
@@ -74,7 +74,7 @@ namespace Grafica
 
         private void frm_Login_Load(object sender, EventArgs e)
         {
-            presentador = new PresentadorGenerico();
+            presentador = new PresentadorLogin(this);
             config = new Configuracion();
             CambiarIdioma();
             CambiarColor();

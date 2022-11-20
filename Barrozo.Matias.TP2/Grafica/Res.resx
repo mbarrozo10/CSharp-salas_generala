@@ -257,4 +257,28 @@
     <value>Dos click sobre 
 el jugador deseado</value>
   </data>
+  <data name="Existe" xml:space="preserve">
+    <value>Ese usuario ya existe</value>
+  </data>
+  <data name="CantPartidas" xml:space="preserve">
+    <value>Cantidad de partidas: </value>
+  </data>
+  <data name="CantPartidasCanceladas" xml:space="preserve">
+    <value>Cantidad de partidas Canceladas: </value>
+  </data>
+  <data name="CantPartidasEmpatadas" xml:space="preserve">
+    <value>Cantidad de partidas Empatadas: </value>
+  </data>
+  <data name="CantPartidasFinalizadas" xml:space="preserve">
+    <value>Cantidad de partidas Finalizadas: </value>
+  </data>
+  <data name="Estadisticas" xml:space="preserve">
+    <value>Estadisticas</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top Jugadores</value>
+  </data>
+  <data name="CancelarPartida" xml:space="preserve">
+    <value>Cancelar partida</value>
+  </data>
 </root>

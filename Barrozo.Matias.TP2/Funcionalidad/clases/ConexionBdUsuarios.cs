@@ -24,23 +24,28 @@ namespace Funcionalidad
         public List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> usuarios = new List<Usuario>();
-
-
-            conexion.Open();
-
-
-            comando.Connection = conexion;
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT * FROM usuario_test";
-
-            SqlDataReader reader = comando.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                usuarios.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0), EEstado.libre, reader.GetInt32(5)));
-            }
+                conexion.Open();
 
-            conexion.Close();
+
+                comando.Connection = conexion;
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = "SELECT * FROM usuario_test";
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usuarios.Add(new Usuario(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(0), EEstado.libre, reader.GetInt32(5)));
+                }
+
+                conexion.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return usuarios;
         }
 

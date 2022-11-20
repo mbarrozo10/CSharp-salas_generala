@@ -201,3 +201,4 @@ C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\ja\Grafica.resources.dll
 C:\Users\mbarrozo\Desktop\Git\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\pl\Grafica.resources.dll
 C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\obj\Debug\net6.0-windows\Grafica.frm_AltaUsuarios.resources
+C:\Users\Mati\Desktop\Escritorio\facultad\Barrozo.Matias.TP2\Barrozo.Matias.TP2\Grafica\bin\Debug\net6.0-windows\Microsoft.VisualStudio.CodeCoverage.Shim.dll

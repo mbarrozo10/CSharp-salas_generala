@@ -72,6 +72,7 @@
             this.txt_Contraseña.ForeColor = System.Drawing.Color.White;
             this.txt_Contraseña.Location = new System.Drawing.Point(49, 149);
             this.txt_Contraseña.Name = "txt_Contraseña";
+            this.txt_Contraseña.PasswordChar = '*';
             this.txt_Contraseña.PlaceholderText = "pass";
             this.txt_Contraseña.Size = new System.Drawing.Size(100, 16);
             this.txt_Contraseña.TabIndex = 2;

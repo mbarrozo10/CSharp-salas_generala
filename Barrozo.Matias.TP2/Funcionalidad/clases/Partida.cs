@@ -1,10 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BibliotecaDeClases;
 
 namespace Funcionalidad.clases
 {
@@ -16,17 +10,25 @@ namespace Funcionalidad.clases
         string ganador;
         int cantidadJugadores;
         Dado dado;
-        public int[] dadosEnMesa = new int[5];
-        public int indice = 0;
+        public int[] dadosEnMesa = new int[5]; //hacer metodo
+        public int indice = 0; //hacer
         public event Action EventAction;
         private int turnosMaximos;
-        public int turnosJugados = 1;
+        public int turnosJugados = 1; // hacer metodo
         private string estado;
-
-        public Partida(List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado) : this(ganador, cantidad, date, id, turnosMaximos, estado)
+        string bitacora = "";
+        public event Action<Partida> prueba;
+        Task test;
+        public event Action<Partida> finalizar;
+        public Action Guardar;
+        static ConexionBdPartidas conexionBdPartidas = new ConexionBdPartidas();
+        
+ 
+        public Partida(CancellationToken cancel,List<Jugador> jugadores, string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado) : this(ganador, cantidad, date, id, turnosMaximos, estado)
         {
             this.jugadores = jugadores;
             dado = new Dado();
+            test = new Task(()=> EmpezarPartida(cancel));
         }
         public Partida(string ganador, int cantidad, DateTime date, int id, int turnosMaximos, string estado)
         {
@@ -40,10 +42,10 @@ namespace Funcionalidad.clases
         }
 
 
-        public int Id
-        {
-            get { return id; }
-        }
+        //public int Id
+        //{
+        //    get { return id; }
+        //}
 
         public List<Jugador> Jugadores { get => jugadores; set => jugadores = value; }
         public string Ganador { get => ganador; set => ganador = value; }
@@ -187,12 +189,53 @@ namespace Funcionalidad.clases
                 indice = 0;
             }
             turnosJugados++;
-            if (turnosJugados == turnosMaximos)
+            if (turnosJugados > turnosMaximos)
             {
                 EncontrarGanador();
                 return true;
             }
             return false;
+        }
+
+        public void EmpezarPartida(CancellationToken cancel)
+        {
+            while (Ganador == "")
+            {
+                if (cancel.IsCancellationRequested)
+                {
+                    ganador = "Cancelada";
+                    estado = "Cancelada";
+                    break;
+                }
+                Thread.Sleep(2000);
+                string resumenPartida = Jugar();
+
+                prueba?.Invoke(this);
+
+                bitacora += Jugadores[indice].Usuario.Nombre + " " + resumenPartida + "\n";
+                if (VerificarTurno())
+                {
+                    finalizar?.Invoke(this);
+                    GuardarPartida();
+                }
+                prueba?.Invoke(this);
+            }
+        }
+
+        public void GuardarResumenPartida()
+        {
+            string archivo = "BitacoraDePartida" + id;
+            Archivo.Escribir(bitacora, archivo);
+        }
+
+        public async Task EmpezarTarea()
+        {
+            test.Start();
+        }
+
+        public void GuardarPartida()
+        {
+            conexionBdPartidas.GuardarPartida(this);
         }
     }
 }

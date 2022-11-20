@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3xQvAzqX0jQBKlf150+MXZ9O53Qq7vVk50LUFGpTEuYZYxatShLk8G8YphI9J184N1aR8PXHstARYkLdl34SYA==",
+  "dgSpecHash": "hRiYKfd/TcZOWLgk5UOf+fDaAjloT5lBzArjpbCj+LSs/IdIdJyQIsbZ2nNIEFskKbbqJOJ7Lk+g291BrQB5RQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Biblioteca_test\\Funcionalidad_test.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\Mati\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\Mati\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
+    "C:\\Users\\Mati\\.nuget\\packages\\microsoft.codecoverage\\17.4.0\\microsoft.codecoverage.17.4.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",

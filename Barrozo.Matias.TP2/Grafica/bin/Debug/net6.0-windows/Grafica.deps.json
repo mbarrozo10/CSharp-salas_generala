@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Grafica/1.0.0": {
         "dependencies": {
-          "Funcionalidad": "1.0.0"
+          "Funcionalidad": "1.0.0",
+          "Microsoft.CodeCoverage": "17.4.0"
         },
         "runtime": {
           "Grafica.dll": {}
@@ -64,6 +65,14 @@
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "4.700.20.21406"
+          }
+        }
+      },
+      "Microsoft.CodeCoverage/17.4.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "17.400.422.47203"
           }
         }
       },
@@ -398,6 +407,7 @@
       },
       "Funcionalidad/1.0.0": {
         "dependencies": {
+          "Microsoft.CodeCoverage": "17.4.0",
           "Microsoft.Data.SqlClient": "5.0.1"
         },
         "runtime": {
@@ -432,6 +442,13 @@
       "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "path": "microsoft.bcl.asyncinterfaces/1.1.1",
       "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
+    },
+    "Microsoft.CodeCoverage/17.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2oZbSVTC2nAvQ2DnbXLlXS+c25ZyZdWeNd+znWwAxwGaPh9dwQ5NBsYyqQB7sKmJKIUdkKGmN3rzFzjVC81Dtg==",
+      "path": "microsoft.codecoverage/17.4.0",
+      "hashPath": "microsoft.codecoverage.17.4.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

@@ -132,8 +132,23 @@
   <data name="Cancelar" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="CancelarPartida" xml:space="preserve">
+    <value>Cancel game</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Number of players</value>
+  </data>
+  <data name="CantPartidas" xml:space="preserve">
+    <value>Number of games:</value>
+  </data>
+  <data name="CantPartidasCanceladas" xml:space="preserve">
+    <value>Number of canceled games:</value>
+  </data>
+  <data name="CantPartidasEmpatadas" xml:space="preserve">
+    <value>Number of Tied games:</value>
+  </data>
+  <data name="CantPartidasFinalizadas" xml:space="preserve">
+    <value>Number of Finished games:</value>
   </data>
   <data name="Claro" xml:space="preserve">
     <value>Day</value>
@@ -155,6 +170,12 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Spanish</value>
+  </data>
+  <data name="Estadisticas" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Existe" xml:space="preserve">
+    <value>That user already exists</value>
   </data>
   <data name="Existentes" xml:space="preserve">
     <value>Existent</value>
@@ -222,6 +243,9 @@ the desired player</value>
   </data>
   <data name="Tirada" xml:space="preserve">
     <value>Roll: </value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top players</value>
   </data>
   <data name="Turno" xml:space="preserve">
     <value>Turn: </value>

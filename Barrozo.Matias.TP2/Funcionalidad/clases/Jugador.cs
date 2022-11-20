@@ -61,16 +61,15 @@ namespace Funcionalidad.clases
         public void RevisarGenerala(int[] tirada)
         {
             if ((tirada[0] == tirada[1] && tirada[1] == tirada[2]
-                && tirada[2] == tirada[3] && tirada[3] == tirada[4])&& generala==0)
+                && tirada[2] == tirada[3] && tirada[3] == tirada[4])&& generala== 0 && !terminoTurno)
             {
                 generala = 50;
                 TerminoTurno = true;
             }else if((tirada[0] == tirada[1] && tirada[1] == tirada[2]
-                && tirada[2] == tirada[3] && tirada[3] == tirada[4]) && dobleGenerala == 0)
+                && tirada[2] == tirada[3] && tirada[3] == tirada[4]) && !terminoTurno)
             {
                 dobleGenerala = 50;
                 TerminoTurno = true;
-
             }
 
         }
@@ -80,12 +79,11 @@ namespace Funcionalidad.clases
             Ordenar(tirada);
             if (tirada[4]+1 == tirada[3] && tirada[3]+1 == tirada[2]&& tirada[2]+1 == tirada[1] && tirada[1]+1 == tirada[0] )
             {
-                if(escalera == 0)
+                if(escalera == 0 && !terminoTurno)
                 {
                     escalera = 20;
                     TerminoTurno = true;
                     turnosJugados = 1;
-
                 }
             }
         }

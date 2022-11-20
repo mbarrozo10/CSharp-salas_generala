@@ -132,8 +132,23 @@
   <data name="Cancelar" xml:space="preserve">
     <value>キャンセル</value>
   </data>
+  <data name="CancelarPartida" xml:space="preserve">
+    <value>ゲームをキャンセル</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>プレイヤー数</value>
+  </data>
+  <data name="CantPartidas" xml:space="preserve">
+    <value>ゲーム数:</value>
+  </data>
+  <data name="CantPartidasCanceladas" xml:space="preserve">
+    <value>キャンセル試合数：</value>
+  </data>
+  <data name="CantPartidasEmpatadas" xml:space="preserve">
+    <value>同点ゲーム数:</value>
+  </data>
+  <data name="CantPartidasFinalizadas" xml:space="preserve">
+    <value>終了したゲームの数:</value>
   </data>
   <data name="Claro" xml:space="preserve">
     <value>もちろん</value>
@@ -158,6 +173,12 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Estadisticas" xml:space="preserve">
+    <value>統計学</value>
+  </data>
+  <data name="Existe" xml:space="preserve">
+    <value>そのユーザーは既に存在します</value>
   </data>
   <data name="Existentes" xml:space="preserve">
     <value>既存</value>
@@ -225,6 +246,9 @@
   </data>
   <data name="Tirada" xml:space="preserve">
     <value>ロール: </value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>トッププレーヤー</value>
   </data>
   <data name="Turno" xml:space="preserve">
     <value>順番: </value>

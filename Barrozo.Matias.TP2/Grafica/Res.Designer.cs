@@ -106,11 +106,56 @@ namespace Grafica {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar partida.
+        /// </summary>
+        internal static string CancelarPartida {
+            get {
+                return ResourceManager.GetString("CancelarPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cantidad de Jugadores.
         /// </summary>
         internal static string Cantidad {
             get {
                 return ResourceManager.GetString("Cantidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de partidas: .
+        /// </summary>
+        internal static string CantPartidas {
+            get {
+                return ResourceManager.GetString("CantPartidas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de partidas Canceladas: .
+        /// </summary>
+        internal static string CantPartidasCanceladas {
+            get {
+                return ResourceManager.GetString("CantPartidasCanceladas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de partidas Empatadas: .
+        /// </summary>
+        internal static string CantPartidasEmpatadas {
+            get {
+                return ResourceManager.GetString("CantPartidasEmpatadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de partidas Finalizadas: .
+        /// </summary>
+        internal static string CantPartidasFinalizadas {
+            get {
+                return ResourceManager.GetString("CantPartidasFinalizadas", resourceCulture);
             }
         }
         
@@ -243,6 +288,24 @@ namespace Grafica {
         internal static string Español {
             get {
                 return ResourceManager.GetString("Español", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estadisticas.
+        /// </summary>
+        internal static string Estadisticas {
+            get {
+                return ResourceManager.GetString("Estadisticas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ese usuario ya existe.
+        /// </summary>
+        internal static string Existe {
+            get {
+                return ResourceManager.GetString("Existe", resourceCulture);
             }
         }
         
@@ -442,6 +505,15 @@ namespace Grafica {
         internal static string Tirada {
             get {
                 return ResourceManager.GetString("Tirada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Top Jugadores.
+        /// </summary>
+        internal static string Top {
+            get {
+                return ResourceManager.GetString("Top", resourceCulture);
             }
         }
         

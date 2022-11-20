@@ -17,7 +17,7 @@ namespace Funcionalidad_test
         [TestMethod]
         public void TirarDados_Success(int[] tirada, int discriminador)
         {
-            Partida partidaTest = new Partida("", 2, DateTime.Now, 0,0);
+            Partida partidaTest = new Partida("", 2, DateTime.Now, 0,0,"");
 
             partidaTest.TirarDados(discriminador, tirada);
 
@@ -30,7 +30,7 @@ namespace Funcionalidad_test
         [TestMethod]
         public void TirarDados_Fail(int[] tirada, int discriminador)
         {
-            Partida partidaTest = new Partida("", 2, DateTime.Now, 0, 0);
+            Partida partidaTest = new Partida("", 2, DateTime.Now, 0, 0,"");
 
             partidaTest.TirarDados(discriminador, tirada);
 
@@ -78,7 +78,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10,0);
+            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10,0,"");
             partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
             ganador.Puntaje = puntajeGanador;
@@ -100,7 +100,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0);
+            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0,"");
             partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
             ganador.Puntaje = puntajeGanador;
@@ -119,7 +119,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0);
+            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0,"");
             string retorno;
             //partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
@@ -137,7 +137,7 @@ namespace Funcionalidad_test
             List<Jugador> lista = new();
             lista.Add(ganador);
             lista.Add(perdedor);
-            Partida partida = new Partida(lista, "", 0, DateTime.Now, 10, 0);
+            Partida partida = new Partida(lista, "", 2, DateTime.Now, 10, 10,"");
             int indiceInicial = partida.indice;
 
             partida.dadosEnMesa =new int[5] {1,1,1,1,1};

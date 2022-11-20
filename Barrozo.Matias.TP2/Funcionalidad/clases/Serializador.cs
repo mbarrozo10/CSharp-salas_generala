@@ -5,64 +5,79 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 using System.Numerics;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 
 namespace Funcionalidad.clases
 {
-    public class Serializazdor<T>
+    public static class Serializador<T>
     {
         static string ruta;
-        static Serializazdor()
+        static Serializador()
         {
-            ruta = @"./Archivos"; //Crea una carpeta
+            ruta = @"./Archivos"; 
         }
 
-        public static void EscribirJSON(T datos, string archivo)
+        public static void EscribirJSON(T datos, string archivo) 
         {
             string completa = ruta + @"/" + archivo + ".json";
-
-            if (!Directory.Exists(ruta))//Esto significa que la carpeta NO EXISTE
+            if (archivo != null && datos != null)
             {
-                Directory.CreateDirectory(ruta); //Aca la creamos
+                if (!Directory.Exists(ruta))
+                {
+                    Directory.CreateDirectory(ruta);
+                }
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
+                };
+                string objetoJson = "";
+                objetoJson += JsonSerializer.Serialize(datos, options);
+
+                File.WriteAllText(completa, objetoJson);
             }
-            JsonSerializerOptions options = new JsonSerializerOptions
+            else
             {
-                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
-            };
-            string objetoJson = "";
-            objetoJson += JsonSerializer.Serialize(datos, options);
-
-            File.WriteAllText(completa, objetoJson);
-
+                throw new NullReferenceException();
+            }
 
         }
 
         public static T LeerJSON(string nombre)
         {
-            T datos = default;
+            T? datos = default;
             string completa = ruta + @"/" + nombre + ".json";
 
-            if (!Directory.Exists(ruta))//Esto significa que la carpeta NO EXISTE
+            try
             {
-                Directory.CreateDirectory(ruta); //Aca la creamos
+                if (nombre != null && nombre!= String.Empty)
+                {
+
+                    if (!Directory.Exists(ruta))
+                    {
+                        Directory.CreateDirectory(ruta);
+                    }
+
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
+                    };
+
+                    string archivoJson = File.ReadAllText(completa);
+                    datos = JsonSerializer.Deserialize<T>(archivoJson, options);
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
             }
-
-            JsonSerializerOptions options = new JsonSerializerOptions
+            catch (Exception)
             {
-                Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) },
-            };
-
-            string archivoJson = File.ReadAllText(completa);
-            datos = JsonSerializer.Deserialize<T>(archivoJson, options);
-
+                throw;
+            }
+            
             return datos;
-
         }
-
-
-
-
     }
 }

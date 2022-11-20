@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "M69Jfe1qv4GHny99Ny3/EOGmD+atjO/fncxHlEAncdDYtE1Zq20N7PWEDixZTT9I9krN816g/tWNKhE9O1ouiw==",
+  "dgSpecHash": "oqE3Z5kewmgT3yN72Ynie2mULnk6Am9JPRbd78yXuDpjEXuSAo76H3LaPUqKBRNlk6tW4B5vtkK5e2x4D+dwHA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mati\\Desktop\\Escritorio\\facultad\\Barrozo.Matias.TP2\\Barrozo.Matias.TP2\\Grafica\\Grafica.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mati\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\Mati\\.nuget\\packages\\microsoft.codecoverage\\17.4.0\\microsoft.codecoverage.17.4.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\Mati\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",

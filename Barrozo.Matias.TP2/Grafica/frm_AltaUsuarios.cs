@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Grafica
 {
-    public partial class frm_AltaUsuarios : Form
+    public partial class frm_AltaUsuarios : Form, IAlta
     {
         Configuracion config;
-        PresentadorGenerico PresentadorGenerico;
+        PresentadorAlta PresentadorAlta;
         public frm_AltaUsuarios(Configuracion config)
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Grafica
         {
             CambiarIdioma();
             CambiarColor();
-            PresentadorGenerico = new PresentadorGenerico();
+            PresentadorAlta = new PresentadorAlta(this);
         }
 
         private void CambiarColor()
@@ -64,14 +64,25 @@ namespace Grafica
         {
             if (txt_Usuario.Text != string.Empty && txt_Nombre.Text!=string.Empty&& txt_Usuario.Text != string.Empty && txt_Contraseña.Text!= string.Empty && txt_Apellido.Text!= string.Empty)
             {
-                //Usuario usuario = new Usuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text);
-                
-                PresentadorGenerico.AgregarUsuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text, txt_Contraseña.Text);
-                DialogResult = DialogResult.OK;
+                PresentadorAlta.AgregarUsuario(txt_Nombre.Text, txt_Apellido.Text, txt_Usuario.Text, txt_Contraseña.Text);
+               
             }
             else
             {
                 lbl_Error.Visible = true;
+            }
+        }
+
+        public void MostrarInformacion(bool InicioCorrecto)
+        {
+            if (InicioCorrecto)
+            {
+                lbl_Error.Visible= true;
+                lbl_Error.Text = Res.Existe;
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
             }
         }
         int m, mx, my;
@@ -96,5 +107,7 @@ namespace Grafica
         {
             m = 0;
         }
+
+     
     }
 }

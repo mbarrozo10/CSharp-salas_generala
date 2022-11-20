@@ -67,6 +67,7 @@ namespace Grafica
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_Top = new System.Windows.Forms.Label();
             this.lbl_CantidadPartidas = new System.Windows.Forms.Label();
+            this.btn_CancelarPartida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MenuPrincipal)).BeginInit();
             this.pnl_Menu.SuspendLayout();
             this.pnl_Usuarios.SuspendLayout();
@@ -135,6 +136,7 @@ namespace Grafica
             this.dgv_MenuPrincipal.Size = new System.Drawing.Size(494, 459);
             this.dgv_MenuPrincipal.TabIndex = 3;
             this.dgv_MenuPrincipal.Visible = false;
+            this.dgv_MenuPrincipal.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseClick);
             this.dgv_MenuPrincipal.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MenuPrincipal_RowHeaderMouseDoubleClick);
             // 
             // pnl_Menu
@@ -564,12 +566,28 @@ namespace Grafica
             this.lbl_CantidadPartidas.TabIndex = 0;
             this.lbl_CantidadPartidas.Text = "Cantidad de partidas:";
             // 
+            // btn_CancelarPartida
+            // 
+            this.btn_CancelarPartida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_CancelarPartida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(54)))));
+            this.btn_CancelarPartida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CancelarPartida.ForeColor = System.Drawing.Color.White;
+            this.btn_CancelarPartida.Location = new System.Drawing.Point(613, 532);
+            this.btn_CancelarPartida.Name = "btn_CancelarPartida";
+            this.btn_CancelarPartida.Size = new System.Drawing.Size(109, 23);
+            this.btn_CancelarPartida.TabIndex = 10;
+            this.btn_CancelarPartida.Text = "Cancelar Partida";
+            this.btn_CancelarPartida.UseVisualStyleBackColor = false;
+            this.btn_CancelarPartida.Visible = false;
+            this.btn_CancelarPartida.Click += new System.EventHandler(this.btn_CancelarPartida_Click);
+            // 
             // frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1110, 567);
+            this.Controls.Add(this.btn_CancelarPartida);
             this.Controls.Add(this.pnl_Estadisticas);
             this.Controls.Add(this.pnl_Jugar);
             this.Controls.Add(this.dgv_MenuPrincipal);
@@ -635,5 +653,6 @@ namespace Grafica
         private Label lbl_PartidasEmpatadas;
         private Label lbl_PartidasCanceladas;
         private Label lbl_PartidasFinalizada;
+        private Button btn_CancelarPartida;
     }
 }

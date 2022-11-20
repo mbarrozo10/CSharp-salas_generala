@@ -132,8 +132,23 @@
   <data name="Cancelar" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="CancelarPartida" xml:space="preserve">
+    <value>cancelar jogo</value>
+  </data>
   <data name="Cantidad" xml:space="preserve">
     <value>Número de Jogadores</value>
+  </data>
+  <data name="CantPartidas" xml:space="preserve">
+    <value>Número de jogos:</value>
+  </data>
+  <data name="CantPartidasCanceladas" xml:space="preserve">
+    <value>Número de jogos cancelados:</value>
+  </data>
+  <data name="CantPartidasEmpatadas" xml:space="preserve">
+    <value>Número de jogos empatados:</value>
+  </data>
+  <data name="CantPartidasFinalizadas" xml:space="preserve">
+    <value>Número de jogos concluídos:</value>
   </data>
   <data name="Claro" xml:space="preserve">
     <value>É claro</value>
@@ -158,6 +173,12 @@
   </data>
   <data name="Español" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="Estadisticas" xml:space="preserve">
+    <value>Estatisticas</value>
+  </data>
+  <data name="Existe" xml:space="preserve">
+    <value>Esse usuário já existe</value>
   </data>
   <data name="Existentes" xml:space="preserve">
     <value>Existir</value>
@@ -225,6 +246,9 @@ o jogador desejado</value>
   </data>
   <data name="Tirada" xml:space="preserve">
     <value>Lista: </value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>melhores jogadores</value>
   </data>
   <data name="Turno" xml:space="preserve">
     <value>Virar: </value>

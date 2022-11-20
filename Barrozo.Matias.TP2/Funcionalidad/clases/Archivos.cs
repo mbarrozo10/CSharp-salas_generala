@@ -34,7 +34,7 @@ namespace BibliotecaDeClases
         }
         private static string BuscarArchivo(string ruta, string nombreArchivo)
         {
-            string[] archivos = Directory.GetFiles(ruta); //Trae todas las rutas de los archivos
+            string[] archivos = Directory.GetFiles(ruta); 
 
             foreach (string item in archivos)
             {
@@ -53,11 +53,11 @@ namespace BibliotecaDeClases
             string completa = ruta + @$"/{nombreArchivo}" + ".txt";
             try
             {
-                if (!Directory.Exists(ruta))//Esto significa que la carpeta NO EXISTE
+                if (!Directory.Exists(ruta))
                 {
-                    Directory.CreateDirectory(ruta); //Aca la creamos
+                    Directory.CreateDirectory(ruta);
                 }
-                using (StreamWriter sw = new StreamWriter(completa))//Si se le agrega un segundo parametro (true), si el archivo existe se le va a appendar
+                using (StreamWriter sw = new StreamWriter(completa))
                 {
                     sw.WriteLine(mensaje);
                 }
