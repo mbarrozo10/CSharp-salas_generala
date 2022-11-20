@@ -38,7 +38,7 @@ En la izquierda superior hay 2 botones:
 
  Clase ConexionBdPartida:
  
- <img align="center" width="480" height="480" src="Barrozo.Matias.TP2/Imagenes Readme/sql.png">
+ <img align="center" width="550" height="550" src="Barrozo.Matias.TP2/Imagenes Readme/sql.png">
 
 
 
