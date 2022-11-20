@@ -42,24 +42,6 @@ namespace Funcionalidad_test
             BorrarUsuario(@"DELETE FROM usuario_test WHERE Usuario= @parameter", usuario.User);
         }
 
-
-        //public void CrearTablaTest(string comando)
-        //{
-        //    SqlConnection conexion = new SqlConnection(@"Server = localhost ; Database = generalaDb ; Trusted_Connection=True; Encrypt= False ");
-        //    SqlCommand cmd = conexion.CreateCommand();
-
-        //    conexion.Open();
-
-        //    cmd.Connection = conexion;
-        //    cmd.CommandType = System.Data.CommandType.Text;
-        //    //cmd.CommandText = "CREATE TABLE usuarioTest SELECT * FROM usuario_test";
-        //    cmd.CommandText = comando;
-
-        //    cmd.ExecuteNonQuery();
-
-        //    conexion.Close();
-        //}
-
         public void BorrarUsuario(string comando, string parametro)
         {
             SqlConnection conexion = new SqlConnection(@"Server = localhost ; Database = generalaDb ; Trusted_Connection=True; Encrypt= False ");

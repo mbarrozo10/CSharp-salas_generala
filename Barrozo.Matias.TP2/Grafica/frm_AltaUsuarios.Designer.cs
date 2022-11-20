@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_AltaUsuarios));
             this.pnl_Superior = new System.Windows.Forms.Panel();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
@@ -205,6 +206,7 @@
             this.Controls.Add(this.pnl_Fondo);
             this.Controls.Add(this.pnl_Superior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AltaUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_AltaUsuarios";

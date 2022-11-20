@@ -50,17 +50,13 @@ namespace Grafica
                         fondo = new int[3] { 34, 34, 34 };
                         colorSecundario = new int[3] { 34, 34, 54 };
                         foreColor = new int[3] { 255, 255, 255 };
-                        //config.Fondo = Color.FromArgb(34,34,34);
-                        //config.ColorSecundario = Color.FromArgb(34, 34, 54);
                         break;
                     case "rdb_Inverso":
                         fondo = new int[3] { 34, 34, 54 };
                         colorSecundario = new int[3] { 34, 34, 34 };
                         foreColor = new int[3] { 255, 255, 255 };
 
-                        //config.Fondo = Color.FromArgb(34,34,54);
-                        //config.ColorSecundario = Color.FromArgb(34, 34, 34);
-                        break;
+                         break;
                     case null:
                         break;
 

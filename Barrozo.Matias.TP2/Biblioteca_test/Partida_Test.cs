@@ -34,7 +34,6 @@ namespace Funcionalidad_test
 
             partidaTest.TirarDados(discriminador, tirada);
 
-            //Assert.ex;
         }
 
         [DataRow (new int[] {1,1,1,2,2 },1)]
@@ -62,7 +61,6 @@ namespace Funcionalidad_test
 
             retorno = Partida.GuardarNumero(tirada);
 
-           // Assert.AreEqual(retornoSuccess, retorno);
 
         }
 
@@ -106,7 +104,6 @@ namespace Funcionalidad_test
             Assert.IsFalse(partida.Ganador == ganador.Usuario.Nombre);
         }
 
-        //[DataRow(10,20)]
         [TestMethod]
         public void Jugar_Fail()
         {
@@ -117,7 +114,6 @@ namespace Funcionalidad_test
             lista.Add(perdedor);
             Partida partida = new Partida(new CancellationToken(), lista, "", 0, DateTime.Now, 10, 0,"");
             string retorno;
-            //partida.Jugadores.ForEach((x) => partida.EventAction += x.SumarPuntaje);
 
             partida.dadosEnMesa = null;
             retorno = partida.Jugar();
@@ -142,7 +138,5 @@ namespace Funcionalidad_test
             Assert.AreNotEqual(indiceInicial, partida.indice);
 
         }
-
-    
     }
 }

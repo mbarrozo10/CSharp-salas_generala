@@ -176,8 +176,6 @@ namespace Grafica
         }
 
 
-        //frm_Partida test2;
-        //List<frm_Partida> test2 = new List<frm_Partida>();
         private  void dgv_MenuPrincipal_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             indice = e.RowIndex;
@@ -199,7 +197,6 @@ namespace Grafica
                 {
                     frm_Partida partida = new frm_Partida(config, presentador.ListaDePresentadores[indice]);
                     partida.Show();
-                    //test2.Add(partida);
                 }
 
             }

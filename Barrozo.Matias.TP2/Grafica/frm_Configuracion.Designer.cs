@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Configuracion));
             this.grp_Color = new System.Windows.Forms.GroupBox();
             this.rdb_Inverso = new System.Windows.Forms.RadioButton();
             this.rdb_Oscuro = new System.Windows.Forms.RadioButton();
@@ -195,6 +196,7 @@
             this.Controls.Add(this.grp_Idioma);
             this.Controls.Add(this.grp_Color);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Configuracion";
             this.Text = "frm_Configuracion";
             this.Load += new System.EventHandler(this.frm_Configuracion_Load);

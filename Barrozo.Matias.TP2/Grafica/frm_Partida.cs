@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Grafica
 {
-    public partial class frm_Partida : Form/*, IPartida*/
+    public partial class frm_Partida : Form
     {
         DateTime hora = new DateTime(2022, 1, 2, 0, 0, 0);
         Configuracion config;
