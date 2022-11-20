@@ -26,6 +26,8 @@ En la izquierda superior hay 2 botones:
  - "?": Nos muestra las reglas del juego.
 
 
+Todo el programa puede moverse desde el borde superior
+
 ## Diagrama de clase
 
 
