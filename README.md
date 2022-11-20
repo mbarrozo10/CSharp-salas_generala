@@ -28,7 +28,7 @@ En la izquierda superior hay 2 botones:
 
 ## Diagrama de clase
 
-![imagen](Matias.Barrozo.Parcial/diagrama.png)
+![imagen](Barrozo.Matias.TP2/Imagenes Readme/diagrama.png)
 
 
 ## Justificacion tecnica
