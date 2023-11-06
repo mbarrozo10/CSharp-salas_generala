@@ -107,7 +107,7 @@ Todo el programa puede moverse desde el borde superior
  <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/cargardelegado.png">
 
 
- Clase Parida:
+ Clase Partida:
 
 
  <img align="center" width="" height="" src="Barrozo.Matias.TP2/Imagenes Readme/delegadoinvocado.png">
